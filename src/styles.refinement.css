@@ -1,0 +1,380 @@
+/* Broadsheet Chamber refinement layer */
+:root {
+  --rule-dark: rgba(76, 57, 34, 0.42);
+  --rule-brass: rgba(168, 139, 85, 0.5);
+  --paper-fiber-opacity: 0.12;
+  --grain-opacity: 0.032;
+  --reading-measure: 39rem;
+  --display-leading: 0.84;
+  --touch-target: 2.75rem;
+  --font-display: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
+  --font-reading: 'Source Serif 4', Georgia, serif;
+  --font-ui: 'IBM Plex Sans Condensed', 'Arial Narrow', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+}
+
+.film-grain {
+  opacity: var(--grain-opacity);
+}
+
+.film-grain::after {
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.24) 100%);
+}
+
+.page-progress {
+  width: 1px;
+  background: rgba(168, 139, 85, 0.24);
+}
+
+.page-progress::after {
+  display: none;
+}
+
+.page-progress > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--gold);
+  transform: scaleY(var(--progress, 0));
+  transform-origin: top center;
+  transition: transform 120ms linear;
+}
+
+.resilient-image-fallback {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  color: var(--newsprint);
+  background: var(--ink-soft);
+  font: 500 0.62rem/1.3 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.text-action,
+.line-control,
+.skip-action {
+  font-size: 0.78rem;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+}
+
+.opening-title {
+  font-size: clamp(3.8rem, 10.5vw, 9.2rem);
+  line-height: 0.84;
+  letter-spacing: -0.035em;
+}
+
+.opening-description {
+  max-width: 30rem;
+  line-height: 1.72;
+}
+
+.newspaper {
+  box-shadow: 0 3.4rem 5rem rgba(0, 0, 0, 0.58), 0.8rem 0.8rem 0 rgba(76, 57, 34, 0.22);
+}
+
+.calendar-header h1 {
+  font-size: clamp(3.8rem, 10.5vw, 9.2rem);
+  line-height: 0.82;
+  letter-spacing: -0.035em;
+}
+
+.calendar-header p,
+.event-preview p,
+.about-lede,
+.story-intro p,
+.impact-section p {
+  line-height: 1.68;
+}
+
+.calendar-day {
+  min-height: 6.7rem;
+}
+
+.calendar-day-caption {
+  font-size: 0.62rem;
+  line-height: 1.2;
+}
+
+.calendar-day:disabled {
+  cursor: default;
+}
+
+.calendar-day:disabled:hover {
+  color: rgba(76, 57, 34, 0.26);
+  background: rgba(231, 222, 202, 0.25);
+}
+
+.month-controls button {
+  width: var(--touch-target);
+  height: var(--touch-target);
+}
+
+.month-selector button {
+  min-height: 2.35rem;
+  font-size: 0.7rem;
+}
+
+.month-record-list {
+  margin-top: 1.6rem;
+  border-top: 1px solid var(--rule-dark);
+}
+
+.month-record-list-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  color: var(--muted);
+  font: 500 0.62rem/1 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.month-record-list ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--rule-dark);
+}
+
+.month-record-list li {
+  border-top: 1px solid var(--rule-dark);
+}
+
+.month-record-list button {
+  display: grid;
+  grid-template-columns: 2rem 7.2rem minmax(0, 1fr) minmax(8rem, auto);
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  min-height: 3.15rem;
+  border: 0;
+  padding: 0.65rem 0;
+  color: var(--muted);
+  background: transparent;
+  text-align: left;
+}
+
+.month-record-list button:hover,
+.month-record-list button:focus-visible,
+.month-record-list button.is-active {
+  color: var(--red);
+}
+
+.month-record-list button > span,
+.month-record-list button > small {
+  font: 500 0.62rem/1.2 var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+.month-record-list button > span:first-child {
+  color: var(--gold);
+}
+
+.month-record-list button strong {
+  overflow: hidden;
+  color: var(--ink);
+  font: 500 1rem/1 var(--font-display);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.month-record-list button > small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.month-record-list-empty {
+  max-width: 27rem;
+  margin: 0;
+  border-bottom: 1px solid var(--rule-dark);
+  padding: 1rem 0 1.3rem;
+  color: var(--muted);
+  font: 400 0.95rem/1.45 var(--font-reading);
+}
+
+.moment-hero h1 {
+  font-size: clamp(3.8rem, 7.7vw, 8.1rem);
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+}
+
+.moment-hero-copy > p {
+  line-height: 1.68;
+}
+
+.moment-hero-media > .resilient-image-fallback {
+  min-height: 35rem;
+}
+
+.timeline-track {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-color: var(--gold) transparent;
+  scrollbar-width: thin;
+}
+
+.timeline-track:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 0.35rem;
+}
+
+.timeline-scroll-hint {
+  display: block;
+  margin: -2.5rem 0 0;
+  color: var(--muted);
+  font: 500 0.6rem/1 var(--font-mono);
+  letter-spacing: 0.05em;
+  text-align: right;
+}
+
+.plate-grid .resilient-image-fallback,
+.evidence-image > .resilient-image-fallback {
+  min-height: 20rem;
+}
+
+.film-screen > .film-media-poster,
+.film-screen > .resilient-image-fallback {
+  width: 100%;
+  height: 100%;
+  min-height: min(58vw, 42rem);
+  object-fit: cover;
+}
+
+.film-screen > .film-media-poster {
+  filter: grayscale(0.65) contrast(1.1);
+}
+
+.gallery-list > div {
+  display: contents;
+}
+
+.gallery-active > .resilient-image-fallback,
+.lightbox > .resilient-image-fallback {
+  width: 100%;
+  height: min(76vh, 48rem);
+}
+
+.gallery-unavailable {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font: 400 1rem/1.5 var(--font-reading);
+}
+
+.lightbox:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: -0.7rem;
+}
+
+.quote-section blockquote {
+  max-width: 52rem;
+  font-size: clamp(2.2rem, 5vw, 5.4rem);
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+}
+
+.about-intro h1 {
+  font-size: clamp(3rem, 6.2vw, 7.1rem);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+}
+
+.impact-section h2 {
+  font-size: clamp(2.1rem, 4vw, 4.15rem);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 800px) {
+  .opening-title {
+    font-size: clamp(3.15rem, 13.5vw, 6.1rem);
+    line-height: 0.86;
+  }
+
+  .opening-title span:last-child {
+    margin-left: 1.8rem;
+  }
+
+  .calendar-header h1 {
+    font-size: clamp(3.7rem, 16vw, 6.5rem);
+  }
+
+  .month-selector {
+    scrollbar-width: thin;
+  }
+
+  .month-selector button {
+    min-height: var(--touch-target);
+  }
+
+  .calendar-day {
+    min-height: 4.4rem;
+    min-width: var(--touch-target);
+  }
+
+  .calendar-day-caption {
+    display: none;
+  }
+
+  .month-record-list {
+    margin-top: 1.25rem;
+  }
+
+  .month-record-list button {
+    grid-template-columns: 1.8rem 5.8rem minmax(0, 1fr);
+    min-height: 3.4rem;
+    gap: 0.45rem;
+  }
+
+  .month-record-list button > small {
+    display: none;
+  }
+
+  .month-record-list button strong {
+    font-size: 0.95rem;
+  }
+
+  .event-preview-image > .resilient-image-fallback {
+    min-height: 12rem;
+  }
+
+  .moment-hero h1 {
+    font-size: clamp(3.35rem, 15vw, 6.2rem);
+    line-height: 0.86;
+  }
+
+  .moment-hero-media > .resilient-image-fallback {
+    min-height: min(120vw, 34rem);
+  }
+
+  .timeline-scroll-hint {
+    display: none;
+  }
+
+  .timeline-track {
+    overflow-x: visible;
+  }
+
+  .plate-grid .resilient-image-fallback,
+  .evidence-image > .resilient-image-fallback {
+    min-height: 15rem;
+  }
+
+  .film-screen > .film-media-poster,
+  .film-screen > .resilient-image-fallback {
+    min-height: 54vw;
+  }
+
+  .about-intro h1 {
+    font-size: clamp(3rem, 12.5vw, 5.8rem);
+  }
+}
