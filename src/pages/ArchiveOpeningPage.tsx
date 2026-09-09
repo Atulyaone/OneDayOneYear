@@ -6,13 +6,54 @@ import { animateOpening } from '../animations.ts'
 import { ResilientImage } from '../components/ResilientImage.tsx'
 import { useReducedMotion } from '../hooks/useReducedMotion.ts'
 
-const newspaperImage = 'https://images.unsplash.com/photo-1631519952398-5b1d76b946e8?auto=format&fit=crop&w=1500&q=82'
 const featuredEvent = getEventByDate('1969-07-20')
 
 export function ArchiveOpeningPage() {
   const navigate = useNavigate()
   const reducedMotion = useReducedMotion()
   const rootRef = useRef<HTMLElement>(null)
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const totalFrames = 242;
+  const currentFrame = (index: number) => `/frames/frame_${index.toString().padStart(4, '0')}.jpg`;
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const context = canvas.getContext('2d');
+    if (!context) return;
+
+    canvas.width = 1920;
+    canvas.height = 1080;
+
+    const images: HTMLImageElement[] = [];
+    for (let i = 1; i <= totalFrames; i++) {
+      const img = new Image();
+      img.src = currentFrame(i);
+      img.onload = () => { if (i === 1) renderFrame(1); };
+      images.push(img);
+    }
+
+    function renderFrame(index: number) {
+      if (!context || !canvas || !images[index - 1]) return;
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(images[index - 1], 0, 0);
+    }
+
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
+      if (maxScrollTop <= 0) return;
+
+      const scrollFraction = scrollTop / maxScrollTop;
+      const frameIndex = Math.min(totalFrames, Math.max(1, Math.ceil(scrollFraction * totalFrames)));
+
+      requestAnimationFrame(() => renderFrame(frameIndex));
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
 
   useEffect(() => {
     if (!rootRef.current) return
@@ -39,48 +80,24 @@ export function ArchiveOpeningPage() {
 
       <section className="newspaper-stage" aria-label="Floating newspaper preview">
         <div className="stage-light" aria-hidden="true" />
-        <article className="newspaper" style={{ backgroundImage: `url(${newspaperImage})` }}>
-          <div className="newspaper-wash" />
-          <div className="newspaper-header">
-            <span>OD / OHM</span>
-            <span>VOL. I / PUBLIC RECORDS</span>
-            <span>NO. 001</span>
-          </div>
-          <div className="newspaper-rule" />
-          <div className="newspaper-masthead">ONE DAY<br /><em>ONE HISTORICAL MOMENT</em></div>
-          <div className="newspaper-subhead">A DAILY INDEX OF THE DAYS THAT CHANGED THE WORLD</div>
-          <div className="newspaper-grid">
-            <div className="newspaper-column newspaper-column-wide">
-              <span className="newspaper-label">{formatLongDate(featuredEvent.date)} / SPECIAL EDITION</span>
-              <h2>THE DAY<br />HUMANITY<br />LEFT EARTH</h2>
-              <div className="newspaper-image newspaper-image-lunar">
-                <ResilientImage src={featuredEvent.heroImage.src} alt={featuredEvent.heroImage.alt} loading="lazy" fallbackLabel="Image evidence unavailable" />
-              </div>
-              <p>{featuredEvent.shortDescription} {featuredEvent.heroImage.caption}</p>
-            </div>
-            <div className="newspaper-column">
-              <span className="newspaper-label">ARCHIVE NOTES</span>
-              <p>For every date, there is a before and an after. Browse the year, follow the source, and read the record behind the image.</p>
-              <p className="newspaper-quote">“The important thing is that it was possible.”</p>
-              <div className="newspaper-mini-rule" />
-              <span className="newspaper-label">INDEXED FIELDS</span>
-              <p className="newspaper-micro">SCIENCE / POLITICS / CULTURE / EXPLORATION / PUBLIC LIFE / WAR / IDEAS</p>
-            </div>
-            <div className="newspaper-calendar-column">
-              <span className="newspaper-label">DATE INDEX / {featuredEvent.year}</span>
-              <button type="button" className="printed-calendar" onClick={() => navigate('/calendar')} data-cursor="open" aria-label="Open the interactive date index">
-                <span className="calendar-month">JULY</span>
-                <span className="calendar-year">{featuredEvent.year} / {sortedEvents.length} INDEXED RECORDS</span>
-                <span className="calendar-weekdays">SUN MON TUE WED THU FRI SAT</span>
-                <span className="calendar-days"><i>01</i><i>02</i><i>03</i><i>04</i><i>05</i><i>06</i><i>07</i><i>08</i><i>09</i><i>10</i><i>11</i><i>12</i><i>13</i><i>14</i><i>15</i><i>16</i><i>17</i><i>18</i><i>19</i><i className="event-day">20</i><i>21</i><i>22</i><i>23</i><i>24</i><i>25</i><i>26</i><i>27</i><i>28</i></span>
-                <span className="calendar-open">OPEN DATE INDEX <ArrowRight size={13} strokeWidth={1.4} /></span>
-              </button>
-            </div>
-          </div>
-          <div className="newspaper-footer"><span>ARCHIVE / SEARCH / ABOUT</span><span>PRINTED IN THE DARK</span><span>{formatAccession(featuredEvent.date)}</span></div>
-        </article>
-        <div className="stage-caption"><span>THE FIRST LEAF / A PERIODICAL OF MEMORY</span><span>Select the printed index to open</span></div>
+        <canvas
+          ref={canvasRef}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover'
+          }}
+        />
+
+        <div className="stage-caption">
+          <span>THE FIRST LEAF / A PERIODICAL OF MEMORY</span>
+          <span>Scroll to inspect</span>
+        </div>
       </section>
+
     </main>
   )
 }
