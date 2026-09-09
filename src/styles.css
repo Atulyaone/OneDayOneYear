@@ -94,7 +94,7 @@ html, body, * {
 
 /* Opening */
 .opening-page { min-height: 180vh; color: var(--paper); background: var(--black); }
-.opening-hero { position: relative; min-height: 100svh; display: grid; align-content: center; justify-items: center; padding: 7rem 1.5rem 2rem; text-align: center; overflow: hidden; }
+.opening-hero { user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; position: relative; min-height: 100svh; display: grid; align-content: center; justify-items: center; padding: 7rem 1.5rem 2rem; text-align: center; overflow: hidden; }
 .opening-hero::before { content: ''; position: absolute; inset: 15% 8%; border: 1px solid rgba(168,139,85,0.2); pointer-events: none; }
 .opening-index { position: absolute; left: clamp(1.2rem, 5vw, 5rem); bottom: 2rem; color: var(--gold); font: 500 0.6rem/1 var(--font-mono); letter-spacing: 0.12em; }
 .opening-copy { position: relative; z-index: 1; max-width: 46rem; }
@@ -108,7 +108,7 @@ html, body, * {
 .opening-scroll { position: absolute; right: clamp(1.2rem, 5vw, 5rem); bottom: 2rem; display: inline-flex; align-items: center; gap: 0.45rem; color: var(--muted); font: 500 0.58rem/1 var(--font-ui); letter-spacing: 0.14em; text-transform: uppercase; writing-mode: vertical-rl; }
 .newspaper-stage { position: relative; min-height: 80vh; display: grid; place-items: center; padding: 9rem 1.5rem 7rem; overflow: hidden; background: radial-gradient(ellipse at 50% 47%, #23180e 0%, var(--black) 52%, var(--black) 100%); }
 .stage-light { position: absolute; width: min(55vw, 40rem); aspect-ratio: 1; border-radius: 50%; opacity: 0.2; background: radial-gradient(ellipse, rgba(168,139,85,0.3) 0%, transparent 65%); filter: blur(30px); }
-.newspaper { position: relative; width: min(76vw, 38rem); aspect-ratio: 0.77; padding: clamp(1.15rem, 3vw, 2.3rem); color: var(--ink); background-color: var(--paper); background-size: cover; background-position: center; box-shadow: 0 4rem 6rem rgba(0,0,0,0.6), 1rem 1rem 0 rgba(76,57,34,0.25); transform: rotate(-5deg); isolation: isolate; }
+.newspaper {user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; position: relative; width: min(76vw, 38rem); aspect-ratio: 0.77; padding: clamp(1.15rem, 3vw, 2.3rem); color: var(--ink); background-color: var(--paper); background-size: cover; background-position: center; box-shadow: 0 4rem 6rem rgba(0,0,0,0.6), 1rem 1rem 0 rgba(76,57,34,0.25); transform: rotate(-5deg); isolation: isolate; }
 .newspaper::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0.42; mix-blend-mode: multiply; background: repeating-linear-gradient(0deg, rgba(28,24,19,0.13) 0 1px, transparent 1px 4px); }
 .newspaper::after { content: ''; position: absolute; z-index: 4; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(76,57,34,0.24); box-shadow: 2px 0 10px rgba(76,57,34,0.15); }
 .newspaper-wash { position: absolute; inset: 0; z-index: -1; background: rgba(231,222,202,0.52); mix-blend-mode: screen; }
@@ -147,7 +147,7 @@ html, body, * {
 .calendar-spine { position: sticky; top: 0; align-self: flex-start; width: clamp(3rem, 6vw, 5.2rem); min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; padding: 7rem 0 1.5rem; color: var(--paper); background: var(--black); text-align: center; }
 .calendar-spine span, .calendar-spine strong { writing-mode: vertical-rl; transform: rotate(180deg); align-self: center; font: 500 0.62rem/1 var(--font-ui); letter-spacing: 0.18em; }
 .calendar-spine strong { color: var(--brass); font-family: var(--font-display); }
-.calendar-main { width: min(100%, 120rem); margin: 0 auto; padding: clamp(7.5rem, 11vh, 9rem) clamp(1.1rem, 4.2vw, 5.5rem) 2rem; }
+.calendar-main {user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; width: min(100%, 120rem); margin: 0 auto; padding: clamp(7.5rem, 11vh, 9rem) clamp(1.1rem, 4.2vw, 5.5rem) 2rem; }
 .calendar-header { display: flex; justify-content: space-between; gap: 2rem; padding-bottom: 2.2rem; border-bottom: 1px solid rgba(76,57,34,0.5); }
 .calendar-header h1 { margin: 0.4rem 0 0; font: 500 clamp(4.2rem, 13vw, 11.5rem)/0.75 var(--font-display); letter-spacing: -0.05em; color: var(--ink-soft); }
 .calendar-header p { margin: 1.1rem 0 0; font: 400 1rem/1.4 var(--font-reading); color: var(--ink-soft); }
@@ -171,8 +171,8 @@ html, body, * {
 .month-controls button:hover { color: var(--paper); background: var(--red); }
 .calendar-weekdays { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); color: var(--muted); font: 500 0.58rem/1 var(--font-ui); letter-spacing: 0.14em; }
 .calendar-weekdays span { padding: 0.8rem 0.55rem; border-top: 1px solid rgba(76,57,34,0.35); border-bottom: 1px solid rgba(76,57,34,0.35); }
-.calendar-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
-.calendar-day { position: relative; min-height: 7.1rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.65rem; border: 0; border-right: 1px solid rgba(76,57,34,0.35); border-bottom: 1px solid rgba(76,57,34,0.35); padding: 0.65rem; color: var(--ink); background: rgba(231,222,202,0.25); text-align: left; transition: background 180ms ease, color 180ms ease; }
+.calendar-grid {  display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.calendar-day {  position: relative; min-height: 7.1rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.65rem; border: 0; border-right: 1px solid rgba(76,57,34,0.35); border-bottom: 1px solid rgba(76,57,34,0.35); padding: 0.65rem; color: var(--ink); background: rgba(231,222,202,0.25); text-align: left; transition: background 180ms ease, color 180ms ease; }
 .calendar-day:nth-child(7n + 1) { border-left: 1px solid rgba(76,57,34,0.35); }
 .calendar-day:hover, .calendar-day:focus-visible, .calendar-day.is-selected { color: var(--red); background: rgba(181,154,103,0.28); }
 .calendar-day.is-outside { color: rgba(76,57,34,0.26); }
@@ -195,7 +195,7 @@ html, body, * {
 
 /* Search */
 .search-overlay { position: fixed; inset: 0; z-index: 50; display: grid; place-items: start center; padding: 5.8rem 1rem 1rem; background: rgba(6,5,4,0.82); }
-.search-sheet { width: min(100%, 54rem); min-height: min(80vh, 44rem); overflow: auto; padding: clamp(1.2rem, 4vw, 3.5rem); color: var(--paper); background: var(--void); border: 1px solid var(--gold); box-shadow: 0 2rem 8rem rgba(0,0,0,0.4); }
+.search-sheet {user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; width: min(100%, 54rem); min-height: min(80vh, 44rem); overflow: auto; padding: clamp(1.2rem, 4vw, 3.5rem); color: var(--paper); background: var(--void); border: 1px solid var(--gold); box-shadow: 0 2rem 8rem rgba(0,0,0,0.4); }
 .search-sheet-header { display: flex; justify-content: space-between; align-items: center; }
 .icon-button { display: grid; place-items: center; width: 2.2rem; height: 2.2rem; border: 1px solid var(--copper); color: var(--paper); background: transparent; }
 .icon-button:hover { color: var(--void); background: var(--brass); }
@@ -218,7 +218,7 @@ html, body, * {
 .search-footnote { margin: 2rem 0 0; color: var(--muted); font: 500 0.58rem/1.2 var(--font-mono); letter-spacing: 0.06em; }
 
 /* Moment */
-.moment-page { position: relative; max-width: 100rem; margin: 0 auto; padding-top: 9rem; background: var(--void); }
+.moment-page {user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;position: relative; max-width: 100rem; margin: 0 auto; padding-top: 9rem; background: var(--void); }
 .moment-progress { position: fixed; z-index: 10; top: 35%; right: 1.4rem; display: grid; gap: 0.55rem; color: var(--gold); font: 500 0.55rem/1 var(--font-mono); }
 .moment-progress::before { content: ''; position: absolute; top: 0.05rem; right: -0.5rem; width: 1px; height: 10rem; background: var(--gold); opacity: 0.4; }
 .moment-hero { min-height: calc(100svh - 9rem); display: grid; grid-template-columns: 0.7fr 1.5fr 1fr; align-items: end; gap: clamp(1.2rem, 3vw, 4rem); padding-bottom: clamp(4rem, 8vh, 8rem); border-bottom: 1px solid rgba(168,139,85,0.5); }
@@ -319,7 +319,7 @@ html, body, * {
 .nav-disabled { color: var(--muted); font: 500 0.63rem/1 var(--font-mono); }
 
 /* About / not found */
-.about-page { max-width: 100rem; margin: 0 auto; }
+.about-page {user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; max-width: 100rem; margin: 0 auto; }
 .about-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
 .about-intro { max-width: 70rem; padding: 8rem 0 10rem; }
 .about-intro h1 { max-width: 66rem; margin: 2rem 0 3rem; color: var(--paper); font: 500 clamp(3.1rem, 7vw, 8rem)/0.83 var(--font-display); letter-spacing: -0.055em; }
