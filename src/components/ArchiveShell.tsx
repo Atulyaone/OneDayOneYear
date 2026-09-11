@@ -4,6 +4,7 @@ import React, {
   useEffect,
   useRef,
   useState,
+  type KeyboardEvent,
   type RefObject,
 } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -108,7 +109,101 @@ function ArchiveNavbar({
   )
 }
 
-function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }) {
+// Realistic Multi-Layer Typewriter Synthesizer (Web Audio API)
+let typewriterCtx: AudioContext | null = null
+
+function playTypewriterClick(isReturn = false) {
+  try {
+    const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext
+    if (!AudioContextClass) return
+
+    if (!typewriterCtx) typewriterCtx = new AudioContextClass()
+    if (typewriterCtx.state === 'suspended') typewriterCtx.resume()
+
+    const now = typewriterCtx.currentTime
+
+    // Layer 1: Platen Rubber & Chassis Thud (Low frequency mechanical body)
+    const thudOsc = typewriterCtx.createOscillator()
+    const thudGain = typewriterCtx.createGain()
+    thudOsc.type = 'triangle'
+    thudOsc.frequency.setValueAtTime(isReturn ? 120 : 210, now)
+    thudOsc.frequency.exponentialRampToValueAtTime(40, now + 0.04)
+    thudGain.gain.setValueAtTime(isReturn ? 0.45 : 0.28, now)
+    thudGain.gain.exponentialRampToValueAtTime(0.001, now + 0.04)
+    thudOsc.connect(thudGain)
+    thudGain.connect(typewriterCtx.destination)
+    thudOsc.start(now)
+    thudOsc.stop(now + 0.05)
+
+    // Layer 2: Metal Typebar Strike (Sharp transient hammer impact)
+    const snapLen = Math.floor(typewriterCtx.sampleRate * 0.02)
+    const snapBuf = typewriterCtx.createBuffer(1, snapLen, typewriterCtx.sampleRate)
+    const snapData = snapBuf.getChannelData(0)
+    for (let i = 0; i < snapLen; i++) {
+      snapData[i] = (Math.random() * 2 - 1) * Math.exp(-i / (snapLen * 0.2))
+    }
+    const snapSource = typewriterCtx.createBufferSource()
+    snapSource.buffer = snapBuf
+
+    const snapFilter = typewriterCtx.createBiquadFilter()
+    snapFilter.type = 'bandpass'
+    snapFilter.frequency.setValueAtTime(
+      isReturn ? 1500 : 3100 + (Math.random() * 400 - 200),
+      now
+    )
+    snapFilter.Q.setValueAtTime(5.5, now)
+
+    const snapGain = typewriterCtx.createGain()
+    snapGain.gain.setValueAtTime(isReturn ? 0.5 : 0.38, now)
+    snapGain.gain.exponentialRampToValueAtTime(0.001, now + 0.025)
+
+    snapSource.connect(snapFilter)
+    snapFilter.connect(snapGain)
+    gainNodeConnect(snapGain, typewriterCtx.destination)
+    snapSource.start(now)
+
+    // Layer 3: Escapement Spring Rebound (Mechanical metal clatter)
+    if (!isReturn) {
+      const clatterLen = Math.floor(typewriterCtx.sampleRate * 0.018)
+      const clatterBuf = typewriterCtx.createBuffer(1, clatterLen, typewriterCtx.sampleRate)
+      const clatterData = clatterBuf.getChannelData(0)
+      for (let i = 0; i < clatterLen; i++) {
+        clatterData[i] = (Math.random() * 2 - 1) * Math.exp(-i / (clatterLen * 0.3))
+      }
+      const clatterSource = typewriterCtx.createBufferSource()
+      clatterSource.buffer = clatterBuf
+
+      const clatterFilter = typewriterCtx.createBiquadFilter()
+      clatterFilter.type = 'highpass'
+      clatterFilter.frequency.setValueAtTime(4200, now + 0.012)
+
+      const clatterGain = typewriterCtx.createGain()
+      clatterGain.gain.setValueAtTime(0.14, now + 0.012)
+      clatterGain.gain.exponentialRampToValueAtTime(0.001, now + 0.035)
+
+      clatterSource.connect(clatterFilter)
+      clatterFilter.connect(clatterGain)
+      clatterGain.connect(typewriterCtx.destination)
+      clatterSource.start(now + 0.012)
+    }
+  } catch {
+    // Graceful fallback
+  }
+}
+
+function gainNodeConnect(node: GainNode, dest: AudioDestinationNode) {
+  node.connect(dest)
+}
+
+function SearchOverlay({
+  open,
+  onClose,
+  soundEnabled,
+}: {
+  open: boolean
+  onClose: () => void
+  soundEnabled: boolean
+}) {
   const navigate = useNavigate()
   const inputRef = useRef<HTMLInputElement>(null)
   const sheetRef = useRef<HTMLDivElement>(null)
@@ -125,7 +220,16 @@ function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }
     navigate(`/event/${date}`)
   }
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    // Typewriter acoustic feedback
+    if (soundEnabled) {
+      if (event.key.length === 1 || event.key === 'Backspace' || event.key === ' ') {
+        playTypewriterClick(false)
+      } else if (event.key === 'Enter') {
+        playTypewriterClick(true)
+      }
+    }
+
     if (!results.length) return
     if (event.key === 'ArrowDown') {
       event.preventDefault()
@@ -195,7 +299,7 @@ function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }
               {status === 'empty' && '0 RECORDS FOUND'}
             </div>
 
-            {/* 1. Default Idle Screen (Empty input) */}
+            {/* 1. Default Idle State: Shows giant count and label when nothing is typed */}
             {status === 'idle' && (
               <div className="search-empty-index">
                 <span>{totalCount ?? 20}</span>
@@ -203,7 +307,7 @@ function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }
               </div>
             )}
 
-            {/* 2. Not Found Screen */}
+            {/* 2. Empty State: Shows 0 when search yields no matches */}
             {status === 'empty' && (
               <div className="search-empty-index">
                 <span>0</span>
@@ -211,7 +315,7 @@ function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }
               </div>
             )}
 
-            {/* 3. Suggestions Screen (Renders only when typing matching queries) */}
+            {/* 3. Results List: Renders only when active matches exist */}
             {status === 'results' && (
               <ol className="search-results" id="search-results" role="listbox" aria-label="Archive search results">
                 {results.map((result, index) => (
@@ -278,7 +382,11 @@ export function ArchiveShell() {
             <Outlet />
           </motion.div>
         </AnimatePresence>
-        <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
+        <SearchOverlay
+          open={searchOpen}
+          onClose={() => setSearchOpen(false)}
+          soundEnabled={audio.mode === 'on'}
+        />
       </div>
     </ArchiveShellContext.Provider>
   )
