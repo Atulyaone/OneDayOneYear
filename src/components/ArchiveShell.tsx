@@ -1,16 +1,23 @@
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  type RefObject,
+} from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Search, Volume2, VolumeX, X } from 'lucide-react'
-import { createContext, useContext, useEffect, useRef, useState, type KeyboardEvent, type RefObject } from 'react'
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { gsap } from 'gsap'
-import { formatShortDate } from '../data/selectors.ts'
-import { useArchiveSearch } from '../hooks/useArchiveSearch.ts'
-import { useAudioController } from '../hooks/useAudioController.ts'
-import { useFocusTrap } from '../hooks/useFocusTrap.ts'
-import { usePointerCapability } from '../hooks/usePointerCapability.ts'
-import { useReducedMotion } from '../hooks/useReducedMotion.ts'
-import type { CursorMode } from '../types.ts'
-import { PageProgress } from './PageProgress.tsx'
+import { formatShortDate } from '../data/selectors'
+import { useArchiveSearch } from '../hooks/useArchiveSearch'
+import { useAudioController } from '../hooks/useAudioController'
+import { useFocusTrap } from '../hooks/useFocusTrap'
+import { usePointerCapability } from '../hooks/usePointerCapability'
+import { useReducedMotion } from '../hooks/useReducedMotion'
+import type { CursorMode } from '../types'
+import { PageProgress } from './PageProgress'
 
 interface ArchiveShellContextValue {
   openSearch: (trigger?: HTMLElement | null) => void
@@ -106,7 +113,7 @@ function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }
   const inputRef = useRef<HTMLInputElement>(null)
   const sheetRef = useRef<HTMLDivElement>(null)
   const [query, setQuery] = useState('')
-  const { status, results, activeIndex, setActiveIndex } = useArchiveSearch(query)
+  const { status, results, totalCount, activeIndex, setActiveIndex } = useArchiveSearch(query)
   useFocusTrap({ active: open, containerRef: sheetRef, initialRef: inputRef, onEscape: onClose })
 
   useEffect(() => {
@@ -118,7 +125,7 @@ function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }
     navigate(`/event/${date}`)
   }
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (!results.length) return
     if (event.key === 'ArrowDown') {
       event.preventDefault()
@@ -130,7 +137,9 @@ function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }
     }
     if (event.key === 'Enter') {
       event.preventDefault()
-      openEvent(results[activeIndex].date)
+      if (results[activeIndex]) {
+        openEvent(results[activeIndex].date)
+      }
     }
   }
 
@@ -145,13 +154,25 @@ function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          onMouseDown={(event) => { if (event.target === event.currentTarget) onClose() }}
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) onClose()
+          }}
         >
-          <motion.div ref={sheetRef} className="search-sheet" initial={{ y: '-8%', opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: '-8%', opacity: 0 }} transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}>
+          <motion.div
+            ref={sheetRef}
+            className="search-sheet"
+            initial={{ y: '-8%', opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: '-8%', opacity: 0 }}
+            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          >
             <div className="search-sheet-header">
               <span className="eyebrow" id="search-sheet-heading">ARCHIVE INDEX / SEARCH</span>
-              <button type="button" className="icon-button" onClick={onClose} aria-label="Close search" data-cursor="close"><X size={18} strokeWidth={1.4} /></button>
+              <button type="button" className="icon-button" onClick={onClose} aria-label="Close search" data-cursor="close">
+                <X size={18} strokeWidth={1.4} />
+              </button>
             </div>
+
             <label className="search-field">
               <span className="sr-only">Search dates, subjects, and fields</span>
               <Search size={18} strokeWidth={1.4} aria-hidden="true" />
@@ -162,23 +183,48 @@ function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }
                 onKeyDown={handleKeyDown}
                 placeholder="> SEARCH THE ARCHIVE_"
                 autoComplete="off"
+                spellCheck="false"
                 aria-controls={results.length ? 'search-results' : undefined}
-                aria-activedescendant={results.length ? `search-result-${results[activeIndex].date}` : undefined}
+                aria-activedescendant={results[activeIndex] ? `search-result-${results[activeIndex].date}` : undefined}
               />
             </label>
+
             <div className="search-status" aria-live="polite">
-              {status === 'searching' && 'Searching archive…'}
-              {status === 'results' && `${results.length} record${results.length === 1 ? '' : 's'} found`}
-              {status === 'empty' && `No indexed records match “${query.trim()}”`}
-              {status === 'idle' && 'Search dates, subjects, and fields.'}
+              {status === 'idle' && 'SEARCH DATES, SUBJECTS, AND FIELDS.'}
+              {status === 'results' && `${String(results.length).padStart(2, '0')} RECORDS FOUND`}
+              {status === 'empty' && '0 RECORDS FOUND'}
             </div>
-            {status === 'idle' && <div className="search-empty-index"><span>20</span><p>Records catalogued across exploration, science, culture, politics, and public life.</p></div>}
-            {status === 'empty' && <button type="button" className="text-action" onClick={() => setQuery('')} data-cursor="view">Clear search <span>↗</span></button>}
-            {results.length > 0 && (
+
+            {/* 1. Default Idle Screen (Empty input) */}
+            {status === 'idle' && (
+              <div className="search-empty-index">
+                <span>{totalCount ?? 20}</span>
+                <p>Records catalogued across exploration, science, culture, politics, and public life.</p>
+              </div>
+            )}
+
+            {/* 2. Not Found Screen */}
+            {status === 'empty' && (
+              <div className="search-empty-index">
+                <span>0</span>
+                <p>Not found. No indexed records match “{query.trim()}”.</p>
+              </div>
+            )}
+
+            {/* 3. Suggestions Screen (Renders only when typing matching queries) */}
+            {status === 'results' && (
               <ol className="search-results" id="search-results" role="listbox" aria-label="Archive search results">
                 {results.map((result, index) => (
                   <li key={result.date} className={index === activeIndex ? 'is-active' : ''}>
-                    <button id={`search-result-${result.date}`} type="button" role="option" aria-selected={index === activeIndex} onClick={() => openEvent(result.date)} onMouseEnter={() => setActiveIndex(index)} data-cursor="open">
+                    <button
+                      id={`search-result-${result.date}`}
+                      type="button"
+                      role="option"
+                      aria-selected={index === activeIndex}
+                      onClick={() => openEvent(result.date)}
+                      onMouseEnter={() => setActiveIndex(index)}
+                      data-cursor="open"
+                    >
                       <span className="result-index">{String(index + 1).padStart(2, '0')}</span>
                       <span className="result-date">{formatShortDate(result.date)}</span>
                       <span className="result-title">{result.title}</span>
@@ -188,6 +234,7 @@ function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }
                 ))}
               </ol>
             )}
+
             <p className="search-footnote">Press ↑ ↓ to move / Enter to open / Esc to close</p>
           </motion.div>
         </motion.div>
@@ -220,7 +267,14 @@ export function ArchiveShell() {
         <div className="film-grain" aria-hidden="true" />
         <PageProgress enabled={location.pathname.startsWith('/event/')} />
         <AnimatePresence mode="wait" initial={false}>
-          <motion.div key={location.pathname} className="route-frame" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: reducedMotion ? 0.18 : 0.42, ease: 'easeOut' }}>
+          <motion.div
+            key={location.pathname}
+            className="route-frame"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reducedMotion ? 0.18 : 0.42, ease: 'easeOut' }}
+          >
             <Outlet />
           </motion.div>
         </AnimatePresence>

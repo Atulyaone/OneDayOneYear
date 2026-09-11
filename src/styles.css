@@ -317,7 +317,6 @@ html, body, * {
 .moment-navigation small { color: var(--muted); font: 400 0.85rem/1.2 var(--font-reading); }
 .moment-next { text-align: right; }
 .nav-disabled { color: var(--muted); font: 500 0.63rem/1 var(--font-mono); }
-
 /* About / not found */
 .about-page {user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; max-width: 100rem; margin: 0 auto; }
 .about-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
