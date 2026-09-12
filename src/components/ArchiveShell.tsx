@@ -41,8 +41,9 @@ function CustomCursor({ enabled }: { enabled: boolean }) {
     if (!enabled || !cursorRef.current) return
 
     const cursor = cursorRef.current
-    const moveX = gsap.quickTo(cursor, 'x', { duration: 0.32, ease: 'power3.out' })
-    const moveY = gsap.quickTo(cursor, 'y', { duration: 0.32, ease: 'power3.out' })
+    const moveX = gsap.quickTo(cursor, 'x', { duration: 0.25, ease: 'power2.out' })
+    const moveY = gsap.quickTo(cursor, 'y', { duration: 0.25, ease: 'power2.out' })
+
     const handleMove = (event: PointerEvent) => {
       moveX(event.clientX)
       moveY(event.clientY)
@@ -52,7 +53,10 @@ function CustomCursor({ enabled }: { enabled: boolean }) {
       const interactive = target.closest<HTMLElement>('[data-cursor]')
       const nextMode = interactive?.dataset.cursor as CursorMode | undefined
       setMode(nextMode ?? 'idle')
-      if (labelRef.current) labelRef.current.textContent = nextMode === 'plate' ? 'VIEW PLATE' : nextMode?.toUpperCase() ?? ''
+      if (labelRef.current) {
+        labelRef.current.textContent =
+          nextMode === 'plate' ? 'VIEW PLATE' : nextMode?.toUpperCase() ?? ''
+      }
     }
     const handleOut = (event: PointerEvent) => {
       const related = event.relatedTarget as HTMLElement | null
@@ -62,6 +66,7 @@ function CustomCursor({ enabled }: { enabled: boolean }) {
     window.addEventListener('pointermove', handleMove, { passive: true })
     window.addEventListener('pointerover', handleOver, { passive: true })
     window.addEventListener('pointerout', handleOut, { passive: true })
+
     return () => {
       window.removeEventListener('pointermove', handleMove)
       window.removeEventListener('pointerover', handleOver)
@@ -101,15 +106,25 @@ function ArchiveNavbar({
         <button ref={searchButtonRef} type="button" onClick={onSearch} data-cursor="view">Search</button>
         <NavLink to="/about" data-cursor="view">About</NavLink>
       </nav>
-      <button type="button" className="audio-control" onClick={onAudioToggle} data-cursor="view" aria-label={audioMode === 'on' ? 'Turn sound off' : 'Turn sound on'}>
-        {audioMode === 'on' ? <Volume2 size={15} strokeWidth={1.5} aria-hidden="true" /> : <VolumeX size={15} strokeWidth={1.5} aria-hidden="true" />}
+      <button
+        type="button"
+        className="audio-control"
+        onClick={onAudioToggle}
+        data-cursor="view"
+        aria-label={audioMode === 'on' ? 'Turn sound off' : 'Turn sound on'}
+      >
+        {audioMode === 'on' ? (
+          <Volume2 size={15} strokeWidth={1.5} aria-hidden="true" />
+        ) : (
+          <VolumeX size={15} strokeWidth={1.5} aria-hidden="true" />
+        )}
         <span>{audioMode === 'unavailable' ? 'Sound unavailable' : audioMode === 'on' ? 'Sound on' : 'Sound off'}</span>
       </button>
     </header>
   )
 }
 
-// Realistic Multi-Layer Typewriter Synthesizer (Web Audio API)
+// Physical Multi-Layer Typewriter Synthesizer
 let typewriterCtx: AudioContext | null = null
 
 function playTypewriterClick(isReturn = false) {
@@ -122,7 +137,7 @@ function playTypewriterClick(isReturn = false) {
 
     const now = typewriterCtx.currentTime
 
-    // Layer 1: Platen Rubber & Chassis Thud (Low frequency mechanical body)
+    // Platen Body Thud
     const thudOsc = typewriterCtx.createOscillator()
     const thudGain = typewriterCtx.createGain()
     thudOsc.type = 'triangle'
@@ -135,7 +150,7 @@ function playTypewriterClick(isReturn = false) {
     thudOsc.start(now)
     thudOsc.stop(now + 0.05)
 
-    // Layer 2: Metal Typebar Strike (Sharp transient hammer impact)
+    // Metal Typebar Strike
     const snapLen = Math.floor(typewriterCtx.sampleRate * 0.02)
     const snapBuf = typewriterCtx.createBuffer(1, snapLen, typewriterCtx.sampleRate)
     const snapData = snapBuf.getChannelData(0)
@@ -159,10 +174,10 @@ function playTypewriterClick(isReturn = false) {
 
     snapSource.connect(snapFilter)
     snapFilter.connect(snapGain)
-    gainNodeConnect(snapGain, typewriterCtx.destination)
+    snapGain.connect(typewriterCtx.destination)
     snapSource.start(now)
 
-    // Layer 3: Escapement Spring Rebound (Mechanical metal clatter)
+    // Escapement Spring Clatter
     if (!isReturn) {
       const clatterLen = Math.floor(typewriterCtx.sampleRate * 0.018)
       const clatterBuf = typewriterCtx.createBuffer(1, clatterLen, typewriterCtx.sampleRate)
@@ -187,12 +202,8 @@ function playTypewriterClick(isReturn = false) {
       clatterSource.start(now + 0.012)
     }
   } catch {
-    // Graceful fallback
+    // Audio fallback
   }
-}
-
-function gainNodeConnect(node: GainNode, dest: AudioDestinationNode) {
-  node.connect(dest)
 }
 
 function SearchOverlay({
@@ -221,7 +232,6 @@ function SearchOverlay({
   }
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-    // Typewriter acoustic feedback
     if (soundEnabled) {
       if (event.key.length === 1 || event.key === 'Backspace' || event.key === ' ') {
         playTypewriterClick(false)
@@ -299,7 +309,6 @@ function SearchOverlay({
               {status === 'empty' && '0 RECORDS FOUND'}
             </div>
 
-            {/* 1. Default Idle State: Shows giant count and label when nothing is typed */}
             {status === 'idle' && (
               <div className="search-empty-index">
                 <span>{totalCount ?? 20}</span>
@@ -307,7 +316,6 @@ function SearchOverlay({
               </div>
             )}
 
-            {/* 2. Empty State: Shows 0 when search yields no matches */}
             {status === 'empty' && (
               <div className="search-empty-index">
                 <span>0</span>
@@ -315,7 +323,6 @@ function SearchOverlay({
               </div>
             )}
 
-            {/* 3. Results List: Renders only when active matches exist */}
             {status === 'results' && (
               <ol className="search-results" id="search-results" role="listbox" aria-label="Archive search results">
                 {results.map((result, index) => (
