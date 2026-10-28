@@ -1,17 +1,20 @@
 import { useState, type FormEvent } from 'react';
-import { ArrowLeft, Upload } from 'lucide-react';
+import { ArrowLeft, Upload, FolderCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function SubmissionPage() {
   const [formData, setFormData] = useState({
     contributorName: '',
     historicalDate: '',
+    category: 'EXPLORATION',
+    title: '',
     description: '',
     mediaFile: null as string | null,
     mediaName: '',
   });
 
   const [error, setError] = useState('');
+  const [savedFilePath, setSavedFilePath] = useState('');
   const [successMessage, setSuccessMessage] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,39 +32,56 @@ export function SubmissionPage() {
     }
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    if (!formData.contributorName || !formData.historicalDate || !formData.description) {
+    if (!formData.contributorName || !formData.historicalDate || !formData.title || !formData.description) {
       setError('Please fill out all required fields before submitting.');
       return;
     }
 
     setError('');
 
-    const existingSubmissions = JSON.parse(localStorage.getItem('archive_submissions') || '[]');
+    // Format data so it matches your website's historical event JSON structure
     const newSubmission = {
       id: Date.now(),
+      date: formData.historicalDate,
+      year: Number(formData.historicalDate.split('-')[0]),
+      category: formData.category,
+      title: formData.title,
+      shortDescription: formData.description.slice(0, 140),
+      fullStory: formData.description,
       contributorName: formData.contributorName,
-      historicalDate: formData.historicalDate,
-      description: formData.description,
       mediaName: formData.mediaName || 'None',
       mediaData: formData.mediaFile,
+      status: 'pending_review',
       submittedAt: new Date().toISOString(),
     };
-    
+
+    // 1. Save in Browser LocalStorage as backup
+    const existingSubmissions = JSON.parse(localStorage.getItem('archive_submissions') || '[]');
     existingSubmissions.push(newSubmission);
     localStorage.setItem('archive_submissions', JSON.stringify(existingSubmissions));
 
-    setSuccessMessage(true);
+    // 2. Send to Vite Server to save inside the project's /submissions folder!
+    try {
+      const response = await fetch('/api/save-submission', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newSubmission),
+      });
 
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(newSubmission, null, 2));
-    const downloadAnchor = document.createElement('a');
-    downloadAnchor.setAttribute("href", dataStr);
-    downloadAnchor.setAttribute("download", `submission_${Date.now()}.json`);
-    document.body.appendChild(downloadAnchor);
-    downloadAnchor.click();
-    downloadAnchor.remove();
+      if (response.ok) {
+        const result = await response.json();
+        setSavedFilePath(result.savedTo);
+      } else {
+        setSavedFilePath('submissions/ (Saved to LocalStorage)');
+      }
+    } catch {
+      setSavedFilePath('Saved to Browser LocalStorage');
+    }
+
+    setSuccessMessage(true);
   };
 
   return (
@@ -76,18 +96,25 @@ export function SubmissionPage() {
         <span className="eyebrow">ARCHIVE PORTAL / RECORD SUBMISSION</span>
         <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', margin: '0.5rem 0 1rem' }}>Contribute to the Archive</h1>
         <p style={{ marginBottom: '3rem', color: 'var(--ink-soft)', fontSize: '1.1rem' }}>
-          Submit a historical record, note, or optional photographic/video evidence to be catalogued into the system.
+          Submitted records are saved as JSON files in the <code>/submissions</code> review folder before being published to the main archive dataset.
         </p>
 
         {successMessage ? (
           <div style={{ padding: '3rem', background: 'rgba(168,139,85,0.15)', border: '1px solid var(--gold)', textAlign: 'center' }}>
-            <h3 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Submission Received Successfully!</h3>
-            <p style={{ marginBottom: '2rem' }}>Your data and optional media file reference have been saved locally, and the JSON report has downloaded.</p>
+            <FolderCheck size={42} style={{ margin: '0 auto 1rem', color: 'var(--red)' }} />
+            <h3 style={{ fontSize: '2rem', marginBottom: '0.8rem' }}>Saved to Review Folder!</h3>
+            <p style={{ marginBottom: '1rem' }}>
+              Your form data has been saved directly into your project folder at:
+            </p>
+            <code style={{ display: 'inline-block', padding: '0.6rem 1.2rem', background: 'var(--ink)', color: 'var(--paper)', marginBottom: '2rem', fontSize: '0.95rem' }}>
+              {savedFilePath}
+            </code>
+            <br />
             <button 
               type="button" 
               onClick={() => { 
                 setSuccessMessage(false); 
-                setFormData({ contributorName: '', historicalDate: '', description: '', mediaFile: null, mediaName: '' }); 
+                setFormData({ contributorName: '', historicalDate: '', category: 'EXPLORATION', title: '', description: '', mediaFile: null, mediaName: '' }); 
               }}
               style={{ padding: '1rem 2rem', background: 'var(--ink)', color: 'var(--paper)', border: 'none', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.1em' }}
             >
@@ -95,28 +122,58 @@ export function SubmissionPage() {
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '2rem', textAlign: 'left' }}>
+          <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '1.8rem', textAlign: 'left' }}>
             {error && <p style={{ color: '#783b2f', fontWeight: 'bold', padding: '1rem', background: 'rgba(120,59,47,0.1)', borderLeft: '4px solid #783b2f' }}>{error}</p>}
 
-            <div style={{ display: 'grid', gap: '0.6rem' }}>
-              <label style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Your Name / Researcher *</label>
-              <input 
-                type="text" 
-                placeholder="e.g., Dr. E. Vance"
-                value={formData.contributorName}
-                onChange={(e) => setFormData({ ...formData, contributorName: e.target.value })}
-                style={{ padding: '1rem', border: '1px solid var(--ink-soft)', background: 'transparent', color: 'inherit', fontSize: '1rem', width: '100%' }}
-              />
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+              <div style={{ display: 'grid', gap: '0.6rem' }}>
+                <label style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Your Name / Researcher *</label>
+                <input 
+                  type="text" 
+                  placeholder="e.g., Dr. E. Vance"
+                  value={formData.contributorName}
+                  onChange={(e) => setFormData({ ...formData, contributorName: e.target.value })}
+                  style={{ padding: '1rem', border: '1px solid var(--ink-soft)', background: 'transparent', color: 'inherit', fontSize: '1rem', width: '100%' }}
+                />
+              </div>
+
+              <div style={{ display: 'grid', gap: '0.6rem' }}>
+                <label style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Historical Date *</label>
+                <input 
+                  type="date" 
+                  value={formData.historicalDate}
+                  onChange={(e) => setFormData({ ...formData, historicalDate: e.target.value })}
+                  style={{ padding: '1rem', border: '1px solid var(--ink-soft)', background: 'transparent', color: 'inherit', fontSize: '1rem', width: '100%' }}
+                />
+              </div>
             </div>
 
-            <div style={{ display: 'grid', gap: '0.6rem' }}>
-              <label style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Historical Date *</label>
-              <input 
-                type="date" 
-                value={formData.historicalDate}
-                onChange={(e) => setFormData({ ...formData, historicalDate: e.target.value })}
-                style={{ padding: '1rem', border: '1px solid var(--ink-soft)', background: 'transparent', color: 'inherit', fontSize: '1rem', width: '100%' }}
-              />
+            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1.5rem' }}>
+              <div style={{ display: 'grid', gap: '0.6rem' }}>
+                <label style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Event Title *</label>
+                <input 
+                  type="text" 
+                  placeholder="e.g., First Transatlantic Radio Signal"
+                  value={formData.title}
+                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  style={{ padding: '1rem', border: '1px solid var(--ink-soft)', background: 'transparent', color: 'inherit', fontSize: '1rem', width: '100%' }}
+                />
+              </div>
+
+              <div style={{ display: 'grid', gap: '0.6rem' }}>
+                <label style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Archive Category *</label>
+                <select
+                  value={formData.category}
+                  onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                  style={{ padding: '1rem', border: '1px solid var(--ink-soft)', background: 'var(--paper)', color: 'var(--ink)', fontSize: '1rem', width: '100%' }}
+                >
+                  <option value="EXPLORATION">EXPLORATION</option>
+                  <option value="SCIENCE">SCIENCE</option>
+                  <option value="CULTURE">CULTURE</option>
+                  <option value="POLITICS">POLITICS</option>
+                  <option value="PUBLIC LIFE">PUBLIC LIFE</option>
+                </select>
+              </div>
             </div>
 
             <div style={{ display: 'grid', gap: '0.6rem' }}>
@@ -130,14 +187,12 @@ export function SubmissionPage() {
               />
             </div>
 
-            {/* CUSTOM STYLED FILE UPLOAD SECTION */}
             <div style={{ display: 'grid', gap: '0.8rem', padding: '1.5rem', border: '1px dashed var(--ink-soft)', background: 'rgba(240,232,215,0.4)' }}>
               <label style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                 Optional Evidence (Image or Video File)
               </label>
               
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-                {/* Hidden native input coupled with custom styled label button */}
                 <label style={{ 
                   display: 'inline-flex', 
                   alignItems: 'center', 
@@ -150,7 +205,6 @@ export function SubmissionPage() {
                   fontWeight: 600, 
                   textTransform: 'uppercase', 
                   letterSpacing: '0.05em',
-                  transition: 'opacity 0.2s'
                 }}>
                   <Upload size={16} /> Choose File
                   <input 
@@ -169,9 +223,9 @@ export function SubmissionPage() {
 
             <button 
               type="submit" 
-              style={{ padding: '1.2rem', background: 'var(--ink)', color: 'var(--paper)', border: 'none', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: '1rem', cursor: 'pointer', marginTop: '1rem' }}
+              style={{ padding: '1.2rem', background: 'var(--ink)', color: 'var(--paper)', border: 'none', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.15em', fontSize: '1rem', cursor: 'pointer', marginTop: '0.5rem' }}
             >
-              Submit and Save JSON
+              Submit to Review Folder (JSON)
             </button>
           </form>
         )}
