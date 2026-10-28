@@ -1,7 +1,7 @@
 import { ArrowDown } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getEventByDate, formatAccession } from '../data/selectors.ts'
+import { getEventByDate } from '../data/selectors.ts'
 import { animateOpening } from '../animations'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 
