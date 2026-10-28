@@ -6,6 +6,7 @@ import { ArchiveOpeningPage } from './pages/ArchiveOpeningPage.tsx'
 import { CalendarPage } from './pages/CalendarPage.tsx'
 import { HistoricalMomentPage } from './pages/HistoricalMomentPage.tsx'
 import { NotFoundPage } from './pages/NotFoundPage.tsx'
+import { SubmissionPage } from './pages/SubmissionPage.tsx'
 
 const routes: RouteObject[] = [
   {
@@ -16,6 +17,7 @@ const routes: RouteObject[] = [
       { path: '/event/:date', element: <HistoricalMomentPage /> },
       { path: '/about', element: <AboutPage /> },
       { path: '*', element: <NotFoundPage /> },
+      { path: '/submit', element: <SubmissionPage /> },
     ],
   },
 ]

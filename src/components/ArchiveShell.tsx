@@ -103,6 +103,7 @@ function ArchiveNavbar({
       </NavLink>
       <nav className="archive-nav-links" aria-label="Primary navigation">
         <NavLink to="/calendar" data-cursor="view">Calendar</NavLink>
+        <NavLink to="/submit" data-cursor="view">Contribute</NavLink>
         <button ref={searchButtonRef} type="button" onClick={onSearch} data-cursor="view">Search</button>
         <NavLink to="/about" data-cursor="view">About</NavLink>
       </nav>
