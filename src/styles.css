@@ -82,8 +82,11 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--brass); outline
 
 .page-shell { min-height: 100svh; padding: clamp(7.5rem, 14vh, 11rem) clamp(1.1rem, 6vw, 7.5rem) 4rem; }
 
-html, body, * {
-  cursor: none !important;
+/* Only hide the system pointer where the custom cursor is actually rendered. */
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html, body, * {
+    cursor: none !important;
+  }
 }
 .custom-cursor {
   pointer-events: none !important;
@@ -216,7 +219,7 @@ html, body, * {
 .search-footnote { margin: 2rem 0 0; color: var(--muted); font: 500 0.58rem/1.2 var(--font-mono); letter-spacing: 0.06em; }
 
 /* Moment */
-.moment-page {user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;position: relative; max-width: 100rem; margin: 0 auto; padding-top: 9rem; background: var(--void); }
+.moment-page { position: relative; max-width: 100rem; margin: 0 auto; padding-top: 9rem; background: var(--void); }
 .moment-progress { position: fixed; z-index: 10; top: 35%; right: 1.4rem; display: grid; gap: 0.55rem; color: var(--gold); font: 500 0.55rem/1 var(--font-mono); }
 .moment-progress::before { content: ''; position: absolute; top: 0.05rem; right: -0.5rem; width: 1px; height: 10rem; background: var(--gold); opacity: 0.4; }
 .moment-hero { min-height: calc(100svh - 9rem); display: grid; grid-template-columns: 0.7fr 1.5fr 1fr; align-items: end; gap: clamp(1.2rem, 3vw, 4rem); padding-bottom: clamp(4rem, 8vh, 8rem); border-bottom: 1px solid rgba(168,139,85,0.5); }
@@ -316,7 +319,7 @@ html, body, * {
 .moment-next { text-align: right; }
 .nav-disabled { color: var(--muted); font: 500 0.63rem/1 var(--font-mono); }
 /* About / not found */
-.about-page {user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; max-width: 100rem; margin: 0 auto; }
+.about-page { max-width: 100rem; margin: 0 auto; }
 .about-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
 .about-intro { max-width: 70rem; padding: 8rem 0 10rem; }
 .about-intro h1 { max-width: 66rem; margin: 2rem 0 3rem; color: var(--paper); font: 500 clamp(3.1rem, 7vw, 8rem)/0.83 var(--font-display); letter-spacing: -0.055em; }

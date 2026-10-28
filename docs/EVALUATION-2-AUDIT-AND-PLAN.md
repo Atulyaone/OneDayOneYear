@@ -6,6 +6,29 @@
 
 ---
 
+## Implementation log — 28 October 2026
+
+The P1 and P2 gaps below have since been closed in the working copy. The scorecard further down records the state **before** this work.
+
+| Item | Status | Where |
+|---|---|---|
+| 5. Contribute page + navbar link | Done | `/contribute`; `/submit` redirects; nav link added |
+| 6. Form validation, file input, submission states | Done | `src/components/contribute/*`, `src/hooks/useContributionForm.ts`, `src/data/validation.ts` |
+| 7. Submission endpoint + JSON file | Done | `server/index.mjs`, `server/store.mjs`, `server/data/submissions.json` |
+| 8. Success/error UI + receipt | Done | `SubmissionReceipt.tsx` with accession ID |
+| 9. Hardening | Done | server validation, MIME allow-list, 20 MB cap, atomic writes, 10 requests / 10 min rate limit |
+| 10. Accessibility | Done | cursor scoped to fine pointers, text selection restored, reduced motion renders a single still frame |
+| 11. Documentation | Done | root `README.md` with setup, routes, API contract, and folder map |
+| 12. Performance | Done | batched frame loading (8 at a time), mobile stride 2/3, single frame under reduced motion |
+| 13. Cross-links | Done | About closing section and record footer both link to the submission flow |
+| 14. Admin view | Done | `/admin/submissions` reads `GET /api/submissions` |
+
+Verified: build + type-check pass, API returns `400` for invalid fields, `201` with sequential accession IDs, writes the record and evidence metadata to JSON, rate limits after ten attempts, and the browser form shows inline errors, focuses the first invalid field, and renders a receipt. `/submit` redirects, `?date=` prefills, mobile navigation fits 390 px without horizontal overflow, and reduced motion makes exactly one frame request.
+
+Still open: the search ranking regression from v1.5 (prefix/date/month only), and the duplicate `src/frames` directory.
+
+---
+
 ## 0. Legend
 
 | Mark | Meaning |

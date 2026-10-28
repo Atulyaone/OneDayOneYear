@@ -18,7 +18,7 @@ export function AboutPage() {
         <div><span className="eyebrow">02 / HOW RECORDS ARE ORGANIZED</span><h2>One date. One record. Many lines outward.</h2><p>Browse by month, search by subject or category, or follow the previous and next moments to move through the archive chronologically.</p></div>
         <div><span className="eyebrow">03 / A NOTE ON SOURCES</span><h2>Images are evidence, not decoration.</h2><p>Every image and film reference is paired with a credit. The written record is designed to remain readable when media is unavailable.</p></div>
       </section>
-      <section className="about-closing"><p>“A date is never only a date.”</p><Link className="text-action" to="/calendar" data-cursor="open">Open the date index <ArrowRight size={15} strokeWidth={1.2} /></Link></section>
+      <section className="about-closing"><p>“A date is never only a date.”</p><div className="about-closing-actions"><Link className="text-action" to="/calendar" data-cursor="open">Open the date index <ArrowRight size={15} strokeWidth={1.2} /></Link><Link className="text-action" to="/contribute" data-cursor="open">Contribute a record <ArrowRight size={15} strokeWidth={1.2} /></Link></div></section>
       <footer className="about-footer"><span>ONE DAY / ONE HISTORICAL MOMENT</span><span>ACCESSIBILITY / SOURCE NOTE / VOL. I</span></footer>
     </main>
   )
