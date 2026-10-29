@@ -9,8 +9,18 @@ const photo = (src: string, alt: string, credit: string, caption: string): Archi
   caption,
 })
 
-const timeline = (...entries: [string, string, string, string][]): TimelineEntry[] =>
-  entries.map(([date, time, title, description]) => ({ date, time, title, description }))
+const timeline = (
+  ...entries: (
+    | [string, string, string, string]
+    | { date: string; time?: string; title: string; description: string }
+  )[]
+): TimelineEntry[] =>
+  entries.map((entry) => {
+    const [date, time, title, description] = Array.isArray(entry)
+      ? entry
+      : [entry.date, entry.time ?? '', entry.title, entry.description]
+    return { date, time, title, description }
+  })
 
 const paperPhoto = photo(
   'https://images.unsplash.com/photo-1631519952398-5b1d76b946e8',
@@ -115,7 +125,7 @@ const event = (
 ): HistoricalEvent => ({
   ...input,
   year: Number(input.date.slice(0, 4)),
-  galleryImages: input.galleryImages ?? [input.heroImage, paperPhoto, archivePhoto],
+  galleryImages: input.galleryImages ?? [input.heroImage],
   video: input.video ?? null,
 })
 
@@ -482,4 +492,368 @@ export const events: HistoricalEvent[] = [
     quoteAttribution: 'United Nations Charter, 1945',
     impact: 'The United Nations created a central forum for international diplomacy and a framework for new bodies of global law.',
   }),
+  event({
+  date: '2007-01-09',
+  title: 'First iPhone Announced',
+  category: 'Technology / Apple',
+  keywords: ['iphone', 'apple', 'smartphone', 'technology'],
+
+  shortDescription:
+    'Steve Jobs introduces the first iPhone, changing the future of mobile computing.',
+
+  fullStory:
+    'On 9 January 2007, Apple introduced the first iPhone. It combined a phone, an iPod, and an internet communication device into a single product.',
+
+  heroImage: photo(
+    'https://www.iphonelife.com/sites/iphonelife.com/files/styles/full_width_wide_2x/public/Screen%20Shot%202016-06-23%20at%2010.25.55%20AM.png?itok=PGMTA_Y7',
+    'First generation smartphone',
+    'Image credit',
+    'The introduction of a new era in mobile technology.',
+  ),
+
+  timeline: timeline(
+    ['2007-01-09', '', 'The iPhone is announced', 'Steve Jobs introduces the first iPhone.'],
+    ['2007-06-29', '', 'The iPhone launches', 'The first iPhone becomes available to consumers.'],
+  ),
+
+  quote: 'Today, Apple is going to reinvent the phone.',
+  quoteAttribution: 'Steve Jobs, 2007',
+
+  impact:
+    'The iPhone transformed smartphones, mobile applications, and personal computing.',
+}),
+event({
+  date: "2001-01-15",
+  title: "Wikipedia Opens the World's Knowledge to Everyone",
+  category: "Internet",
+  keywords: [
+    "Wikipedia",
+    "Internet",
+    "Knowledge",
+    "Jimmy Wales",
+    "Larry Sanger",
+    "Open Source",
+    "Encyclopedia"
+  ],
+  shortDescription:
+    "On January 15, 2001, Wikipedia launched with a radical idea: an encyclopedia that anyone could help write. What began as a small online experiment would transform how millions of people discover, share, and contribute knowledge.",
+
+  fullStory: `
+Before Wikipedia, encyclopedias were largely controlled by professional publishers. Accessing large collections of information often meant purchasing expensive reference books or visiting libraries. The internet offered a new possibility: a constantly expanding collection of knowledge that could be accessed from almost anywhere.
+
+Wikipedia emerged from an earlier project called Nupedia, an online encyclopedia founded by Jimmy Wales and developed with Larry Sanger. Nupedia relied on expert-written articles and a formal editorial review process. Although the ambition was significant, producing articles was extremely slow.
+
+To accelerate the process, Wales and Sanger introduced Wikipedia on January 15, 2001. Its central innovation was the wiki editing system, which allowed visitors to create and modify articles directly through their web browsers. Instead of relying exclusively on a small group of experts, Wikipedia invited a much larger community to participate.
+
+The name Wikipedia combines the Hawaiian word 'wiki', meaning quick, with the word encyclopedia. The platform initially launched as an English-language website, but contributors soon began creating versions in other languages.
+
+This collaborative approach allowed its article collection to grow rapidly. By the end of its first year, Wikipedia had accumulated tens of thousands of articles across multiple language editions.
+
+However, the open editing model also introduced challenges. Articles could contain inaccurate information, vandalism, or biased contributions. Wikipedia gradually developed editorial policies, volunteer moderation systems, citation requirements, and revision histories to improve reliability.
+
+Over time, Wikipedia became one of the most recognizable examples of collaborative knowledge creation on the internet. Its launch demonstrated that large communities of ordinary internet users could collectively build and maintain an enormous information resource.
+  `,
+
+  heroImage: photo(
+    "https://i.guim.co.uk/img/media/11bdcbd79d2083cd3ae980e805b8cdfd7e27fb80/0_0_3500_2100/master/3500.jpg?width=645&dpr=2&s=none&crop=none",
+    "Books and written knowledge",
+    "Unsplash",
+    "The expansion of freely accessible knowledge"
+  ),
+
+  timeline: timeline(
+    {
+      date: "March 2000",
+      title: "Nupedia begins",
+      description:
+        "Jimmy Wales establishes an online encyclopedia project based on expert-written and reviewed articles."
+    },
+    {
+      date: "January 15, 2001",
+      title: "Wikipedia launches",
+      description:
+        "Wikipedia becomes publicly accessible, introducing an open editing model for building an online encyclopedia."
+    },
+    {
+      date: "March 2001",
+      title: "International editions emerge",
+      description:
+        "The project expands beyond English as contributors begin creating articles in additional languages."
+    },
+    {
+      date: "December 2001",
+      title: "Rapid growth",
+      description:
+        "Wikipedia reaches tens of thousands of articles and establishes itself as a growing collaborative knowledge project."
+    },
+    {
+      date: "2006",
+      title: "One million English articles",
+      description:
+        "The English-language edition reaches one million articles, demonstrating the scale of volunteer contributions."
+    }
+  ),
+
+  impact:
+    "Wikipedia helped democratize access to information and changed the way knowledge is created online. Its collaborative model influenced open-source communities, digital education, online publishing, and countless knowledge-sharing projects. It also raised important questions about accuracy, editorial responsibility, and the reliability of information on the internet."
+}),
+
+event({
+  date: "2003-04-14",
+  title: "The Human Genome Project Reaches Completion",
+  category: "Science",
+  keywords: [
+    "Human Genome Project",
+    "DNA",
+    "Genetics",
+    "Biotechnology",
+    "Genome Sequencing",
+    "Medicine"
+  ],
+  shortDescription:
+    "After more than a decade of international scientific collaboration, researchers announced the successful completion of the Human Genome Project on April 14, 2003. The achievement provided an unprecedented reference map of human DNA and opened new possibilities in genetics and medicine.",
+
+  fullStory: `
+Every human cell contains DNA, the molecule that carries the biological instructions responsible for the development and functioning of the human body. Understanding this genetic information has long been one of the most important goals of modern biology.
+
+The Human Genome Project was an international scientific research initiative formally launched in 1990. Its central objective was to identify and determine the sequence of approximately three billion chemical DNA bases that make up the human genome.
+
+Scientists from research institutions across several countries worked together to develop better sequencing technologies, organize enormous quantities of genetic information, and make the resulting data accessible to researchers.
+
+A major milestone came on June 26, 2000, when researchers announced a working draft of the human genome. This preliminary achievement provided scientists with an initial reference covering approximately 90 percent of the genome.
+
+On February 12, 2001, the International Human Genome Sequencing Consortium published its initial analysis of the genome sequence. The findings revealed important information about human genes, genetic variation, and the similarities shared among individuals.
+
+The decisive announcement arrived on April 14, 2003. The International Human Genome Sequencing Consortium declared that the Human Genome Project had successfully completed its goals more than two years ahead of schedule.
+
+The completed reference sequence covered approximately 92 percent of the human genome and achieved extremely high accuracy. Some complex and repetitive DNA regions remained difficult to sequence with the technologies available at the time.
+
+The project's results were made freely available to researchers, allowing laboratories around the world to study genetic information without restrictions on access or redistribution.
+
+Although the project did not immediately produce cures for diseases, it provided an essential foundation for future discoveries in medical genetics, cancer research, biotechnology, and the study of inherited conditions.
+  `,
+
+  heroImage: photo(
+    "https://www.genome.gov/about-genomics/educational-resources/fact-sheets/human-genome-project",
+    "Scientific laboratory research",
+    "Unsplash",
+    "A milestone in modern genetics"
+  ),
+
+  timeline: timeline(
+    {
+      date: "1990",
+      title: "Project officially begins",
+      description:
+        "The international Human Genome Project begins with the goal of sequencing the complete human genetic blueprint."
+    },
+    {
+      date: "December 1999",
+      title: "First human chromosome decoded",
+      description:
+        "Researchers publish the complete DNA sequence of chromosome 22, marking an important technical milestone."
+    },
+    {
+      date: "June 26, 2000",
+      title: "Working draft announced",
+      description:
+        "Scientists announce a working draft of the human genome at a White House ceremony."
+    },
+    {
+      date: "February 12, 2001",
+      title: "Initial genome analysis published",
+      description:
+        "The International Human Genome Sequencing Consortium publishes its initial findings in the journal Nature."
+    },
+    {
+      date: "April 14, 2003",
+      title: "Project completion announced",
+      description:
+        "The consortium announces that the project's goals have been achieved more than two years ahead of schedule."
+    },
+    {
+      date: "October 20, 2004",
+      title: "Finished sequence published",
+      description:
+        "The consortium publishes its scientific description of the finished human genome sequence."
+    }
+  ),
+
+  impact:
+    "The Human Genome Project transformed biological research by providing a reference map of human DNA. Its findings accelerated genetic research, improved the understanding of inherited diseases, supported advances in biotechnology, and helped establish the foundations of modern genomic medicine. It also demonstrated the value of international scientific cooperation and openly shared research data."
+}),
+
+event({
+  date: "2004-02-04",
+  title: "Facebook Connects the World",
+  category: "Internet",
+  keywords: [
+    "Facebook",
+    "Mark Zuckerberg",
+    "Social Media",
+    "Internet",
+    "Networking",
+    "Digital Communication"
+  ],
+  shortDescription:
+    "On February 4, 2004, Mark Zuckerberg and his co-founders launched TheFacebook at Harvard University. Originally designed as an online directory for college students, the platform would eventually become one of the most influential social networking services in history.",
+
+  fullStory: `
+In the early 2000s, the internet was becoming an increasingly important part of everyday communication. People used email, discussion forums, and instant messaging to interact online, but social networking platforms were still developing.
+
+At Harvard University, students traditionally relied on printed facebooks containing photographs and basic information about their classmates. Mark Zuckerberg, then a sophomore, saw an opportunity to bring this concept online.
+
+On February 4, 2004, Zuckerberg launched TheFacebook.com with the help of co-founders Dustin Moskovitz, Chris Hughes, and Eduardo Saverin. The initial platform was designed specifically for Harvard students and allowed users to create profiles, upload photographs, find classmates, and connect with other students.
+
+The response was immediate. More than a thousand Harvard students registered within the first day, and the website quickly became popular across the university.
+
+In March 2004, the service expanded to Stanford, Columbia, and Yale. Other universities followed, helping TheFacebook establish itself as a growing student network.
+
+During the summer of 2004, the company moved its operations to Palo Alto, California. By the end of that year, the platform had reached approximately one million active users.
+
+In September 2005, the website officially dropped the word 'The' from its name and became Facebook. The following year, it expanded beyond universities and opened registration to the general public.
+
+Facebook's growth changed the nature of online social interaction. Users could maintain profiles, share photographs, communicate with friends, join communities, and follow updates from people in their networks.
+
+However, its expansion also introduced new debates surrounding online privacy, personal information, advertising, misinformation, and the influence of large technology platforms.
+
+What started as a university directory had evolved into a major force in the development of social media and digital communication.
+  `,
+
+  heroImage: photo(
+    "https://images.unsplash.com/photo-1611162616475-46b635cb6868",
+    "Social media applications",
+    "Unsplash",
+    "The rise of social networking"
+  ),
+
+  timeline: timeline(
+    {
+      date: "February 4, 2004",
+      title: "TheFacebook launches",
+      description:
+        "Mark Zuckerberg and his co-founders launch the platform for Harvard University students."
+    },
+    {
+      date: "March 2004",
+      title: "Expansion to other universities",
+      description:
+        "The network expands to Stanford, Columbia, and Yale."
+    },
+    {
+      date: "June 2004",
+      title: "Company moves to California",
+      description:
+        "TheFacebook relocates its operations to Palo Alto, California."
+    },
+    {
+      date: "December 2004",
+      title: "One million users",
+      description:
+        "Facebook reaches approximately one million active users."
+    },
+    {
+      date: "September 20, 2005",
+      title: "The name changes",
+      description:
+        "The website drops 'The' and officially becomes Facebook."
+    },
+    {
+      date: "September 26, 2006",
+      title: "Public registration opens",
+      description:
+        "Facebook expands registration beyond universities, allowing the wider public to join."
+    }
+  ),
+
+  impact:
+    "Facebook helped establish social networking as a central part of everyday internet use. It changed how people maintain relationships, share personal experiences, organize communities, and communicate with businesses. Its growth also brought issues such as privacy, digital identity, data collection, and the social influence of technology platforms into mainstream discussions."
+}),
+
+event({
+  date: "2005-04-23",
+  title: "YouTube's First Video Changes Online Entertainment",
+  category: "Internet",
+  keywords: [
+    "YouTube",
+    "Jawed Karim",
+    "Video Sharing",
+    "Digital Media",
+    "Internet",
+    "Online Entertainment"
+  ],
+  shortDescription:
+    "On April 23, 2005, YouTube co-founder Jawed Karim uploaded a short video titled 'Me at the zoo'. The simple 19-second clip marked the beginning of a platform that would fundamentally transform online entertainment, education, and digital media.",
+
+  fullStory: `
+In the early days of the internet, sharing video content was far more complicated than it is today. Large video files were difficult to upload, host, and distribute, and viewers often needed additional software to play them.
+
+YouTube was created to make online video sharing simpler. The platform was founded in 2005 by former PayPal employees Chad Hurley, Steve Chen, and Jawed Karim.
+
+On April 23, 2005, Jawed Karim uploaded the first video to the website. Titled 'Me at the zoo', the short clip showed Karim standing in front of elephants at the San Diego Zoo in California.
+
+The video was simple and informal. Karim briefly discussed the elephants and their unusually long trunks. Despite its ordinary subject, the recording became an important milestone in the development of online media.
+
+YouTube initially developed as a platform where users could upload videos and share them through links. Its browser-based video player and embedding features made it easier for videos to spread across websites and online communities.
+
+The platform entered beta in May 2005 and became publicly available later that year. Its popularity increased rapidly as users began uploading personal recordings, entertainment, music, tutorials, and other forms of content.
+
+In October 2006, Google announced its acquisition of YouTube in a stock transaction valued at approximately $1.65 billion. The acquisition helped establish YouTube as a major part of Google's growing internet services ecosystem.
+
+YouTube's success demonstrated that ordinary individuals could become publishers and reach audiences around the world without relying on traditional television networks or media organizations.
+
+The platform would go on to influence education, entertainment, journalism, advertising, music distribution, and the emergence of the modern online creator economy.
+  `,
+
+  heroImage: photo(
+    "https://images.moneycontrol.com/static-mcnews/2025/04/20250424063626_MixCollage-24-Apr-2025-12-05-PM-924.jpg?impolicy=website&width=770&height=431",
+    "Video camera recording footage",
+    "Unsplash",
+    "The beginning of online video sharing"
+  ),
+
+  timeline: timeline(
+    {
+      date: "February 14, 2005",
+      title: "YouTube is registered",
+      description:
+        "The website is registered as a new platform for online video sharing."
+    },
+    {
+      date: "April 23, 2005",
+      title: "First video uploaded",
+      description:
+        "Jawed Karim uploads 'Me at the zoo', the first video on YouTube."
+    },
+    {
+      date: "May 2005",
+      title: "Beta launch",
+      description:
+        "YouTube enters its beta testing phase and begins attracting early users."
+    },
+    {
+      date: "December 2005",
+      title: "Public launch",
+      description:
+        "YouTube officially launches to the public after its beta period."
+    },
+    {
+      date: "October 2006",
+      title: "Google announces acquisition",
+      description:
+        "Google announces that it will acquire YouTube in a $1.65 billion stock transaction."
+    },
+    {
+      date: "2007",
+      title: "Partner Program expands",
+      description:
+        "YouTube expands opportunities for creators to earn revenue from their videos."
+    }
+  ),
+
+  impact:
+    "YouTube transformed how video content is produced, distributed, and consumed. It lowered the barriers to publishing, created new opportunities for independent creators, changed online education and entertainment, and helped establish video as one of the internet's most important forms of communication."
+})
+
+ 
 ]
