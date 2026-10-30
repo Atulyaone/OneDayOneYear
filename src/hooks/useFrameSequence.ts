@@ -54,15 +54,7 @@ export function useFrameSequence({ canvasRef, containerRef, reducedMotion }: Fra
         image.onerror = () => resolve()
       })
 
-    if (reducedMotion) {
-      void load(TOTAL_FRAMES).then(() => {
-        const still = cache.get(TOTAL_FRAMES)
-        if (still) draw(still)
-      })
-      return () => {
-        disposed = true
-      }
-    }
+    
 
     const viewport = window.innerWidth
     const stride = viewport <= 560 ? 3 : viewport <= 1024 ? 2 : 1
@@ -119,9 +111,14 @@ export function useFrameSequence({ canvasRef, containerRef, reducedMotion }: Fra
 
       const rest = frames.slice(1)
       for (let index = 0; index < rest.length; index += BATCH_SIZE) {
-        if (disposed) return
-        await Promise.all(rest.slice(index, index + BATCH_SIZE).map(load))
-      }
+  if (disposed) return
+
+  await Promise.all(rest.slice(index, index + BATCH_SIZE).map(load))
+
+  if (!disposed) {
+    update()
+  }
+}
     })()
 
     window.addEventListener('scroll', onScroll, { passive: true })
