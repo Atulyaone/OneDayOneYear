@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import { formatLongDate, formatMonthDay } from '../data/selectors.ts'
+import { formatLongDate, formatMonthDay, getRecordPath, getRecordsForMonthDay } from '../data/selectors.ts'
 import type { HistoricalEvent } from '../types.ts'
 import { ResilientImage } from './ResilientImage.tsx'
 
@@ -46,8 +46,11 @@ export function HistoricalEventPreview({ event, selectedMonthDay }: HistoricalEv
         <span className="eyebrow">{formatLongDate(event.date)} / {event.category}</span>
         <h2>{event.title}</h2>
         <p>{event.shortDescription}</p>
-        <button type="button" className="text-action text-action-dark" onClick={() => navigate(`/event/${event.date}`)} data-cursor="open">
-          Open record <ArrowRight size={15} strokeWidth={1.2} />
+        <button type="button" className="text-action text-action-dark" onClick={() => navigate(getRecordPath(event.date))} data-cursor="open">
+          {getRecordsForMonthDay(event.date.slice(5)).length > 1
+            ? `Open ${getRecordsForMonthDay(event.date.slice(5)).length} records`
+            : 'Open record'}{' '}
+          <ArrowRight size={15} strokeWidth={1.2} />
         </button>
       </div>
     </div>

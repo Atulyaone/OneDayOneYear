@@ -148,7 +148,27 @@ app.use('/api', (_req, res) => {
   res.status(404).json({ message: 'Unknown API route.' })
 })
 
-app.listen(PORT, () => {
+const server = app.listen(PORT)
+
+server.on('listening', () => {
   console.log(`Archive submission API listening on http://127.0.0.1:${PORT}`)
   console.log(`Store: server/data/submissions.json  ·  Rate limit: ${RATE_LIMIT} / 10 min`)
+})
+
+/**
+ * An `app.listen` callback can run even when the bind fails, which used to
+ * print "listening" and then exit 0 — making `dev:full` look like it died for
+ * no reason. Report the failure here instead, with a non-zero exit code.
+ */
+server.on('error', (error) => {
+  if (error.code === 'EADDRINUSE') {
+    console.error(`Archive API could not start: port ${PORT} is already in use.`)
+    console.error('Another copy is probably still running. Stop it with:')
+    console.error(`  lsof -ti:${PORT} | xargs kill`)
+    console.error(`Or start this one elsewhere:  PORT=${PORT + 1} API_PORT=${PORT + 1} npm run dev:full`)
+    process.exit(1)
+  }
+
+  console.error('Archive API failed to start:', error)
+  process.exit(1)
 })

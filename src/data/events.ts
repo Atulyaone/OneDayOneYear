@@ -9,18 +9,8 @@ const photo = (src: string, alt: string, credit: string, caption: string): Archi
   caption,
 })
 
-const timeline = (
-  ...entries: (
-    | [string, string, string, string]
-    | { date: string; time?: string; title: string; description: string }
-  )[]
-): TimelineEntry[] =>
-  entries.map((entry) => {
-    const [date, time, title, description] = Array.isArray(entry)
-      ? entry
-      : [entry.date, entry.time ?? '', entry.title, entry.description]
-    return { date, time, title, description }
-  })
+const timeline = (...entries: [string, string, string, string][]): TimelineEntry[] =>
+  entries.map(([date, time, title, description]) => ({ date, time, title, description }))
 
 const paperPhoto = photo(
   'https://images.unsplash.com/photo-1631519952398-5b1d76b946e8',
@@ -125,9 +115,65 @@ const event = (
 ): HistoricalEvent => ({
   ...input,
   year: Number(input.date.slice(0, 4)),
-  galleryImages: input.galleryImages ?? [input.heroImage],
+  galleryImages: input.galleryImages ?? [input.heroImage, paperPhoto, archivePhoto],
   video: input.video ?? null,
 })
+
+const crtRowPhoto = photo(
+  'https://images.pexels.com/photos/9140600/pexels-photo-9140600.jpeg',
+  'Row of CRT computer monitors in a dim room, photograph by Viktorya Sergeeva on Pexels',
+  'Viktorya Sergeeva on Pexels',
+  'Display hardware of the early public internet.',
+)
+
+const crtClosePhoto = photo(
+  'https://images.pexels.com/photos/9140599/pexels-photo-9140599.jpeg',
+  'Close view of a computer monitor showing an early graphical interface',
+  'Viktorya Sergeeva on Pexels',
+  'An early graphical interface, photographed as illustrative hardware of the period.',
+)
+
+const phonePhoto = photo(
+  'https://images.unsplash.com/photo-1582133456304-2f5cb1c2afbb',
+  'Hand holding a smartphone in low light, photograph by Kelly Sikkema on Unsplash',
+  'Kelly Sikkema on Unsplash',
+  'The touchscreen became the interface for public software.',
+)
+
+const financePhoto = photo(
+  'https://images.unsplash.com/photo-1618044733300-9472054094ee',
+  'Financial newspaper pages with market tables, photograph by Markus Spiske on Unsplash',
+  'Markus Spiske on Unsplash',
+  'Market pages recorded the week the credit system seized.',
+)
+
+const detectorPhoto = photo(
+  'https://images.pexels.com/photos/6855582/pexels-photo-6855582.jpeg',
+  'Interior of a particle detector, photograph by Ramaz Bluashvili on Pexels',
+  'Ramaz Bluashvili on Pexels',
+  'Detector components at the heart of a collider experiment.',
+)
+
+const climatePhoto = photo(
+  'https://images.pexels.com/photos/9800092/pexels-photo-9800092.jpeg',
+  'Wind turbines and solar panels in an energy landscape, photograph by Kindel Media on Pexels',
+  'Kindel Media on Pexels',
+  'Renewable installations built after the agreement.',
+)
+
+const streetPhoto = photo(
+  'https://images.pexels.com/photos/12930611/pexels-photo-12930611.jpeg',
+  'Empty city street during lockdown, photograph by Sam Miri on Pexels',
+  'Sam Miri on Pexels',
+  'A usually busy street during the 2020 lockdowns.',
+)
+
+const marsPhoto = photo(
+  'https://images.pexels.com/photos/8474500/pexels-photo-8474500.jpeg',
+  'Barren rocky plain used to illustrate the Viking landing site, photograph by RDNE Stock project on Pexels',
+  'RDNE Stock project on Pexels',
+  'A rocky plain, used here to illustrate the Viking landing site rather than as a photograph from Mars.',
+)
 
 export const events: HistoricalEvent[] = [
   event({
@@ -437,6 +483,23 @@ export const events: HistoricalEvent[] = [
     quote: 'That’s one small step for man, one giant leap for mankind.',
     quoteAttribution: 'Neil Armstrong, 20 July 1969',
     impact: 'Apollo 11 turned a century of speculation into a shared image of human arrival and permanently expanded the imaginable geography of history.',
+    format: 'broadsheet',
+    statistics: [
+      { label: 'Crew', value: '3' },
+      { label: 'Time on lunar surface', value: '21 h 36 m' },
+      { label: 'Moonwalk', value: '2 h 31 m' },
+      { label: 'Lunar samples', value: '21.5 kg' },
+      { label: 'Distance from Earth', value: '384 400 km' },
+    ],
+    specifications: [
+      { label: 'Launch vehicle', value: 'Saturn V' },
+      { label: 'Command module', value: 'Columbia' },
+      { label: 'Lunar module', value: 'Eagle' },
+      { label: 'Launch', value: '16 JUL · 13:32' },
+      { label: 'Landing', value: '20 JUL · 20:17' },
+      { label: 'Splashdown', value: '24 JUL · 16:50' },
+    ],
+    relatedDates: ['1957-10-04', '1961-04-12', '1903-12-17'],
   }),
   event({
     date: '1989-11-09',
@@ -463,8 +526,8 @@ export const events: HistoricalEvent[] = [
     keywords: ['wikipedia', 'internet', 'encyclopedia', 'open knowledge', 'jimmy wales'],
     shortDescription: 'Wikipedia launches as a free, collaborative encyclopedia that changes how public knowledge is assembled.',
     fullStory: 'On 15 January 2001, Wikipedia opened its pages to a public that could read, edit, and build an encyclopedia together. Its early interface was plain, but its premise was radical: knowledge could be revised in public by a distributed community rather than delivered only through a finished publication.\n\nThe project brought familiar editorial questions into a new environment. Who decides what belongs, how are sources checked, and how does a record change when the page itself remains open? Wikipedia became both a reference work and a visible experiment in collective memory.',
-    heroImage: bookPhoto,
-    galleryImages: [bookPhoto, inkPhoto, paperPhoto, archivePhoto],
+    heroImage: crtRowPhoto,
+    galleryImages: [crtRowPhoto, crtClosePhoto, bookPhoto, inkPhoto],
     timeline: timeline(
       ['2000-03-01', '', 'The idea is proposed', 'A collaborative encyclopedia is imagined alongside Nupedia.'],
       ['2001-01-15', '', 'Wikipedia goes live', 'The first public wiki pages become available.'],
@@ -493,367 +556,128 @@ export const events: HistoricalEvent[] = [
     impact: 'The United Nations created a central forum for international diplomacy and a framework for new bodies of global law.',
   }),
   event({
-  date: '2007-01-09',
-  title: 'First iPhone Announced',
-  category: 'Technology / Apple',
-  keywords: ['iphone', 'apple', 'smartphone', 'technology'],
-
-  shortDescription:
-    'Steve Jobs introduces the first iPhone, changing the future of mobile computing.',
-
-  fullStory:
-    'On 9 January 2007, Apple introduced the first iPhone. It combined a phone, an iPod, and an internet communication device into a single product.',
-
-  heroImage: photo(
-    'https://www.iphonelife.com/sites/iphonelife.com/files/styles/full_width_wide_2x/public/Screen%20Shot%202016-06-23%20at%2010.25.55%20AM.png?itok=PGMTA_Y7',
-    'First generation smartphone',
-    'Image credit',
-    'The introduction of a new era in mobile technology.',
-  ),
-
-  timeline: timeline(
-    ['2007-01-09', '', 'The iPhone is announced', 'Steve Jobs introduces the first iPhone.'],
-    ['2007-06-29', '', 'The iPhone launches', 'The first iPhone becomes available to consumers.'],
-  ),
-
-  quote: 'Today, Apple is going to reinvent the phone.',
-  quoteAttribution: 'Steve Jobs, 2007',
-
-  impact:
-    'The iPhone transformed smartphones, mobile applications, and personal computing.',
-}),
-event({
-  date: "2001-01-15",
-  title: "Wikipedia Opens the World's Knowledge to Everyone",
-  category: "Internet",
-  keywords: [
-    "Wikipedia",
-    "Internet",
-    "Knowledge",
-    "Jimmy Wales",
-    "Larry Sanger",
-    "Open Source",
-    "Encyclopedia"
-  ],
-  shortDescription:
-    "On January 15, 2001, Wikipedia launched with a radical idea: an encyclopedia that anyone could help write. What began as a small online experiment would transform how millions of people discover, share, and contribute knowledge.",
-
-  fullStory: `
-Before Wikipedia, encyclopedias were largely controlled by professional publishers. Accessing large collections of information often meant purchasing expensive reference books or visiting libraries. The internet offered a new possibility: a constantly expanding collection of knowledge that could be accessed from almost anywhere.
-
-Wikipedia emerged from an earlier project called Nupedia, an online encyclopedia founded by Jimmy Wales and developed with Larry Sanger. Nupedia relied on expert-written articles and a formal editorial review process. Although the ambition was significant, producing articles was extremely slow.
-
-To accelerate the process, Wales and Sanger introduced Wikipedia on January 15, 2001. Its central innovation was the wiki editing system, which allowed visitors to create and modify articles directly through their web browsers. Instead of relying exclusively on a small group of experts, Wikipedia invited a much larger community to participate.
-
-The name Wikipedia combines the Hawaiian word 'wiki', meaning quick, with the word encyclopedia. The platform initially launched as an English-language website, but contributors soon began creating versions in other languages.
-
-This collaborative approach allowed its article collection to grow rapidly. By the end of its first year, Wikipedia had accumulated tens of thousands of articles across multiple language editions.
-
-However, the open editing model also introduced challenges. Articles could contain inaccurate information, vandalism, or biased contributions. Wikipedia gradually developed editorial policies, volunteer moderation systems, citation requirements, and revision histories to improve reliability.
-
-Over time, Wikipedia became one of the most recognizable examples of collaborative knowledge creation on the internet. Its launch demonstrated that large communities of ordinary internet users could collectively build and maintain an enormous information resource.
-  `,
-
-  heroImage: photo(
-    "https://i.guim.co.uk/img/media/11bdcbd79d2083cd3ae980e805b8cdfd7e27fb80/0_0_3500_2100/master/3500.jpg?width=645&dpr=2&s=none&crop=none",
-    "Books and written knowledge",
-    "Unsplash",
-    "The expansion of freely accessible knowledge"
-  ),
-
-  timeline: timeline(
-    {
-      date: "March 2000",
-      title: "Nupedia begins",
-      description:
-        "Jimmy Wales establishes an online encyclopedia project based on expert-written and reviewed articles."
-    },
-    {
-      date: "January 15, 2001",
-      title: "Wikipedia launches",
-      description:
-        "Wikipedia becomes publicly accessible, introducing an open editing model for building an online encyclopedia."
-    },
-    {
-      date: "March 2001",
-      title: "International editions emerge",
-      description:
-        "The project expands beyond English as contributors begin creating articles in additional languages."
-    },
-    {
-      date: "December 2001",
-      title: "Rapid growth",
-      description:
-        "Wikipedia reaches tens of thousands of articles and establishes itself as a growing collaborative knowledge project."
-    },
-    {
-      date: "2006",
-      title: "One million English articles",
-      description:
-        "The English-language edition reaches one million articles, demonstrating the scale of volunteer contributions."
-    }
-  ),
-
-  impact:
-    "Wikipedia helped democratize access to information and changed the way knowledge is created online. Its collaborative model influenced open-source communities, digital education, online publishing, and countless knowledge-sharing projects. It also raised important questions about accuracy, editorial responsibility, and the reliability of information on the internet."
-}),
-
-event({
-  date: "2003-04-14",
-  title: "The Human Genome Project Reaches Completion",
-  category: "Science",
-  keywords: [
-    "Human Genome Project",
-    "DNA",
-    "Genetics",
-    "Biotechnology",
-    "Genome Sequencing",
-    "Medicine"
-  ],
-  shortDescription:
-    "After more than a decade of international scientific collaboration, researchers announced the successful completion of the Human Genome Project on April 14, 2003. The achievement provided an unprecedented reference map of human DNA and opened new possibilities in genetics and medicine.",
-
-  fullStory: `
-Every human cell contains DNA, the molecule that carries the biological instructions responsible for the development and functioning of the human body. Understanding this genetic information has long been one of the most important goals of modern biology.
-
-The Human Genome Project was an international scientific research initiative formally launched in 1990. Its central objective was to identify and determine the sequence of approximately three billion chemical DNA bases that make up the human genome.
-
-Scientists from research institutions across several countries worked together to develop better sequencing technologies, organize enormous quantities of genetic information, and make the resulting data accessible to researchers.
-
-A major milestone came on June 26, 2000, when researchers announced a working draft of the human genome. This preliminary achievement provided scientists with an initial reference covering approximately 90 percent of the genome.
-
-On February 12, 2001, the International Human Genome Sequencing Consortium published its initial analysis of the genome sequence. The findings revealed important information about human genes, genetic variation, and the similarities shared among individuals.
-
-The decisive announcement arrived on April 14, 2003. The International Human Genome Sequencing Consortium declared that the Human Genome Project had successfully completed its goals more than two years ahead of schedule.
-
-The completed reference sequence covered approximately 92 percent of the human genome and achieved extremely high accuracy. Some complex and repetitive DNA regions remained difficult to sequence with the technologies available at the time.
-
-The project's results were made freely available to researchers, allowing laboratories around the world to study genetic information without restrictions on access or redistribution.
-
-Although the project did not immediately produce cures for diseases, it provided an essential foundation for future discoveries in medical genetics, cancer research, biotechnology, and the study of inherited conditions.
-  `,
-
-  heroImage: photo(
-    "https://www.genome.gov/about-genomics/educational-resources/fact-sheets/human-genome-project",
-    "Scientific laboratory research",
-    "Unsplash",
-    "A milestone in modern genetics"
-  ),
-
-  timeline: timeline(
-    {
-      date: "1990",
-      title: "Project officially begins",
-      description:
-        "The international Human Genome Project begins with the goal of sequencing the complete human genetic blueprint."
-    },
-    {
-      date: "December 1999",
-      title: "First human chromosome decoded",
-      description:
-        "Researchers publish the complete DNA sequence of chromosome 22, marking an important technical milestone."
-    },
-    {
-      date: "June 26, 2000",
-      title: "Working draft announced",
-      description:
-        "Scientists announce a working draft of the human genome at a White House ceremony."
-    },
-    {
-      date: "February 12, 2001",
-      title: "Initial genome analysis published",
-      description:
-        "The International Human Genome Sequencing Consortium publishes its initial findings in the journal Nature."
-    },
-    {
-      date: "April 14, 2003",
-      title: "Project completion announced",
-      description:
-        "The consortium announces that the project's goals have been achieved more than two years ahead of schedule."
-    },
-    {
-      date: "October 20, 2004",
-      title: "Finished sequence published",
-      description:
-        "The consortium publishes its scientific description of the finished human genome sequence."
-    }
-  ),
-
-  impact:
-    "The Human Genome Project transformed biological research by providing a reference map of human DNA. Its findings accelerated genetic research, improved the understanding of inherited diseases, supported advances in biotechnology, and helped establish the foundations of modern genomic medicine. It also demonstrated the value of international scientific cooperation and openly shared research data."
-}),
-
-event({
-  date: "2004-02-04",
-  title: "Facebook Connects the World",
-  category: "Internet",
-  keywords: [
-    "Facebook",
-    "Mark Zuckerberg",
-    "Social Media",
-    "Internet",
-    "Networking",
-    "Digital Communication"
-  ],
-  shortDescription:
-    "On February 4, 2004, Mark Zuckerberg and his co-founders launched TheFacebook at Harvard University. Originally designed as an online directory for college students, the platform would eventually become one of the most influential social networking services in history.",
-
-  fullStory: `
-In the early 2000s, the internet was becoming an increasingly important part of everyday communication. People used email, discussion forums, and instant messaging to interact online, but social networking platforms were still developing.
-
-At Harvard University, students traditionally relied on printed facebooks containing photographs and basic information about their classmates. Mark Zuckerberg, then a sophomore, saw an opportunity to bring this concept online.
-
-On February 4, 2004, Zuckerberg launched TheFacebook.com with the help of co-founders Dustin Moskovitz, Chris Hughes, and Eduardo Saverin. The initial platform was designed specifically for Harvard students and allowed users to create profiles, upload photographs, find classmates, and connect with other students.
-
-The response was immediate. More than a thousand Harvard students registered within the first day, and the website quickly became popular across the university.
-
-In March 2004, the service expanded to Stanford, Columbia, and Yale. Other universities followed, helping TheFacebook establish itself as a growing student network.
-
-During the summer of 2004, the company moved its operations to Palo Alto, California. By the end of that year, the platform had reached approximately one million active users.
-
-In September 2005, the website officially dropped the word 'The' from its name and became Facebook. The following year, it expanded beyond universities and opened registration to the general public.
-
-Facebook's growth changed the nature of online social interaction. Users could maintain profiles, share photographs, communicate with friends, join communities, and follow updates from people in their networks.
-
-However, its expansion also introduced new debates surrounding online privacy, personal information, advertising, misinformation, and the influence of large technology platforms.
-
-What started as a university directory had evolved into a major force in the development of social media and digital communication.
-  `,
-
-  heroImage: photo(
-    "https://images.unsplash.com/photo-1611162616475-46b635cb6868",
-    "Social media applications",
-    "Unsplash",
-    "The rise of social networking"
-  ),
-
-  timeline: timeline(
-    {
-      date: "February 4, 2004",
-      title: "TheFacebook launches",
-      description:
-        "Mark Zuckerberg and his co-founders launch the platform for Harvard University students."
-    },
-    {
-      date: "March 2004",
-      title: "Expansion to other universities",
-      description:
-        "The network expands to Stanford, Columbia, and Yale."
-    },
-    {
-      date: "June 2004",
-      title: "Company moves to California",
-      description:
-        "TheFacebook relocates its operations to Palo Alto, California."
-    },
-    {
-      date: "December 2004",
-      title: "One million users",
-      description:
-        "Facebook reaches approximately one million active users."
-    },
-    {
-      date: "September 20, 2005",
-      title: "The name changes",
-      description:
-        "The website drops 'The' and officially becomes Facebook."
-    },
-    {
-      date: "September 26, 2006",
-      title: "Public registration opens",
-      description:
-        "Facebook expands registration beyond universities, allowing the wider public to join."
-    }
-  ),
-
-  impact:
-    "Facebook helped establish social networking as a central part of everyday internet use. It changed how people maintain relationships, share personal experiences, organize communities, and communicate with businesses. Its growth also brought issues such as privacy, digital identity, data collection, and the social influence of technology platforms into mainstream discussions."
-}),
-
-event({
-  date: "2005-04-23",
-  title: "YouTube's First Video Changes Online Entertainment",
-  category: "Internet",
-  keywords: [
-    "YouTube",
-    "Jawed Karim",
-    "Video Sharing",
-    "Digital Media",
-    "Internet",
-    "Online Entertainment"
-  ],
-  shortDescription:
-    "On April 23, 2005, YouTube co-founder Jawed Karim uploaded a short video titled 'Me at the zoo'. The simple 19-second clip marked the beginning of a platform that would fundamentally transform online entertainment, education, and digital media.",
-
-  fullStory: `
-In the early days of the internet, sharing video content was far more complicated than it is today. Large video files were difficult to upload, host, and distribute, and viewers often needed additional software to play them.
-
-YouTube was created to make online video sharing simpler. The platform was founded in 2005 by former PayPal employees Chad Hurley, Steve Chen, and Jawed Karim.
-
-On April 23, 2005, Jawed Karim uploaded the first video to the website. Titled 'Me at the zoo', the short clip showed Karim standing in front of elephants at the San Diego Zoo in California.
-
-The video was simple and informal. Karim briefly discussed the elephants and their unusually long trunks. Despite its ordinary subject, the recording became an important milestone in the development of online media.
-
-YouTube initially developed as a platform where users could upload videos and share them through links. Its browser-based video player and embedding features made it easier for videos to spread across websites and online communities.
-
-The platform entered beta in May 2005 and became publicly available later that year. Its popularity increased rapidly as users began uploading personal recordings, entertainment, music, tutorials, and other forms of content.
-
-In October 2006, Google announced its acquisition of YouTube in a stock transaction valued at approximately $1.65 billion. The acquisition helped establish YouTube as a major part of Google's growing internet services ecosystem.
-
-YouTube's success demonstrated that ordinary individuals could become publishers and reach audiences around the world without relying on traditional television networks or media organizations.
-
-The platform would go on to influence education, entertainment, journalism, advertising, music distribution, and the emergence of the modern online creator economy.
-  `,
-
-  heroImage: photo(
-    "https://images.moneycontrol.com/static-mcnews/2025/04/20250424063626_MixCollage-24-Apr-2025-12-05-PM-924.jpg?impolicy=website&width=770&height=431",
-    "Video camera recording footage",
-    "Unsplash",
-    "The beginning of online video sharing"
-  ),
-
-  timeline: timeline(
-    {
-      date: "February 14, 2005",
-      title: "YouTube is registered",
-      description:
-        "The website is registered as a new platform for online video sharing."
-    },
-    {
-      date: "April 23, 2005",
-      title: "First video uploaded",
-      description:
-        "Jawed Karim uploads 'Me at the zoo', the first video on YouTube."
-    },
-    {
-      date: "May 2005",
-      title: "Beta launch",
-      description:
-        "YouTube enters its beta testing phase and begins attracting early users."
-    },
-    {
-      date: "December 2005",
-      title: "Public launch",
-      description:
-        "YouTube officially launches to the public after its beta period."
-    },
-    {
-      date: "October 2006",
-      title: "Google announces acquisition",
-      description:
-        "Google announces that it will acquire YouTube in a $1.65 billion stock transaction."
-    },
-    {
-      date: "2007",
-      title: "Partner Program expands",
-      description:
-        "YouTube expands opportunities for creators to earn revenue from their videos."
-    }
-  ),
-
-  impact:
-    "YouTube transformed how video content is produced, distributed, and consumed. It lowered the barriers to publishing, created new opportunities for independent creators, changed online education and entertainment, and helped establish video as one of the internet's most important forms of communication."
-})
-
- 
+    date: '1944-07-20',
+    title: 'Assassination Attempt on Hitler',
+    category: 'Politics / Europe',
+    keywords: ['stauffenberg', 'operation valkyrie', 'wolfsschanze', 'resistance', 'germany'],
+    shortDescription: 'A bomb planted at the Wolf’s Lair fails to kill Adolf Hitler, and the attempted coup that follows collapses within hours.',
+    fullStory: 'On 20 July 1944, Colonel Claus von Stauffenberg left a briefcase bomb beneath a conference table at the Wolf’s Lair in East Prussia. The explosion injured Hitler but did not kill him, and the coup planned as Operation Valkyrie faltered once his survival was confirmed.\n\nThe attempt came from inside the German military and civil service. It was answered with mass arrests and executions, and it remains both a failure and evidence that opposition existed within the apparatus of the regime.',
+    heroImage: inkPhoto,
+    galleryImages: [inkPhoto, archivePhoto, paperPhoto],
+    timeline: timeline(
+      ['1944-07-20', '12:42', 'The bomb detonates', 'Stauffenberg’s briefcase explodes inside the conference hut.'],
+      ['1944-07-20', '20:00', 'The coup collapses', 'Orders fail to take hold after news of Hitler’s survival spreads.'],
+      ['1944-07-21', '', 'Arrests begin', 'Thousands are detained and the leading resisters are executed.'],
+    ),
+    impact: 'The attempt showed that the regime was opposed from within and became a reference point for later debates about resistance and responsibility.',
+  }),
+  event({
+    date: '1976-07-20',
+    title: 'Viking 1 Lands on Mars',
+    category: 'Exploration / Space',
+    keywords: ['viking 1', 'mars', 'nasa', 'chryse planitia', 'lander'],
+    shortDescription: 'Viking 1 lands on Mars and sends back the first photographs from the planet’s surface.',
+    fullStory: 'On 20 July 1976, Viking 1 touched down at Chryse Planitia, seven years to the day after Apollo 11 landed on the Moon. The lander began transmitting images and measurements within minutes of arrival.\n\nThe mission was built as a search for evidence of life, and its negative results still changed the record: they defined how carefully a planet must be questioned before absence can be called a finding.',
+    heroImage: marsPhoto,
+    galleryImages: [marsPhoto, earthRise, missionControl],
+    timeline: timeline(
+      ['1975-08-20', '', 'Viking 1 launches', 'The orbiter and lander leave Earth for an eleven-month crossing.'],
+      ['1976-07-20', '11:53', 'The lander touches down', 'Viking 1 reaches Chryse Planitia and begins transmitting.'],
+      ['1976-07-20', '12:00', 'The first image arrives', 'The lander returns the first photograph from the Martian surface.'],
+    ),
+    impact: 'Viking 1 produced the first long record of the Martian surface and set the standard for later landers.',
+  }),
+  event({
+    date: '2004-02-04',
+    title: 'Facebook Opens to Students',
+    category: 'Technology / Internet',
+    keywords: ['facebook', 'social network', 'harvard', 'profiles', 'internet'],
+    shortDescription: 'Facebook opens to university students, extending a campus social network into a public product.',
+    fullStory: 'On 4 February 2004, a small site called TheFacebook went live from a Harvard dormitory room. It opened a profile page to students who could connect, post, and see one another in a shared directory.\n\nThe service spread campus by campus before opening beyond universities. Its growth turned the social graph into an advertising business, and it made the design of a public profile a subject of ordinary life.',
+    heroImage: crtClosePhoto,
+    galleryImages: [crtClosePhoto, bookPhoto, inkPhoto],
+    timeline: timeline(
+      ['2004-02-04', '', 'The site opens', 'TheFacebook launches to Harvard students.'],
+      ['2004-03-01', '', 'It spreads to other campuses', 'Access extends to Columbia, Stanford, and Yale.'],
+    ),
+    impact: 'The platform normalised persistent public profiles and changed how personal history is recorded and shared.',
+  }),
+  event({
+    date: '2007-01-09',
+    title: 'The iPhone Is Announced',
+    category: 'Technology / Devices',
+    keywords: ['iphone', 'apple', 'touchscreen', 'smartphone', 'app store'],
+    shortDescription: 'Apple announces a touchscreen phone that combines a camera, browser, music player, and telephone.',
+    fullStory: 'On 9 January 2007, Apple presented a phone without a keyboard, built around a multi-touch display. The demonstration moved between maps, music, and a full web page on a single handheld screen.\n\nThe device consolidated the camera, music player, browser, and telephone into one object. It also established the app as the unit of software distribution, which reorganised the mobile industry within a few years.',
+    heroImage: phonePhoto,
+    galleryImages: [phonePhoto, crtClosePhoto, inkPhoto],
+    timeline: timeline(
+      ['2007-01-09', '', 'The device is announced', 'The presentation shows a touchscreen phone at Macworld.'],
+      ['2007-06-29', '', 'The first model ships', 'The phone goes on sale in the United States.'],
+    ),
+    impact: 'The touchscreen smartphone became the default computer for a generation and moved software distribution into app stores.',
+  }),
+  event({
+    date: '2008-09-15',
+    title: 'Lehman Brothers Collapses',
+    category: 'Economy / Global',
+    keywords: ['lehman brothers', 'bankruptcy', 'financial crisis', 'mortgages', 'credit'],
+    shortDescription: 'Lehman Brothers files for bankruptcy, and the failure of a single bank turns a credit crisis into a global one.',
+    fullStory: 'On 15 September 2008, Lehman Brothers filed for bankruptcy after a weekend of failed negotiations. The bank had carried heavy exposure to mortgage securities, and no buyer could be found with a guarantee behind it.\n\nThe failure froze credit markets and forced governments into rescues and stimulus on a scale not seen since the 1930s. The date became the shorthand for the moment the financial crisis stopped being a story about mortgages.',
+    heroImage: financePhoto,
+    galleryImages: [financePhoto, inkPhoto, archivePhoto],
+    timeline: timeline(
+      ['2008-09-15', '', 'The bank files', 'Lehman Brothers enters bankruptcy proceedings.'],
+      ['2008-09-16', '', 'Markets seize', 'Credit markets freeze and equities fall sharply.'],
+      ['2008-10-03', '', 'A rescue package passes', 'The United States approves emergency spending.'],
+    ),
+    impact: 'The collapse turned a housing downturn into a global recession and reshaped financial regulation for the next decade.',
+  }),
+  event({
+    date: '2012-07-04',
+    title: 'Higgs Boson Discovery Announced',
+    category: 'Science / Physics',
+    keywords: ['higgs boson', 'cern', 'large hadron collider', 'particle physics', 'mass'],
+    shortDescription: 'CERN announces a particle consistent with the Higgs boson, completing a decades-long search.',
+    fullStory: 'On 4 July 2012, teams at the Large Hadron Collider reported a new particle consistent with the Higgs boson. The announcement followed years of collisions and statistical analysis, and it was made in a packed auditorium that included the theorists who had predicted the mechanism.\n\nThe result explained how fundamental particles acquire mass, and it closed a chapter of the standard model while leaving open what lies beyond it.',
+    heroImage: detectorPhoto,
+    galleryImages: [detectorPhoto, missionControl, inkPhoto],
+    timeline: timeline(
+      ['2012-07-04', '', 'The discovery is announced', 'CERN reports a boson consistent with the Higgs particle.'],
+      ['2013-10-08', '', 'The Nobel is awarded', 'The prize goes to François Englert and Peter Higgs.'],
+    ),
+    impact: 'The discovery completed the standard model’s account of mass and anchored a new era of collider research.',
+  }),
+  event({
+    date: '2015-12-12',
+    title: 'Paris Climate Agreement Adopted',
+    category: 'Politics / Climate',
+    keywords: ['paris agreement', 'cop21', 'climate', 'emissions', 'united nations'],
+    shortDescription: 'Delegates from 196 countries adopt the Paris Agreement, the first universal accord on limiting warming.',
+    fullStory: 'On 12 December 2015, delegates at COP21 adopted an agreement to hold global warming well below two degrees and to pursue a limit of one and a half. Each country submitted its own plan, with review cycles rather than a single shared target.\n\nThe agreement was built to include everyone, which is also why it relies on transparency and repeated revision. Its record is a set of national promises and a mechanism for checking them.',
+    heroImage: climatePhoto,
+    galleryImages: [climatePhoto, crowdPhoto, archivePhoto],
+    timeline: timeline(
+      ['2015-11-30', '', 'The conference opens', 'Delegates gather in Le Bourget for COP21.'],
+      ['2015-12-12', '', 'The agreement is adopted', '196 parties approve the final text.'],
+      ['2016-11-04', '', 'It enters into force', 'Enough countries ratify for the agreement to take effect.'],
+    ),
+    impact: 'The Paris Agreement made climate targets universal and established a recurring cycle of national reporting.',
+  }),
+  event({
+    date: '2020-03-11',
+    title: 'WHO Declares a Pandemic',
+    category: 'Health / Global',
+    keywords: ['covid-19', 'who', 'pandemic', 'lockdown', 'public health'],
+    shortDescription: 'The World Health Organization describes COVID-19 as a pandemic, and countries begin closing schools, borders, and workplaces.',
+    fullStory: 'On 11 March 2020, the World Health Organization characterised COVID-19 as a pandemic. The virus had spread from Wuhan to more than a hundred countries in a matter of weeks, and governments moved to restrictions that had no recent precedent in peacetime.\n\nThe pandemic made epidemiological data part of daily public life: case counts, reproduction numbers, and hospital capacity became the language of decisions that touched work, school, and travel.',
+    heroImage: streetPhoto,
+    galleryImages: [streetPhoto, crowdPhoto, paperPhoto],
+    timeline: timeline(
+      ['2019-12-31', '', 'Cases are reported', 'Wuhan reports a cluster of pneumonia cases.'],
+      ['2020-03-11', '', 'A pandemic is declared', 'The WHO changes its assessment as the virus spreads worldwide.'],
+      ['2020-03-16', '', 'Restrictions widen', 'Countries close schools and borders and order lockdowns.'],
+    ),
+    impact: 'The pandemic accelerated remote work, vaccine platforms, and the public use of epidemiological data, while exposing deep inequalities in health.',
+  }),
 ]

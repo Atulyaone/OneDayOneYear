@@ -1,6 +1,17 @@
 export type AudioMode = 'off' | 'on' | 'unavailable'
 export type SearchStatus = 'idle' | 'searching' | 'results' | 'empty'
 export type CursorMode = 'idle' | 'view' | 'open' | 'plate'
+export type RecordFormat = 'editorial' | 'broadsheet' | 'modern'
+
+export interface EventStatistic {
+  label: string
+  value: string
+}
+
+export interface EventSpecification {
+  label: string
+  value: string
+}
 
 export interface ArchiveImage {
   src: string
@@ -38,6 +49,10 @@ export interface HistoricalEvent {
   quote?: string
   quoteAttribution?: string
   impact?: string
+  format?: RecordFormat
+  statistics?: EventStatistic[]
+  specifications?: EventSpecification[]
+  relatedDates?: string[]
 }
 
 export interface CalendarCell {

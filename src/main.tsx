@@ -4,6 +4,7 @@ import './fonts.css'
 import './styles.css'
 import './styles.refinement.css'
 import './styles.contribute.css'
+import './styles.templates.css'
 import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(

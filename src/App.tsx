@@ -6,6 +6,7 @@ import { AdminSubmissionsPage } from './pages/AdminSubmissionsPage.tsx'
 import { ArchiveOpeningPage } from './pages/ArchiveOpeningPage.tsx'
 import { CalendarPage } from './pages/CalendarPage.tsx'
 import { ContributePage } from './pages/ContributePage.tsx'
+import { DayIndexPage } from './pages/DayIndexPage.tsx'
 import { HistoricalMomentPage } from './pages/HistoricalMomentPage.tsx'
 import { NotFoundPage } from './pages/NotFoundPage.tsx'
 
@@ -16,6 +17,7 @@ const routes: RouteObject[] = [
       { path: '/', element: <ArchiveOpeningPage /> },
       { path: '/calendar', element: <CalendarPage /> },
       { path: '/event/:date', element: <HistoricalMomentPage /> },
+      { path: '/day/:monthDay', element: <DayIndexPage /> },
       { path: '/contribute', element: <ContributePage /> },
       { path: '/submit', element: <Navigate to="/contribute" replace /> },
       { path: '/admin/submissions', element: <AdminSubmissionsPage /> },

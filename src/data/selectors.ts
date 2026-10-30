@@ -1,4 +1,4 @@
-import type { CalendarCell } from '../types.ts'
+import type { CalendarCell, HistoricalEvent, RecordFormat } from '../types.ts'
 import { events } from './events.ts'
 
 const monthFormatter = new Intl.DateTimeFormat('en-US', {
@@ -66,6 +66,20 @@ export const getEventsForMonthIndex = (monthIndex: number) =>
 
 export const getEventForMonthDay = (monthIndex: number, monthDay: string) =>
   getEventsForMonthIndex(monthIndex).find((event) => event.date.slice(5) === monthDay) ?? null
+
+/** Every record filed on a month-day, across years. */
+export const getRecordsForMonthDay = (monthDay: string) =>
+  sortedEvents.filter((event) => event.date.slice(5) === monthDay)
+
+export const getRecordTemplate = (event: HistoricalEvent): RecordFormat =>
+  event.format ?? (event.year >= 2000 ? 'modern' : 'editorial')
+
+/**
+ * A month-day with more than one record opens the day index; a single record
+ * opens its own page.
+ */
+export const getRecordPath = (date: string) =>
+  getRecordsForMonthDay(date.slice(5)).length > 1 ? `/day/${date.slice(5)}` : `/event/${date}`
 
 export const getAdjacentEvents = (date: string) => {
   const index = sortedEvents.findIndex((event) => event.date === date)
@@ -174,4 +188,37 @@ export const searchEvents = (query: string) => {
   return pool
     .sort((a, b) => b.score - a.score || a.event.date.localeCompare(b.event.date))
     .map(({ event }) => event)
+}
+
+export interface MonthDayGroup {
+  monthDay: string
+  count: number
+}
+
+/** Month-days that hold at least one record, in calendar order. */
+export const getPopulatedMonthDays = (): MonthDayGroup[] => {
+  const counts = new Map<string, number>()
+  sortedEvents.forEach((event) => {
+    const key = event.date.slice(5)
+    counts.set(key, (counts.get(key) ?? 0) + 1)
+  })
+
+  return Array.from(counts, ([monthDay, count]) => ({ monthDay, count })).sort((a, b) =>
+    a.monthDay.localeCompare(b.monthDay),
+  )
+}
+
+export const getAdjacentMonthDays = (monthDay: string) => {
+  const days = getPopulatedMonthDays()
+  const index = days.findIndex((day) => day.monthDay === monthDay)
+  return {
+    previous: index > 0 ? days[index - 1] : null,
+    next: index >= 0 && index < days.length - 1 ? days[index + 1] : null,
+  }
+}
+
+/** "07-20" → "20 JULY" */
+export const formatMonthDayLabel = (monthDay: string) => {
+  const [month, day] = monthDay.split('-').map(Number)
+  return formatMonthDay(month - 1, day)
 }

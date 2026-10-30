@@ -242,6 +242,7 @@ Converting the sequence to AVIF/WebM would reduce the payload further; that is n
 | Symptom | Cause | Fix |
 |---|---|---|
 | “Could not reach the archive API” | API not running | `npm run dev:api` or `npm run dev:full` |
+| `dev:full` starts then exits immediately | Another copy already holds 5173/8787 | `lsof -ti:5173 -ti:8787 \| xargs kill`, then rerun. To run two copies at once: `PORT=8788 API_PORT=8788 npm run dev:full` |
 | Submission returns 429 | Rate limit reached | Wait 10 minutes or restart the API |
 | TypeScript build fails | Unused imports or type drift | `npm run build` and fix the reported file |
 | Fonts look like Times New Roman | Local font files missing | Confirm `src/assets/fonts/*.woff2` exists |
