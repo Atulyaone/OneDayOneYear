@@ -6,7 +6,7 @@
  * cannot leave truncated JSON behind.
  */
 
-import { mkdir, readFile, rename, writeFile } from 'node:fs/promises'
+import { copyFile, mkdir, readFile, rename, unlink, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -38,8 +38,16 @@ export async function readSubmissions() {
 export function buildAccession(existing, receivedAt) {
   const stamp = receivedAt.slice(0, 10).replaceAll('-', '')
   const prefix = `SUB-${stamp}-`
-  const count = existing.filter((record) => typeof record?.id === 'string' && record.id.startsWith(prefix)).length
-  return `${prefix}${String(count + 1).padStart(4, '0')}`
+  let maxSeq = 0
+  for (const record of existing) {
+    if (typeof record?.id === 'string' && record.id.startsWith(prefix)) {
+      const seq = parseInt(record.id.slice(prefix.length), 10)
+      if (!Number.isNaN(seq) && seq > maxSeq) {
+        maxSeq = seq
+      }
+    }
+  }
+  return `${prefix}${String(maxSeq + 1).padStart(4, '0')}`
 }
 
 /**
@@ -57,7 +65,12 @@ export function appendSubmission(createRecord) {
 
     const temporary = `${DATA_FILE}.${process.pid}.${Date.now()}.tmp`
     await writeFile(temporary, `${JSON.stringify(existing, null, 2)}\n`, 'utf8')
-    await rename(temporary, DATA_FILE)
+    try {
+      await rename(temporary, DATA_FILE)
+    } catch {
+      await copyFile(temporary, DATA_FILE)
+      await unlink(temporary).catch(() => { })
+    }
 
     return record
   })

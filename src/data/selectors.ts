@@ -140,26 +140,38 @@ export const searchEvents = (query: string) => {
   const terms = normalize(query).split(/\s+/).filter(Boolean)
   if (!terms.length) return []
 
-  return sortedEvents
+  const scored = sortedEvents
     .map((event) => {
+      const titleText = normalize(event.title)
+      const dateText = normalize(`${event.date} ${formatLongDate(event.date)} ${formatShortDate(event.date)}`)
       const haystack = normalize([
-        event.date,
-        formatLongDate(event.date),
+        dateText,
         event.title,
         event.category,
         event.keywords.join(' '),
         event.shortDescription,
         event.fullStory,
       ].join(' '))
-      const titleText = normalize(event.title)
+
+      let matchCount = 0
       const score = terms.reduce((total, term) => {
-        if (titleText.includes(term)) return total + 4
-        if (haystack.includes(term)) return total + 1
-        return total
+        let termScore = 0
+        if (titleText.startsWith(term)) termScore += 6
+        else if (titleText.includes(term)) termScore += 4
+        if (haystack.includes(term)) termScore += 1
+
+        if (termScore > 0) matchCount++
+        return total + termScore
       }, 0)
-      return { event, score }
+
+      return { event, score, matchCount }
     })
     .filter(({ score }) => score > 0)
+
+  const allMatch = scored.filter(({ matchCount }) => matchCount === terms.length)
+  const pool = allMatch.length > 0 ? allMatch : scored
+
+  return pool
     .sort((a, b) => b.score - a.score || a.event.date.localeCompare(b.event.date))
     .map(({ event }) => event)
 }

@@ -1,5 +1,5 @@
 import type { ImgHTMLAttributes } from 'react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 interface ResilientImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   fallbackLabel?: string
@@ -16,10 +16,12 @@ export function ResilientImage({
   ...props
 }: ResilientImageProps) {
   const [failed, setFailed] = useState(false)
+  const [prevSrc, setPrevSrc] = useState(src)
 
-  useEffect(() => {
+  if (prevSrc !== src) {
+    setPrevSrc(src)
     setFailed(false)
-  }, [src])
+  }
 
   if (failed) {
     return (
