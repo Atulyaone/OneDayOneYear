@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 500" width="540" height="500">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&amp;family=Inter:wght@600;700&amp;family=IBM+Plex+Mono:wght@600&amp;display=swap');
+      .serif { font-family: 'Cinzel', Georgia, serif; }
+      .sans { font-family: 'Inter', -apple-system, sans-serif; }
+      .mono { font-family: 'IBM Plex Mono', monospace; }
+    </style>
+  </defs>
+  <rect width="540" height="500" fill="#111116" stroke="#252530" stroke-width="2" rx="10" />
+  <g transform="translate(270, 190)">
+    <circle cx="0" cy="0" r="110" fill="#0C0C10" stroke="#2A2A36" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="95" fill="none" stroke="#B89355" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.85" />
+    <g stroke="#4A4A58" stroke-width="1">
+      <line x1="0" y1="-105" x2="0" y2="-95" /><line x1="74" y1="-74" x2="67" y2="-67" />
+      <line x1="105" y1="0" x2="95" y2="0" /><line x1="74" y1="74" x2="67" y2="67" />
+      <line x1="0" y1="105" x2="0" y2="95" /><line x1="-74" y1="74" x2="-67" y2="67" />
+      <line x1="-105" y1="0" x2="-95" y2="0" /><line x1="-74" y1="-74" x2="-67" y2="-67" />
+    </g>
+    <text x="-58" y="16" text-anchor="middle" class="serif" font-size="34" font-weight="700" fill="#5A5A68">09</text>
+    <circle cx="0" cy="0" r="38" fill="#1C1C24" stroke="#B89355" stroke-width="2" />
+    <text x="0" y="18" text-anchor="middle" class="serif" font-size="52" font-weight="900" fill="#FFFFFF">10</text>
+    <text x="58" y="16" text-anchor="middle" class="serif" font-size="34" font-weight="700" fill="#5A5A68">11</text>
+  </g>
+  <g transform="translate(270, 360)">
+    <text x="-120" y="6" class="sans" font-size="18" font-weight="700" fill="#6A6A78">‹</text>
+    <text x="0" y="6" text-anchor="middle" class="serif" font-size="20" font-weight="800" fill="#F0ECE1" letter-spacing="4">SEPTEMBER</text>
+    <text x="120" y="6" class="sans" font-size="18" font-weight="700" fill="#6A6A78">›</text>
+  </g>
+  <g transform="translate(150, 410)">
+    <rect x="0" y="0" width="240" height="46" fill="#16161E" stroke="#B89355" stroke-width="1.5" rx="3" />
+    <text x="120" y="28" text-anchor="middle" class="sans" font-size="12" font-weight="700" fill="#EED7A1" letter-spacing="1.5">VIEW AND SEE TODAY →</text>
+  </g>
+</svg>

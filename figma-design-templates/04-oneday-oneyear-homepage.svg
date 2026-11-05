@@ -1,0 +1,320 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1440 3300" width="1440" height="3300">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap');
+      .serif-display { font-family: 'Cinzel', 'Playfair Display', Georgia, serif; }
+      .serif-body { font-family: 'Playfair Display', Georgia, serif; }
+      .mono { font-family: 'IBM Plex Mono', 'Courier New', monospace; }
+      .sans { font-family: 'Inter', -apple-system, sans-serif; }
+    </style>
+    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EED7A1" />
+      <stop offset="100%" stop-color="#B89355" />
+    </linearGradient>
+    <radialGradient id="orbitGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFEAA7" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#D4AF37" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0" />
+    </radialGradient>
+    <filter id="heroCardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.9" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect id="Canvas_Background" width="1440" height="3300" fill="#09090C" />
+
+  <!-- Top Navigation Header -->
+  <g id="Top_Navigation" transform="translate(80, 50)">
+    <text x="0" y="22" class="serif-display" font-size="22" font-weight="700" fill="#F0ECE1" letter-spacing="1">One Day, One Year</text>
+    <text x="1280" y="20" text-anchor="end" class="sans" font-size="12" font-weight="600" fill="#A8A096" letter-spacing="2">
+      <tspan dx="0">ARCHIVE</tspan>
+      <tspan dx="35">ABOUT</tspan>
+      <tspan dx="35">SIGN IN</tspan>
+    </text>
+    <line x1="0" y1="40" x2="1280" y2="40" stroke="#1F1E24" stroke-width="1" />
+  </g>
+
+  <!-- Section 1: Hero Block -->
+  <g id="Section_Hero" transform="translate(80, 150)">
+    <!-- Left Hero Column -->
+    <g id="Hero_Left_Content">
+      <text x="0" y="30" class="mono" font-size="11" font-weight="600" fill="#B89355" letter-spacing="2">PUBLIC ARCHIVES RECORD</text>
+      <text x="0" y="115" class="serif-display" font-size="82" font-weight="900" fill="#F0ECE1" letter-spacing="2">One Day,</text>
+      <text x="0" y="200" class="serif-display" font-size="82" font-weight="900" fill="#F0ECE1" letter-spacing="2">One Year</text>
+      <text x="0" y="250" class="serif-body" font-size="18" fill="#A8A096" letter-spacing="0.5">Explore a single day, drawn from history.</text>
+      <text x="0" y="300" class="sans" font-size="12" font-weight="600" fill="#6E685E" letter-spacing="2">SCROLL TO DISCOVER ↓</text>
+
+      <!-- Specimen Tiles Matrix in Backdrop -->
+      <g id="Specimen_Tiles_Grid" transform="translate(0, 340)" opacity="0.65">
+        <rect x="0" y="0" width="620" height="180" fill="#121217" stroke="#22222A" stroke-width="1" rx="4" />
+        <!-- Mock specimen documents inside -->
+        <rect x="20" y="20" width="120" height="140" fill="#1C1C24" stroke="#33333E" stroke-width="0.8" rx="2" />
+        <line x1="35" y1="45" x2="125" y2="45" stroke="#6E685E" stroke-width="2" />
+        <line x1="35" y1="65" x2="115" y2="65" stroke="#444450" stroke-width="1" />
+        <line x1="35" y1="80" x2="120" y2="80" stroke="#444450" stroke-width="1" />
+        <line x1="35" y1="95" x2="100" y2="95" stroke="#444450" stroke-width="1" />
+        
+        <rect x="160" y="20" width="120" height="140" fill="#1C1C24" stroke="#33333E" stroke-width="0.8" rx="2" />
+        <circle cx="220" cy="70" r="30" fill="#282835" />
+        <line x1="175" y1="120" x2="265" y2="120" stroke="#444450" stroke-width="1" />
+        <line x1="175" y1="135" x2="245" y2="135" stroke="#444450" stroke-width="1" />
+
+        <rect x="300" y="20" width="120" height="140" fill="#1C1C24" stroke="#33333E" stroke-width="0.8" rx="2" />
+        <rect x="320" y="40" width="80" height="50" fill="#2A2A38" />
+        <line x1="315" y1="110" x2="405" y2="110" stroke="#444450" stroke-width="1" />
+
+        <rect x="440" y="20" width="160" height="140" fill="#181820" stroke="#33333E" stroke-width="0.8" rx="2" />
+        <circle cx="520" cy="80" r="35" fill="none" stroke="#B89355" stroke-width="1" stroke-dasharray="3 3" />
+        <circle cx="520" cy="80" r="6" fill="#B89355" />
+      </g>
+    </g>
+
+    <!-- Right Hero Column: Interactive Date Selector Widget -->
+    <g id="Hero_Date_Picker_Widget" transform="translate(760, 20)" filter="url(#heroCardShadow)">
+      <!-- Outer Card Frame -->
+      <rect x="0" y="0" width="520" height="480" fill="#111116" stroke="#252530" stroke-width="1.5" rx="8" />
+
+      <g transform="translate(260, 190)">
+        <!-- Circular Dial Wheel with Dashed Ring -->
+        <circle cx="0" cy="0" r="110" fill="#0C0C10" stroke="#2A2A36" stroke-width="1.5" />
+        <circle cx="0" cy="0" r="95" fill="none" stroke="#B89355" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.85" />
+        
+        <!-- Radial tick marks -->
+        <g stroke="#4A4A58" stroke-width="1">
+          <line x1="0" y1="-105" x2="0" y2="-95" />
+          <line x1="74" y1="-74" x2="67" y2="-67" />
+          <line x1="105" y1="0" x2="95" y2="0" />
+          <line x1="74" y1="74" x2="67" y2="67" />
+          <line x1="0" y1="105" x2="0" y2="95" />
+          <line x1="-74" y1="74" x2="-67" y2="67" />
+          <line x1="-105" y1="0" x2="-95" y2="0" />
+          <line x1="-74" y1="-74" x2="-67" y2="-67" />
+        </g>
+
+        <!-- Numbers 09, 10 (Selected), 11 -->
+        <text x="-58" y="16" text-anchor="middle" class="serif-display" font-size="34" font-weight="700" fill="#5A5A68">09</text>
+        
+        <!-- Highlighted Active Number 10 -->
+        <circle cx="0" cy="0" r="38" fill="#1C1C24" stroke="#B89355" stroke-width="2" />
+        <text x="0" y="18" text-anchor="middle" class="serif-display" font-size="52" font-weight="900" fill="#FFFFFF">10</text>
+        
+        <text x="58" y="16" text-anchor="middle" class="serif-display" font-size="34" font-weight="700" fill="#5A5A68">11</text>
+      </g>
+
+      <!-- Month Selector Row -->
+      <g transform="translate(260, 360)">
+        <text x="-120" y="6" class="sans" font-size="18" font-weight="700" fill="#6A6A78">‹</text>
+        <text x="0" y="6" text-anchor="middle" class="serif-display" font-size="20" font-weight="800" fill="#F0ECE1" letter-spacing="4">SEPTEMBER</text>
+        <text x="120" y="6" class="sans" font-size="18" font-weight="700" fill="#6A6A78">›</text>
+      </g>
+
+      <!-- View Today Button -->
+      <g transform="translate(140, 405)">
+        <rect x="0" y="0" width="240" height="44" fill="#16161E" stroke="#B89355" stroke-width="1.5" rx="3" />
+        <text x="120" y="27" text-anchor="middle" class="sans" font-size="11.5" font-weight="700" fill="#EED7A1" letter-spacing="1.5">VIEW AND SEE TODAY →</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Section 2: Five Moments. One Date. -->
+  <g id="Section_Five_Moments" transform="translate(80, 780)">
+    <text x="0" y="30" class="serif-display" font-size="28" font-weight="700" fill="#F0ECE1" letter-spacing="1">Five moments. One date.</text>
+    <text x="1280" y="25" text-anchor="end" class="sans" font-size="12" font-weight="600" fill="#B89355" letter-spacing="1.5">BROWSE HISTORICAL EVENTS →</text>
+
+    <!-- 5 Horizontal Cards (Gap 20, width 240 each) -->
+    <g id="Cards_Container" transform="translate(0, 60)">
+      <!-- Card 1: 1775 -->
+      <g id="Moment_1775" transform="translate(0, 0)">
+        <rect x="0" y="0" width="240" height="240" fill="#111116" stroke="#252530" stroke-width="1" rx="4" />
+        <rect x="15" y="15" width="210" height="110" fill="#1E1E26" rx="2" />
+        <!-- Mock sketch inside card -->
+        <circle cx="120" cy="70" r="28" fill="#2A2A38" />
+        <text x="20" y="165" class="serif-display" font-size="28" font-weight="800" fill="#FFFFFF">1775</text>
+        <text x="20" y="195" class="sans" font-size="12" fill="#8E8E98">The Royal Society Charter</text>
+      </g>
+
+      <!-- Card 2: 1813 -->
+      <g id="Moment_1813" transform="translate(260, 0)">
+        <rect x="0" y="0" width="240" height="240" fill="#111116" stroke="#252530" stroke-width="1" rx="4" />
+        <rect x="15" y="15" width="210" height="110" fill="#1E1E26" rx="2" />
+        <polygon points="40,105 120,40 200,105" fill="#2A2A38" />
+        <text x="20" y="165" class="serif-display" font-size="28" font-weight="800" fill="#FFFFFF">1813</text>
+        <text x="20" y="195" class="sans" font-size="12" fill="#8E8E98">The Battle of Lake Erie</text>
+      </g>
+
+      <!-- Card 3: 1945 (Active Highlight Card) -->
+      <g id="Moment_1945_Active" transform="translate(520, 0)">
+        <rect x="0" y="0" width="240" height="240" fill="#161620" stroke="#C5A878" stroke-width="2" rx="4" />
+        <rect x="15" y="15" width="210" height="110" fill="#252328" rx="2" />
+        <!-- Crowd sketch -->
+        <rect x="30" y="45" width="180" height="60" fill="#38333D" />
+        <text x="20" y="165" class="serif-display" font-size="32" font-weight="900" fill="#FFFFFF">1945</text>
+        <rect x="120" y="146" width="105" height="22" fill="#2E251A" stroke="#C5A878" stroke-width="1" rx="2" />
+        <text x="172" y="161" text-anchor="middle" class="mono" font-size="9.5" font-weight="700" fill="#EED7A1">1,450 DAYS AGO</text>
+        <text x="20" y="195" class="sans" font-size="12" fill="#B8B0A2">Global Peace Declaration</text>
+      </g>
+
+      <!-- Card 4: 2001 -->
+      <g id="Moment_2001" transform="translate(780, 0)">
+        <rect x="0" y="0" width="240" height="240" fill="#111116" stroke="#252530" stroke-width="1" rx="4" />
+        <rect x="15" y="15" width="210" height="110" fill="#1E1E26" rx="2" />
+        <ellipse cx="120" cy="70" rx="60" ry="25" fill="#2A2A38" />
+        <text x="20" y="165" class="serif-display" font-size="28" font-weight="800" fill="#FFFFFF">2001</text>
+        <text x="20" y="195" class="sans" font-size="12" fill="#8E8E98">The Human Genome Assembly</text>
+      </g>
+
+      <!-- Card 5: 2026 -->
+      <g id="Moment_2026" transform="translate(1040, 0)">
+        <rect x="0" y="0" width="240" height="240" fill="#111116" stroke="#252530" stroke-width="1" rx="4" />
+        <rect x="15" y="15" width="210" height="110" fill="#1E1E26" rx="2" />
+        <circle cx="120" cy="70" r="35" fill="none" stroke="#4A4A60" stroke-width="2" />
+        <text x="20" y="165" class="serif-display" font-size="28" font-weight="800" fill="#FFFFFF">2026</text>
+        <text x="20" y="195" class="sans" font-size="12" fill="#8E8E98">Next-Gen Quantum Network</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Section 3: Feature Moment 1969 Apollo Moon Landing -->
+  <g id="Section_Feature_1969" transform="translate(80, 1160)">
+    <!-- Left Photo: NASA Mission Control Room -->
+    <g id="Feature_Photo_Left">
+      <rect x="0" y="0" width="700" height="420" fill="#141419" stroke="#252530" stroke-width="1.5" rx="4" />
+      <image href="data:image/jpeg;base64,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" x="6" y="6" width="688" height="408" preserveAspectRatio="xMidYMid slice" rx="3" />
+    </g>
+
+    <!-- Right Copy: Story & Call to Action -->
+    <g id="Feature_Story_Right" transform="translate(760, 40)">
+      <rect x="0" y="0" width="105" height="26" fill="#1C1914" stroke="#B89355" stroke-width="1" rx="2" />
+      <text x="52" y="17" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#D4AF37" letter-spacing="1.5">DATE FOCUS</text>
+
+      <text x="0" y="105" class="serif-display" font-size="74" font-weight="900" fill="#FFFFFF" letter-spacing="1">1969</text>
+      <text x="0" y="160" class="serif-display" font-size="26" font-weight="700" fill="#F0ECE1" line-height="1.3">
+        <tspan x="0" y="160">The moment Earth became</tspan>
+        <tspan x="0" y="195">a distant world</tspan>
+      </text>
+
+      <text class="serif-body" font-size="15.5" fill="#A8A096" line-height="1.6">
+        <tspan x="0" y="250">On this day, a room full of voices carried humanity beyond</tspan>
+        <tspan x="0" y="278">the frontier... turning a fragile transmission into collective</tspan>
+        <tspan x="0" y="306">memory preserved across centuries.</tspan>
+      </text>
+
+      <g transform="translate(0, 360)">
+        <text x="0" y="0" class="sans" font-size="13" font-weight="700" fill="#D4AF37" letter-spacing="2">READ STORY →</text>
+        <line x1="0" y1="8" x2="130" y2="8" stroke="#D4AF37" stroke-width="1.5" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Section 4: Discover History Everywhere (Celestial Orbits Graphic) -->
+  <g id="Section_Discover_Everywhere" transform="translate(80, 1680)">
+    <rect x="0" y="0" width="1280" height="340" fill="#101015" stroke="#22222C" stroke-width="1" rx="6" />
+
+    <!-- Left Copy -->
+    <g transform="translate(60, 90)">
+      <text x="0" y="0" class="mono" font-size="11" font-weight="700" fill="#B89355" letter-spacing="2">TIME &amp; SPACE</text>
+      <text x="0" y="45" class="serif-display" font-size="34" font-weight="800" fill="#FFFFFF">Discover history</text>
+      <text x="0" y="85" class="serif-display" font-size="34" font-weight="800" fill="#FFFFFF">everywhere.</text>
+      <text x="0" y="130" class="sans" font-size="12" font-weight="600" fill="#7A7A88" letter-spacing="1">FIND EVENTS FROM OVER 2,000 YEARS OF HUMAN CIV.</text>
+    </g>
+
+    <!-- Right Vector: Intersecting Celestial Orbital Ellipses -->
+    <g id="Vector_Celestial_Orbits" transform="translate(880, 170)">
+      <!-- Outer Orbit -->
+      <ellipse cx="0" cy="0" rx="300" ry="110" fill="none" stroke="#2E2E3E" stroke-width="1.5" />
+      <!-- Middle Orbit -->
+      <ellipse cx="0" cy="0" rx="240" ry="85" fill="none" stroke="#B89355" stroke-width="1.2" stroke-dasharray="6 4" opacity="0.6" transform="rotate(-15)" />
+      <!-- Inner Orbit -->
+      <ellipse cx="0" cy="0" rx="160" ry="60" fill="none" stroke="#444458" stroke-width="1" transform="rotate(25)" />
+
+      <!-- Glowing Nodes on Orbits -->
+      <g transform="translate(-140, -40)">
+        <circle cx="0" cy="0" r="16" fill="url(#orbitGlow)" />
+        <circle cx="0" cy="0" r="4" fill="#FFEAA7" />
+      </g>
+      <g transform="translate(180, 30)">
+        <circle cx="0" cy="0" r="16" fill="url(#orbitGlow)" />
+        <circle cx="0" cy="0" r="4" fill="#FFEAA7" />
+      </g>
+      <g transform="translate(40, -70)">
+        <circle cx="0" cy="0" r="12" fill="url(#orbitGlow)" />
+        <circle cx="0" cy="0" r="3.5" fill="#FFEAA7" />
+      </g>
+      <g transform="translate(-60, 55)">
+        <circle cx="0" cy="0" r="12" fill="url(#orbitGlow)" />
+        <circle cx="0" cy="0" r="3.5" fill="#FFEAA7" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Section 5: Born / Died on this day & Ask the Historian -->
+  <g id="Section_Profiles_And_Historian" transform="translate(80, 2100)">
+    <!-- Left Column: Born / Died Profiles -->
+    <g id="Profiles_Left">
+      <text x="0" y="30" class="serif-display" font-size="22" font-weight="700" fill="#F0ECE1">Born / Died on this day</text>
+      <text x="700" y="25" text-anchor="end" class="sans" font-size="12" font-weight="600" fill="#B89355" letter-spacing="1">VIEW ALL →</text>
+
+      <!-- 3 Profile Cards -->
+      <g id="Profile_Cards" transform="translate(0, 60)">
+        <!-- Profile 1: Mary Wollstonecraft -->
+        <g transform="translate(0, 0)">
+          <rect x="0" y="0" width="220" height="280" fill="#111116" stroke="#252530" stroke-width="1" rx="4" />
+          <rect x="15" y="15" width="190" height="150" fill="#1F1D24" rx="2" />
+          <circle cx="110" cy="90" r="35" fill="#35303E" />
+          <text x="20" y="195" class="mono" font-size="10" font-weight="600" fill="#B89355">1759 — 1797</text>
+          <text x="20" y="225" class="serif-display" font-size="15" font-weight="700" fill="#FFFFFF">Mary Wollstonecraft</text>
+          <text x="20" y="250" class="sans" font-size="11" fill="#7A7A88">Philosopher &amp; Advocate</text>
+        </g>
+
+        <!-- Profile 2: José Feliciano -->
+        <g transform="translate(240, 0)">
+          <rect x="0" y="0" width="220" height="280" fill="#111116" stroke="#252530" stroke-width="1" rx="4" />
+          <rect x="15" y="15" width="190" height="150" fill="#1F1D24" rx="2" />
+          <circle cx="110" cy="90" r="35" fill="#35303E" />
+          <text x="20" y="195" class="mono" font-size="10" font-weight="600" fill="#B89355">1945 — PRESENT</text>
+          <text x="20" y="225" class="serif-display" font-size="15" font-weight="700" fill="#FFFFFF">José Feliciano</text>
+          <text x="20" y="250" class="sans" font-size="11" fill="#7A7A88">Virtuoso Musician</text>
+        </g>
+
+        <!-- Profile 3: Jane Addams -->
+        <g transform="translate(480, 0)">
+          <rect x="0" y="0" width="220" height="280" fill="#111116" stroke="#252530" stroke-width="1" rx="4" />
+          <rect x="15" y="15" width="190" height="150" fill="#1F1D24" rx="2" />
+          <circle cx="110" cy="90" r="35" fill="#35303E" />
+          <text x="20" y="195" class="mono" font-size="10" font-weight="600" fill="#B89355">1860 — 1935</text>
+          <text x="20" y="225" class="serif-display" font-size="15" font-weight="700" fill="#FFFFFF">Jane Addams</text>
+          <text x="20" y="250" class="sans" font-size="11" fill="#7A7A88">Nobel Peace Laureate</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Right Column: Ask the Historian -->
+    <g id="Ask_Historian_Right" transform="translate(760, 40)">
+      <rect x="0" y="0" width="520" height="300" fill="#111116" stroke="#252530" stroke-width="1.5" rx="6" />
+      <g transform="translate(40, 45)">
+        <text x="0" y="0" class="mono" font-size="11" font-weight="700" fill="#B89355" letter-spacing="2">AI ARCHIVIST ASSISTANT</text>
+        <text x="0" y="40" class="serif-display" font-size="28" font-weight="800" fill="#FFFFFF">Ask the Historian</text>
+        <text x="0" y="70" class="sans" font-size="14" fill="#8E8E98">What occurred on this date across centuries? Inquire freely.</text>
+
+        <!-- Search Input Box -->
+        <g transform="translate(0, 110)">
+          <rect x="0" y="0" width="440" height="52" fill="#181822" stroke="#333342" stroke-width="1" rx="4" />
+          <text x="20" y="32" class="sans" font-size="13" fill="#6A6A78">Enter your question, era, or thematic moment...</text>
+          <!-- Search Arrow Icon -->
+          <circle cx="410" cy="26" r="16" fill="#B89355" />
+          <text x="410" y="31" text-anchor="middle" class="sans" font-size="14" font-weight="700" fill="#0C0C10">→</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer Section -->
+  <g id="Footer_Section" transform="translate(80, 3120)">
+    <line x1="0" y1="0" x2="1280" y2="0" stroke="#1F1E24" stroke-width="1" />
+    <text x="0" y="50" class="serif-display" font-size="22" font-weight="700" fill="#F0ECE1">One Day, One Year</text>
+    <text x="1280" y="50" text-anchor="end" class="mono" font-size="11.5" fill="#7A7A84">
+      © 2026 ONE DAY, ONE YEAR • PUBLIC HISTORICAL ARCHIVE
+    </text>
+  </g>
+</svg>

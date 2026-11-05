@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Day, One Year — Figma Design Templates Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0D0D11;
+      --card-bg: #14141A;
+      --border: #23232D;
+      --accent-gold: #C5A878;
+      --accent-red: #E63946;
+      --text: #F2EFE9;
+      --muted: #8E8E98;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.5;
+      padding-bottom: 80px;
+    }
+    header {
+      padding: 40px 60px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(13, 13, 17, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .header-content {
+      max-width: 1500px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    h1 {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 26px;
+      letter-spacing: 2px;
+      color: var(--text);
+    }
+    .subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .nav-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: #1A1A24;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 10px 18px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--accent-gold);
+      color: #0D0D11;
+      border-color: var(--accent-gold);
+    }
+    .main-container {
+      max-width: 1500px;
+      margin: 40px auto;
+      padding: 0 40px;
+    }
+    .figma-import-guide {
+      background: #161620;
+      border: 1px solid #302E3C;
+      border-radius: 6px;
+      padding: 24px 30px;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .guide-text h2 {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 18px;
+      color: var(--accent-gold);
+      margin-bottom: 6px;
+    }
+    .guide-text p {
+      font-size: 13.5px;
+      color: #A0A0AC;
+    }
+    .download-all-btn {
+      background: var(--accent-gold);
+      color: #0D0D11;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 13px;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .template-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 50px;
+    }
+    .card-meta {
+      padding: 20px 30px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .card-meta h3 {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 20px;
+      color: #FFFFFF;
+    }
+    .card-meta .dims {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 12px;
+      color: var(--accent-gold);
+      background: #201E28;
+      padding: 4px 10px;
+      border-radius: 3px;
+    }
+    .card-actions a {
+      color: var(--accent-gold);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--accent-gold);
+      padding: 6px 14px;
+      border-radius: 3px;
+      margin-left: 10px;
+    }
+    .svg-viewer {
+      width: 100%;
+      height: 750px;
+      overflow: auto;
+      background: #08080A;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+    }
+    .svg-viewer object, .svg-viewer img {
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      border-radius: 4px;
+    }
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <div>
+        <h1>ONE DAY, ONE YEAR — FIGMA DESIGN TEMPLATES</h1>
+        <p class="subtitle">Official Vector SVG Design Templates for the Historical Archive Project</p>
+      </div>
+      <div class="nav-tabs">
+        <a href="#t1" class="tab-btn">01 Dispatch Broadsheet</a>
+        <a href="#t2" class="tab-btn">02 The Archive Opens</a>
+        <a href="#t3" class="tab-btn">03 Tech Timeline</a>
+        <a href="#t4" class="tab-btn">04 Master Homepage</a>
+        <a href="#canvas" class="tab-btn">All-in-One Canvas</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <div class="figma-import-guide">
+      <div class="guide-text">
+        <h2>How to Import into Figma in Seconds:</h2>
+        <p>1. Drag and drop any <code>.svg</code> file directly onto your Figma canvas.<br>
+           2. Figma natively converts every vector path, text element, group, and gradient into fully editable Figma frames & layers.</p>
+      </div>
+      <a href="figma-canvas-all-templates.svg" download class="download-all-btn">DOWNLOAD MASTER FIGMA CANVAS SVG ↓</a>
+    </div>
+
+    <!-- Template 1 -->
+    <div class="template-card" id="t1">
+      <div class="card-meta">
+        <div>
+          <h3>01: Special Report / Vol. I Dispatch</h3>
+          <p style="font-size: 13px; color: var(--muted); margin-top: 4px;">Vintage Broadsheet, Apollo 11 Lunar Landing, Cartographic Layouts, Technical Specs</p>
+        </div>
+        <div class="card-actions">
+          <span class="dims">1440 × 2950 px</span>
+          <a href="01-dispatch-special-report.svg" download>Download SVG</a>
+          <a href="01-dispatch-special-report.svg" target="_blank">Open Fullscreen</a>
+        </div>
+      </div>
+      <div class="svg-viewer">
+        <img src="01-dispatch-special-report.svg" alt="Template 1 Broadsheet">
+      </div>
+    </div>
+
+    <!-- Template 2 -->
+    <div class="template-card" id="t2">
+      <div class="card-meta">
+        <div>
+          <h3>02: The Archive Opens — Cinematic Hero Stage</h3>
+          <p style="font-size: 13px; color: var(--muted); margin-top: 4px;">Cinematic opening hero, perspective newspaper centerpiece, and highlighted "Scroll space" scrub section</p>
+        </div>
+        <div class="card-actions">
+          <span class="dims">1440 × 2850 px</span>
+          <a href="02-the-archive-opens.svg" download>Download SVG</a>
+          <a href="02-the-archive-opens.svg" target="_blank">Open Fullscreen</a>
+        </div>
+      </div>
+      <div class="svg-viewer">
+        <img src="02-the-archive-opens.svg" alt="Template 2 The Archive Opens">
+      </div>
+    </div>
+
+    <!-- Template 3 -->
+    <div class="template-card" id="t3">
+      <div class="card-meta">
+        <div>
+          <h3>03: This Day in Technology — 10 September Timeline</h3>
+          <p style="font-size: 13px; color: var(--muted); margin-top: 4px;">Interactive chronological technology timeline, category filters, and 2020 featured milestone</p>
+        </div>
+        <div class="card-actions">
+          <span class="dims">1440 × 2950 px</span>
+          <a href="03-this-day-in-tech-timeline.svg" download>Download SVG</a>
+          <a href="03-this-day-in-tech-timeline.svg" target="_blank">Open Fullscreen</a>
+        </div>
+      </div>
+      <div class="svg-viewer">
+        <img src="03-this-day-in-tech-timeline.svg" alt="Template 3 Tech Timeline">
+      </div>
+    </div>
+
+    <!-- Template 4 -->
+    <div class="template-card" id="t4">
+      <div class="card-meta">
+        <div>
+          <h3>04: One Day, One Year — Master Homepage</h3>
+          <p style="font-size: 13px; color: var(--muted); margin-top: 4px;">Complete platform homepage with circular date dial, five moments cards, Apollo 1969 feature, and celestial orbits</p>
+        </div>
+        <div class="card-actions">
+          <span class="dims">1440 × 3300 px</span>
+          <a href="04-oneday-oneyear-homepage.svg" download>Download SVG</a>
+          <a href="04-oneday-oneyear-homepage.svg" target="_blank">Open Fullscreen</a>
+        </div>
+      </div>
+      <div class="svg-viewer">
+        <img src="04-oneday-oneyear-homepage.svg" alt="Template 4 Homepage">
+      </div>
+    </div>
+
+    <!-- Master Canvas -->
+    <div class="template-card" id="canvas">
+      <div class="card-meta">
+        <div>
+          <h3>Master All-in-One Multi-Artboard Figma Canvas</h3>
+          <p style="font-size: 13px; color: var(--muted); margin-top: 4px;">All 4 design templates laid out side-by-side with Artboard labels in a single 6500×3700 px canvas</p>
+        </div>
+        <div class="card-actions">
+          <span class="dims">6500 × 3700 px</span>
+          <a href="figma-canvas-all-templates.svg" download>Download Master Canvas SVG</a>
+          <a href="figma-canvas-all-templates.svg" target="_blank">Open Fullscreen</a>
+        </div>
+      </div>
+      <div class="svg-viewer">
+        <img src="figma-canvas-all-templates.svg" alt="Master All-in-One Canvas">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>One Day, One Year • Figma Design System &amp; Templates Repository • © 2026</p>
+  </footer>
+</body>
+</html>

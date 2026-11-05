@@ -1,0 +1,451 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1440 2950" width="1440" height="2950">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap');
+      .serif-display { font-family: 'Cinzel', 'Playfair Display', Georgia, serif; }
+      .serif-body { font-family: 'Playfair Display', Georgia, serif; }
+      .mono { font-family: 'IBM Plex Mono', 'Courier New', monospace; }
+      .sans { font-family: 'Inter', -apple-system, sans-serif; }
+    </style>
+    <pattern id="paperTexture" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="#E8DEC9" />
+      <circle cx="25" cy="25" r="1" fill="#DCCFB6" opacity="0.4" />
+      <circle cx="75" cy="65" r="1.5" fill="#D5C5A8" opacity="0.3" />
+      <circle cx="50" cy="85" r="0.8" fill="#E0D3BC" opacity="0.5" />
+    </pattern>
+    <filter id="inkBleed" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.8" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect id="Canvas_Background" width="1440" height="2950" fill="url(#paperTexture)" />
+  <rect x="24" y="24" width="1392" height="2902" fill="none" stroke="#2B2620" stroke-width="2" />
+  <rect x="28" y="28" width="1384" height="2894" fill="none" stroke="#2B2620" stroke-width="0.8" />
+
+  <!-- Top Utilities Header -->
+  <g id="Top_Header">
+    <text x="50" y="60" class="mono" font-size="12" font-weight="600" fill="#2B2620" letter-spacing="1.5">OD / OHM • PUBLIC ARCHIVES, VOL. I</text>
+    <text x="1000" y="60" class="sans" font-size="12" font-weight="600" fill="#2B2620" letter-spacing="2">
+      <tspan dx="0">CALENDAR</tspan>
+      <tspan dx="35">SEARCH</tspan>
+      <tspan dx="35">ABOUT</tspan>
+      <tspan dx="35">SIGN IN</tspan>
+    </text>
+    <line x1="50" y1="75" x2="1390" y2="75" stroke="#2B2620" stroke-width="1.2" />
+  </g>
+
+  <!-- Masthead Section -->
+  <g id="Masthead">
+    <text x="720" y="150" text-anchor="middle" class="serif-display" font-size="74" font-weight="900" fill="#1C1814" letter-spacing="8">SPECIAL REPORT / VOL. I</text>
+    <line x1="50" y1="180" x2="1390" y2="180" stroke="#1C1814" stroke-width="4" />
+    <line x1="50" y1="186" x2="1390" y2="186" stroke="#1C1814" stroke-width="1.2" />
+  </g>
+
+  <!-- Cartographic Top Panels -->
+  <g id="Section_Cartography" transform="translate(50, 210)">
+    <!-- Map 1 (Left): Hybrid Maps & Layouts -->
+    <g id="Panel_Cartography_Left">
+      <rect x="0" y="0" width="650" height="340" fill="#DFD2BD" stroke="#2B2620" stroke-width="1.5" />
+      <rect x="4" y="4" width="642" height="332" fill="none" stroke="#2B2620" stroke-width="0.7" />
+      
+      <!-- Vector Map Drawing of North America Grid -->
+      <g id="Vector_Map_US" opacity="0.85">
+        <!-- Latitude / Longitude Grid -->
+        <line x1="20" y1="60" x2="630" y2="60" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+        <line x1="20" y1="120" x2="630" y2="120" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+        <line x1="20" y1="180" x2="630" y2="180" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+        <line x1="20" y1="240" x2="630" y2="240" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+
+        <line x1="120" y1="20" x2="120" y2="280" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+        <line x1="240" y1="20" x2="240" y2="280" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+        <line x1="360" y1="20" x2="360" y2="280" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+        <line x1="480" y1="20" x2="480" y2="280" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+
+        <!-- US Boundary Paths -->
+        <path d="M 60 70 L 140 68 L 220 72 L 310 70 L 380 65 L 430 80 L 460 72 L 530 85 L 560 120 L 580 150 L 560 180 L 530 200 L 490 230 L 450 250 L 400 240 L 350 260 L 290 240 L 220 220 L 160 215 L 110 200 L 70 170 L 60 110 Z" fill="none" stroke="#2B2620" stroke-width="1.8" />
+        <!-- State lines -->
+        <path d="M 140 68 L 145 130 L 210 135 M 220 72 L 225 150 M 310 70 L 315 160 L 400 160 M 380 65 L 385 130 M 145 130 L 70 140 M 160 215 L 210 135 L 290 140 L 290 240 M 350 160 L 350 260 M 430 80 L 440 180 L 530 180" fill="none" stroke="#5A4E3C" stroke-width="0.9" />
+        
+        <!-- Target Marker / Coordinates Reticle -->
+        <circle cx="265" cy="145" r="14" fill="none" stroke="#8A2B18" stroke-width="2" />
+        <circle cx="265" cy="145" r="6" fill="#8A2B18" />
+        <line x1="240" y1="145" x2="290" y2="145" stroke="#8A2B18" stroke-width="1.5" />
+        <line x1="265" y1="120" x2="265" y2="170" stroke="#8A2B18" stroke-width="1.5" />
+        <rect x="290" y="132" width="110" height="24" fill="#E8DEC9" stroke="#8A2B18" stroke-width="1" />
+        <text x="295" y="148" class="mono" font-size="10" font-weight="600" fill="#8A2B18">SITE 04 • 38°N 77°W</text>
+      </g>
+
+      <rect x="0" y="295" width="650" height="45" fill="#2B2620" />
+      <text x="325" y="324" text-anchor="middle" class="sans" font-size="12" font-weight="700" fill="#E8DEC9" letter-spacing="2">HYBRID MAPS &amp; CARTOGRAPHIC LAYOUTS</text>
+    </g>
+
+    <!-- Map 2 (Right): Original Documents & Correspondence -->
+    <g id="Panel_Cartography_Right" transform="translate(690, 0)">
+      <rect x="0" y="0" width="650" height="340" fill="#DFD2BD" stroke="#2B2620" stroke-width="1.5" />
+      <rect x="4" y="4" width="642" height="332" fill="none" stroke="#2B2620" stroke-width="0.7" />
+
+      <!-- Vector Urban Road/Transit Grid -->
+      <g id="Vector_Urban_Grid" opacity="0.85">
+        <path d="M 40 40 Q 180 140 320 120 T 600 240" fill="none" stroke="#2B2620" stroke-width="3" />
+        <path d="M 80 260 Q 240 200 360 80 T 580 40" fill="none" stroke="#2B2620" stroke-width="2.5" />
+        <path d="M 20 180 L 620 150" fill="none" stroke="#5A4E3C" stroke-width="2" />
+        <path d="M 180 30 L 180 280" fill="none" stroke="#5A4E3C" stroke-width="1.5" />
+        <path d="M 460 30 L 460 280" fill="none" stroke="#5A4E3C" stroke-width="1.5" />
+        <path d="M 320 20 L 320 290" fill="none" stroke="#8A2B18" stroke-width="1.8" stroke-dasharray="6 3" />
+
+        <!-- Radial highway bypasses -->
+        <circle cx="320" cy="140" r="80" fill="none" stroke="#2B2620" stroke-width="1.2" />
+        <circle cx="320" cy="140" r="140" fill="none" stroke="#5A4E3C" stroke-width="0.9" stroke-dasharray="5 5" />
+
+        <!-- Building Block Matrix -->
+        <rect x="90" y="80" width="30" height="20" fill="#9A8C74" opacity="0.5" />
+        <rect x="130" y="75" width="25" height="30" fill="#9A8C74" opacity="0.5" />
+        <rect x="220" y="90" width="40" height="25" fill="#9A8C74" opacity="0.6" />
+        <rect x="380" y="160" width="50" height="30" fill="#9A8C74" opacity="0.6" />
+        <rect x="440" y="170" width="35" height="25" fill="#9A8C74" opacity="0.5" />
+        <rect x="500" y="120" width="45" height="35" fill="#9A8C74" opacity="0.6" />
+      </g>
+
+      <rect x="0" y="295" width="650" height="45" fill="#2B2620" />
+      <text x="325" y="324" text-anchor="middle" class="sans" font-size="12" font-weight="700" fill="#E8DEC9" letter-spacing="2">ORIGINAL DOCUMENTS &amp; CORRESPONDENCE</text>
+    </g>
+  </g>
+
+  <!-- Middle Upper Section: Archivist Text & Historical Photo -->
+  <g id="Section_Archivist_Lead" transform="translate(50, 590)">
+    <!-- Left Column: Editorial Columns -->
+    <g id="Archivist_Columns_Left">
+      <text x="0" y="30" class="sans" font-size="16" font-weight="800" fill="#1C1814" letter-spacing="1.5">THE APPOINTMENT OF THE FIRST ARCHIVIST</text>
+      <line x1="0" y1="42" x2="650" y2="42" stroke="#1C1814" stroke-width="1" />
+
+      <!-- Sub-column 1 -->
+      <g transform="translate(0, 60)">
+        <text class="serif-body" font-size="13" fill="#2B2620" line-height="1.5">
+          <tspan x="0" y="0">Gome isno arcene lypeestiern-assients</tspan>
+          <tspan x="0" y="20">baccraats reallidts to camplet to this</tspan>
+          <tspan x="0" y="40">uncasse sarmasu and thereisene in tlar</tspan>
+          <tspan x="0" y="60">corssanare of aonmeskin modovon</tspan>
+          <tspan x="0" y="80">mosaedrco chwers or medoss thereselve</tspan>
+          <tspan x="0" y="100">of mustext hantevement of its liro-garent</tspan>
+          <tspan x="0" y="120">line tezons. Asmr narlced and dereosecases</tspan>
+          <tspan x="0" y="140">dauderated crecate elraas arom motiers</tspan>
+          <tspan x="0" y="160">disants to conereot the mansot teems</tspan>
+          <tspan x="0" y="180">and lasons diss uroration tarnu ecocours</tspan>
+          <tspan x="0" y="200">matisement and and coaling ones its</tspan>
+          <tspan x="0" y="220">vusions and archival directives.</tspan>
+        </text>
+      </g>
+
+      <!-- Vertical divider rule -->
+      <line x1="320" y1="60" x2="320" y2="300" stroke="#9A8C74" stroke-width="0.8" />
+
+      <!-- Sub-column 2 -->
+      <g transform="translate(340, 60)">
+        <text class="serif-body" font-size="13" fill="#2B2620" line-height="1.5">
+          <tspan x="0" y="0">bending some ontanta oe chites cumiount</tspan>
+          <tspan x="0" y="20">some users dantranner shafe glatteranear,</tspan>
+          <tspan x="0" y="40">filtax have lac-consaliterative commant</tspan>
+          <tspan x="0" y="60">and enrannos whale in the round disrates</tspan>
+          <tspan x="0" y="80">antieronsis ceredesslent all dirst stanoss</tspan>
+          <tspan x="0" y="100">of the determmants and converence was</tspan>
+          <tspan x="0" y="120">lorauld to sacs herrilae satisfafeed to</tspan>
+          <tspan x="0" y="140">creese modimate or matter lororats.</tspan>
+          <tspan x="0" y="160">Preservation of records from the earliest</tspan>
+          <tspan x="0" y="180">transmission logs remains sovereign to</tspan>
+          <tspan x="0" y="200">the public mission across centuries.</tspan>
+        </text>
+        <rect x="0" y="235" width="130" height="26" fill="#2B2620" />
+        <text x="65" y="252" text-anchor="middle" class="mono" font-size="11" font-weight="600" fill="#E8DEC9">EHLTES-INDEX</text>
+      </g>
+    </g>
+
+    <!-- Right Column: Vintage Photograph Frame -->
+    <g id="Archivist_Photo_Right" transform="translate(690, 0)">
+      <rect x="0" y="0" width="650" height="320" fill="#1C1814" stroke="#2B2620" stroke-width="2" />
+      <image href="data:image/jpeg;base64,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" x="6" y="6" width="638" height="308" preserveAspectRatio="xMidYMid slice" />
+    </g>
+  </g>
+
+  <!-- Middle Lower Section: Detailed Article & Framed Selection Component -->
+  <g id="Section_Appointment_Detail" transform="translate(50, 960)">
+    <!-- Left Column: Article Story & Statistics Table -->
+    <g id="Appointment_Detail_Left">
+      <text x="0" y="45" class="serif-display" font-size="34" font-weight="900" fill="#1C1814" letter-spacing="2">THE APPOINTMENT OF</text>
+      <text x="0" y="85" class="serif-display" font-size="34" font-weight="900" fill="#1C1814" letter-spacing="2">THE FIRST ARCHIVIST</text>
+      <text x="0" y="120" class="sans" font-size="12" font-weight="700" fill="#8A2B18" letter-spacing="2">29 JULY 1969 / EXPLORING / FRSG</text>
+      <line x1="0" y1="135" x2="650" y2="135" stroke="#1C1814" stroke-width="1.5" />
+
+      <text class="serif-body" font-size="14" fill="#2B2620">
+        <tspan x="0" y="165">The Appointment of the First Archivist, secreos and detronsom caber</tspan>
+        <tspan x="0" y="190">cremaats alse Dise Inerete the vacoca issate of Mitaxes Nlassee II to</tspan>
+        <tspan x="0" y="215">excert msitive than sext hess iffised in the measor's pronty have and</tspan>
+        <tspan x="0" y="240">inventdenth merst affirations. Shendocdues and in main endainee</tspan>
+        <tspan x="0" y="265">nid identity halley güsss omordaration ennnuel R&amp;W and sentiend retail</tspan>
+        <tspan x="0" y="290">accessants accesssus carrious caradatims aroo prosono.</tspan>
+      </text>
+
+      <!-- Statistical Record Table -->
+      <g id="Record_Stats_Table" transform="translate(0, 320)">
+        <rect x="0" y="0" width="650" height="380" fill="#DFD2BD" stroke="#2B2620" stroke-width="1" />
+        <line x1="0" y1="30" x2="650" y2="30" stroke="#2B2620" stroke-width="1" />
+        <line x1="325" y1="0" x2="325" y2="380" stroke="#2B2620" stroke-width="1" />
+        <text x="15" y="22" class="mono" font-size="12" font-weight="700" fill="#1C1814">METRIC PARAMETER</text>
+        <text x="340" y="22" class="mono" font-size="12" font-weight="700" fill="#1C1814">FIELD VALUE / STATUS</text>
+
+        <!-- Rows -->
+        <g class="mono" font-size="11" fill="#2B2620">
+          <text x="15" y="55">Date: 266</text><text x="340" y="55">Forest cenner: 116</text>
+          <text x="15" y="80">Bate concons: 116</text><text x="340" y="80">Fineast 1965 on 7998s: 60</text>
+          <text x="15" y="105">Reseosam hacher: 375</text><text x="340" y="105">Meats of ceat: 63M</text>
+          <text x="15" y="130">Financt: 60</text><text x="340" y="130">Nerass incogne: 9</text>
+          <text x="15" y="155">Roseider: 153</text><text x="340" y="155">Inatimal Dowers: 0</text>
+          <text x="15" y="180">Resensert Resight: 135</text><text x="340" y="180">Lowane stats: 46</text>
+          <text x="15" y="205">Focus esums: 46</text><text x="340" y="205">Acreasary, alce biets: 9</text>
+          <text x="15" y="230">Business volume: 9</text><text x="340" y="230">Ammanawario: 1</text>
+          <text x="15" y="255">Business Danet/Doras: 1</text><text x="340" y="255">becoming stroat donts: 16</text>
+          <text x="15" y="280">Disparsive: 16</text><text x="340" y="280">estic precon acrot: 26</text>
+          <text x="15" y="305">Demior: 26</text><text x="340" y="305">Shpata on dies: 60</text>
+          <text x="15" y="330">Primary Band: S-BAND</text><text x="340" y="330">Frequency: 2287.5 MHz</text>
+          <text x="15" y="355">Telemetry Status: SECURED</text><text x="340" y="355">Operational Flag: NOMINAL</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Right Column: Figma Highlight Frame (Blue selection box #18A0FB) -->
+    <g id="Component_Figma_Selection" transform="translate(685, 0)">
+      <!-- Figma Blue Component Selection Border -->
+      <rect x="-6" y="-6" width="662" height="716" fill="none" stroke="#18A0FB" stroke-width="3" />
+      <rect x="-10" y="-10" width="8" height="8" fill="#FFFFFF" stroke="#18A0FB" stroke-width="2" />
+      <rect x="652" y="-10" width="8" height="8" fill="#FFFFFF" stroke="#18A0FB" stroke-width="2" />
+      <rect x="-10" y="706" width="8" height="8" fill="#FFFFFF" stroke="#18A0FB" stroke-width="2" />
+      <rect x="652" y="706" width="8" height="8" fill="#FFFFFF" stroke="#18A0FB" stroke-width="2" />
+
+      <!-- Inner Content Box -->
+      <rect x="0" y="0" width="650" height="704" fill="#E8DEC9" />
+
+      <!-- Editorial Paragraph -->
+      <g transform="translate(15, 25)">
+        <text class="serif-body" font-size="13.5" fill="#1C1814" line-height="1.45">
+          <tspan x="0" y="0">The first manetaa ham do first stated on aftes as reudoand</tspan>
+          <tspan x="0" y="20">accoants with musmreen linsarn aasclerrattenze deement on</tspan>
+          <tspan x="0" y="40">the eradarst ler te cause lei sest grone and fee that these haven</tspan>
+          <tspan x="0" y="60">masue like the potential have sew vesouses memeclon can</tspan>
+          <tspan x="0" y="80">plave margt inass olarim nurrential overezare maz offers second</tspan>
+          <tspan x="0" y="100">have monue bearing coverpnance, svalen war oferenc to the</tspan>
+          <tspan x="0" y="120">mew dinxiemo coveesma monelineats volertinte the saznano</tspan>
+          <tspan x="0" y="140">dune of morioragos sand of the waves uoisents uncmeer nod's</tspan>
+          <tspan x="0" y="160">rogac acw the mearnxconus over inverstmenty aceonas esai cannd</tspan>
+          <tspan x="0" y="180">caso be mamtanred appenent of first assist invergore.</tspan>
+        </text>
+
+        <!-- Two Column Table: DATE TIME / TARABLES -->
+        <g transform="translate(0, 220)">
+          <line x1="0" y1="0" x2="620" y2="0" stroke="#1C1814" stroke-width="2" />
+          <line x1="0" y1="28" x2="620" y2="28" stroke="#1C1814" stroke-width="1" />
+          <text x="0" y="20" class="sans" font-size="12" font-weight="800" fill="#1C1814" letter-spacing="1.5">DATE TIME</text>
+          <text x="320" y="20" class="sans" font-size="12" font-weight="800" fill="#1C1814" letter-spacing="1.5">TARABLES</text>
+
+          <g class="mono" font-size="12" fill="#2B2620">
+            <text x="0" y="50">Boajs: 8</text><text x="320" y="50">Coase usage: 14</text>
+            <text x="0" y="74">Gestes: 6</text><text x="320" y="74">Corseries: 4</text>
+            <text x="0" y="98">First time: 34</text><text x="320" y="98">Phote toxes: 2</text>
+            <text x="0" y="122">Monel time: 20</text><text x="320" y="122">Deener viikorits: 20</text>
+            <text x="0" y="146">Mernel vssits: 27</text><text x="320" y="146">Data dataganams: 25</text>
+            <text x="0" y="170">Merset lastate: 3</text><text x="320" y="170">Strass Dawders: 15</text>
+            <text x="0" y="194">Bapodistion date date: 24</text><text x="320" y="194">Septmance of seamnors: 7</text>
+          </g>
+          <line x1="0" y1="210" x2="620" y2="210" stroke="#1C1814" stroke-width="1.5" />
+        </g>
+
+        <!-- Subheading: EDITORIAL LECORD -->
+        <g transform="translate(0, 465)">
+          <text x="0" y="20" class="sans" font-size="13" font-weight="800" fill="#1C1814" letter-spacing="1.5">EDITORIAL LECORD</text>
+          
+          <!-- Bullets Left -->
+          <g transform="translate(0, 40)" class="sans" font-size="12" fill="#2B2620" font-weight="500">
+            <text x="0" y="0">• New Muension aignritants alhirants</text>
+            <text x="0" y="24">• Abela leramien Semesion marted diass</text>
+            <text x="0" y="48">• Pariskiack bestanced on staters</text>
+            <text x="0" y="72">• Destiavared asrd ha shout Deock land</text>
+            <text x="12" y="92">extenhed ltiss mns</text>
+          </g>
+
+          <!-- Right column note -->
+          <g transform="translate(320, 30)">
+            <text class="serif-body" font-size="11.5" fill="#3A3228">
+              <tspan x="0" y="10">Aprfiil MTiler anf Technomote fise</tspan>
+              <tspan x="0" y="26">ms portuloss diatin, knut Misske</tspan>
+              <tspan x="0" y="42">Pryksmne mracerus heried corloherrante</tspan>
+              <tspan x="0" y="58">desv a4 comuinal losernatteener or</tspan>
+              <tspan x="0" y="74">rese-combirance neewis crarkatiomen</tspan>
+              <tspan x="0" y="90">devsolated connerswraad deunts of</tspan>
+              <tspan x="0" y="106">Geocoot, fnered modoeena nornoone</tspan>
+              <tspan x="0" y="122">aixsanent, aomisciame poovide</tspan>
+              <tspan x="0" y="138">cooreet stood mrvody.</tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Section: Three Boxed Dispatch Panels -->
+  <g id="Section_Dispatch_Panels" transform="translate(50, 1720)">
+    <line x1="0" y1="0" x2="1340" y2="0" stroke="#1C1814" stroke-width="3" />
+    <line x1="0" y1="6" x2="1340" y2="6" stroke="#1C1814" stroke-width="1" />
+
+    <!-- Panel 1 (Left): Technical Specifications -->
+    <g id="Panel_Technical_Specs" transform="translate(0, 20)">
+      <rect x="0" y="0" width="430" height="920" fill="#DFD2BD" stroke="#2B2620" stroke-width="1.5" />
+      <rect x="0" y="0" width="430" height="40" fill="#2B2620" />
+      <text x="15" y="26" class="sans" font-size="14" font-weight="800" fill="#E8DEC9" letter-spacing="1.5">TECHNICAL SPECIFICATIONS</text>
+
+      <g transform="translate(20, 65)" class="mono" font-size="12" font-weight="600" fill="#1C1814">
+        <text x="0" y="0">RECORD ID</text><text x="210" y="0">: REC-1969-0720-A1</text>
+        <text x="0" y="28">VERIFICATION CODE</text><text x="210" y="28">: VOL. I-SEC. 04-0982</text>
+        <text x="0" y="56">ARCHIVE STATUS</text><text x="210" y="56">: VERIFIED</text>
+        <text x="0" y="84">SIGNAL BAND</text><text x="210" y="84">: S-BAND</text>
+        <text x="0" y="112">FREQUENCY (CARRIER)</text><text x="210" y="112">: 2287.5 MHz</text>
+        <text x="0" y="140">TELEMETRY LINK</text><text x="210" y="140">: SECURED</text>
+        <text x="0" y="168">STATUS</text><text x="210" y="168">: NOMINAL</text>
+      </g>
+
+      <line x1="15" y1="260" x2="415" y2="260" stroke="#2B2620" stroke-width="1" />
+
+      <!-- Vector Lunar Descent Trajectory Graphic -->
+      <g id="Vector_Lunar_Trajectory" transform="translate(20, 290)">
+        <text x="0" y="20" class="sans" font-size="11" font-weight="700" fill="#5A4E3C" letter-spacing="1">LUNAR DESCENT TRAJECTORY • PROFILE SEC 4</text>
+        
+        <!-- Descent Arc -->
+        <path d="M 40 100 Q 180 120 280 260 T 340 420" fill="none" stroke="#1C1814" stroke-width="2.5" stroke-dasharray="6 3" />
+        
+        <!-- High orbit Lunar Module Icon -->
+        <g transform="translate(30, 80) scale(0.9)">
+          <rect x="0" y="0" width="30" height="24" fill="#1C1814" rx="3" />
+          <polygon points="15,24 5,42 25,42" fill="none" stroke="#1C1814" stroke-width="2" />
+          <line x1="-5" y1="42" x2="35" y2="42" stroke="#1C1814" stroke-width="2" />
+          <circle cx="15" cy="12" r="4" fill="#E8DEC9" />
+        </g>
+
+        <!-- Landing touchdown Lunar Module Icon -->
+        <g transform="translate(325, 380) scale(1.1)">
+          <rect x="0" y="0" width="30" height="24" fill="#1C1814" rx="3" />
+          <polygon points="15,24 5,42 25,42" fill="none" stroke="#1C1814" stroke-width="2" />
+          <line x1="-10" y1="42" x2="40" y2="42" stroke="#1C1814" stroke-width="3" />
+          <circle cx="15" cy="12" r="4" fill="#E8DEC9" />
+        </g>
+
+        <!-- Lunar Surface Craters -->
+        <path d="M 0 520 Q 80 500 160 520 T 320 515 T 400 525" fill="none" stroke="#1C1814" stroke-width="3" />
+        <ellipse cx="120" cy="515" rx="25" ry="6" fill="#C5B59C" stroke="#1C1814" stroke-width="1.2" />
+        <ellipse cx="260" cy="518" rx="40" ry="8" fill="#C5B59C" stroke="#1C1814" stroke-width="1.2" />
+
+        <rect x="0" y="550" width="50" height="24" fill="#1C1814" />
+        <text x="25" y="566" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#E8DEC9">B&amp;W</text>
+      </g>
+    </g>
+
+    <!-- Panel 2 (Middle): The Landing Dispatch -->
+    <g id="Panel_Landing_Dispatch" transform="translate(455, 20)">
+      <rect x="0" y="0" width="430" height="920" fill="#E8DEC9" stroke="#2B2620" stroke-width="1.5" />
+      <rect x="0" y="0" width="430" height="40" fill="#2B2620" />
+      <text x="15" y="26" class="sans" font-size="14" font-weight="800" fill="#E8DEC9" letter-spacing="1.5">THE LANDING DISPATCH</text>
+
+      <g transform="translate(20, 65)">
+        <text class="serif-body" font-size="14" fill="#1C1814" line-height="1.55">
+          <tspan x="0" y="0" font-weight="700">TRANQUILITY BASE, JULY 20, 1969 —</tspan>
+          <tspan x="0" y="26">Contact was confirmed at 20:17:40</tspan>
+          <tspan x="0" y="52">UTC. The lunar module "Eagle" touched</tspan>
+          <tspan x="0" y="78">down in the Sea of Tranquility following</tspan>
+          <tspan x="0" y="104">a descent over rugged terrain. Initial</tspan>
+          <tspan x="0" y="130">checkouts confirmed life support and</tspan>
+          <tspan x="0" y="156">electrical systems integrity.</tspan>
+          
+          <tspan x="0" y="210">All data packets from this period have</tspan>
+          <tspan x="0" y="236">been cataloged under "VOL. I, SEC. 04"</tspan>
+          <tspan x="0" y="262">and are preserved for public inspection.</tspan>
+          <tspan x="0" y="288">Transmission logs indicate minimal signal</tspan>
+          <tspan x="0" y="314">degradation during the primary egress</tspan>
+          <tspan x="0" y="340">sequence.</tspan>
+        </text>
+
+        <!-- Framed Historic Quote Box -->
+        <g transform="translate(0, 420)">
+          <rect x="0" y="0" width="390" height="120" fill="#DFD2BD" stroke="#2B2620" stroke-width="2" />
+          <rect x="4" y="4" width="382" height="112" fill="none" stroke="#2B2620" stroke-width="0.8" />
+          <text class="serif-display" font-size="16" font-weight="700" fill="#1C1814">
+            <tspan x="20" y="45">"Houston, Tranquility Base here.</tspan>
+            <tspan x="20" y="75"> The Eagle has landed."</tspan>
+          </text>
+          <text x="20" y="102" class="sans" font-size="11" font-weight="600" fill="#8A2B18" letter-spacing="1">— APOLLO 11 TRANSMISSION LOG</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Panel 3 (Right): Cross-Referenced Index -->
+    <g id="Panel_Cross_Index" transform="translate(910, 20)">
+      <rect x="0" y="0" width="430" height="920" fill="#DFD2BD" stroke="#2B2620" stroke-width="1.5" />
+      <rect x="0" y="0" width="430" height="40" fill="#2B2620" />
+      <text x="15" y="26" class="sans" font-size="14" font-weight="800" fill="#E8DEC9" letter-spacing="1.5">CROSS-REFERENCED INDEX</text>
+
+      <g transform="translate(20, 65)">
+        <!-- Index Item 1: Vostok 1 -->
+        <g transform="translate(0, 0)">
+          <rect x="0" y="0" width="70" height="70" fill="#1C1814" />
+          <circle cx="35" cy="35" r="22" fill="none" stroke="#E8DEC9" stroke-width="1.5" />
+          <circle cx="35" cy="35" r="10" fill="#E8DEC9" />
+          <rect x="4" y="4" width="28" height="14" fill="#2B2620" />
+          <text x="18" y="14" text-anchor="middle" class="mono" font-size="8" fill="#E8DEC9">B&amp;W</text>
+
+          <text x="85" y="20" class="mono" font-size="11" font-weight="700" fill="#8A2B18">12 APR 1961</text>
+          <text x="85" y="40" class="sans" font-size="14" font-weight="800" fill="#1C1814">VOSTOK 1 ORBIT</text>
+          <text x="85" y="60" class="serif-body" font-size="12" fill="#3A3228">Gagarin completes first human spaceflight.</text>
+        </g>
+
+        <line x1="0" y1="95" x2="390" y2="95" stroke="#9A8C74" stroke-width="0.8" />
+
+        <!-- Index Item 2: Sputnik 1 -->
+        <g transform="translate(0, 115)">
+          <rect x="0" y="0" width="70" height="70" fill="#1C1814" />
+          <circle cx="35" cy="35" r="14" fill="#E8DEC9" />
+          <line x1="35" y1="35" x2="10" y2="10" stroke="#E8DEC9" stroke-width="1.5" />
+          <line x1="35" y1="35" x2="60" y2="10" stroke="#E8DEC9" stroke-width="1.5" />
+          <line x1="35" y1="35" x2="10" y2="60" stroke="#E8DEC9" stroke-width="1.5" />
+          <rect x="4" y="4" width="28" height="14" fill="#2B2620" />
+          <text x="18" y="14" text-anchor="middle" class="mono" font-size="8" fill="#E8DEC9">B&amp;W</text>
+
+          <text x="85" y="20" class="mono" font-size="11" font-weight="700" fill="#8A2B18">04 OCT 1957</text>
+          <text x="85" y="40" class="sans" font-size="14" font-weight="800" fill="#1C1814">SPUTNIK 1 TRANSMISSION</text>
+          <text x="85" y="60" class="serif-body" font-size="12" fill="#3A3228">The first artificial Earth satellite launches.</text>
+        </g>
+
+        <line x1="0" y1="210" x2="390" y2="210" stroke="#2B2620" stroke-width="1.5" />
+
+        <!-- Associated Moments -->
+        <g transform="translate(0, 240)">
+          <text x="0" y="0" class="sans" font-size="13" font-weight="800" fill="#1C1814" letter-spacing="1">ASSOCIATED INDEXED MOMENTS</text>
+          <g transform="translate(0, 30)" class="mono" font-size="12" fill="#2B2620">
+            <text x="0" y="0">• 16 JUL 1969: Saturn V Launch</text>
+            <text x="16" y="20" fill="#5A4E3C">(REC-1969-0716)</text>
+            
+            <text x="0" y="55">• 24 JUL 1969: Splashdown</text>
+            <text x="16" y="75" fill="#5A4E3C">(REC-1969-0724)</text>
+
+            <text x="0" y="110">• 12 SEP 1962: "We Choose to go</text>
+            <text x="16" y="130">to the Moon" Address</text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Navigation Bar -->
+  <g id="Bottom_Navigation" transform="translate(50, 2870)">
+    <line x1="0" y1="0" x2="1340" y2="0" stroke="#1C1814" stroke-width="1.5" />
+    <text x="15" y="40" class="mono" font-size="13" font-weight="700" fill="#1C1814">[ PREVIOUS DISPATCH ]</text>
+    <text x="670" y="40" text-anchor="middle" class="mono" font-size="13" font-weight="700" fill="#1C1814">[ NEXT DISPATCH ]</text>
+    <text x="1325" y="40" text-anchor="end" class="mono" font-size="13" font-weight="700" fill="#1C1814">[ BACK TO INDEX ]</text>
+  </g>
+</svg>
