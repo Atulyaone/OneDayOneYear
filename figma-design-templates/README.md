@@ -82,3 +82,4 @@ Importing these vector templates into Figma is seamless:
 
 ## 🔗 Related External Templates
 - The initial Figma Community inspiration template link is preserved in [`Figma Design Temp-1`](../Figma%20Design%20Temp-1).
+

@@ -1,5 +1,5 @@
-import { useState, useMemo, useEffect } from 'react'
-import * as eventData from '../data/events'
+import { useState, useMemo } from 'react'
+import { events } from '../data/events'
 
 export type SearchStatus = 'idle' | 'results' | 'empty'
 
@@ -11,9 +11,7 @@ export interface ArchiveRecord {
   [key: string]: any
 }
 
-export const allRecords: ArchiveRecord[] = Array.isArray((eventData as any).default)
-  ? (eventData as any).default
-  : (Object.values(eventData).find(Array.isArray) as ArchiveRecord[]) || []
+export const allRecords: ArchiveRecord[] = events
 
 const MONTH_NAMES = [
   'january', 'february', 'march', 'april', 'may', 'june',
@@ -23,7 +21,13 @@ const MONTH_SHORT = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'se
 
 export function useArchiveSearch(query: string) {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [prevQuery, setPrevQuery] = useState(query)
   const clean = query.trim().toLowerCase()
+
+  if (prevQuery !== query) {
+    setPrevQuery(query)
+    setActiveIndex(0)
+  }
 
   const results = useMemo(() => {
     // 1. Search bar empty -> return zero results so the idle screen stays visible
@@ -68,9 +72,6 @@ export function useArchiveSearch(query: string) {
     })
   }, [clean])
 
-  useEffect(() => {
-    setActiveIndex(0)
-  }, [clean, results.length])
 
   const status: SearchStatus = useMemo(() => {
     if (!clean) return 'idle'
