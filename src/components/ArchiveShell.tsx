@@ -208,6 +208,11 @@ function SearchOverlay({
   const inputRef = useRef<HTMLInputElement>(null)
   const sheetRef = useRef<HTMLDivElement>(null)
   const [query, setQuery] = useState('')
+  const [prevOpen, setPrevOpen] = useState(open)
+  if (prevOpen !== open) {
+    setPrevOpen(open)
+    if (!open) setQuery('')
+  }
   const { status, results, totalCount, activeIndex, setActiveIndex } = useArchiveSearch(query)
 
   const handleClose = () => {

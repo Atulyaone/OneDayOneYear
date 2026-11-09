@@ -56,6 +56,16 @@ export function useFrameSequence({ canvasRef, containerRef, reducedMotion }: Fra
 
     
 
+    if (reducedMotion) {
+      void load(TOTAL_FRAMES).then(() => {
+        const frame = cache.get(TOTAL_FRAMES)
+        if (frame) draw(frame)
+      })
+      return () => {
+        disposed = true
+      }
+    }
+
     const viewport = window.innerWidth
     const stride = viewport <= 560 ? 3 : viewport <= 1024 ? 2 : 1
 

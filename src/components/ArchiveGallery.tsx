@@ -16,7 +16,7 @@ export function ArchiveGallery({ images }: { images: ArchiveImage[] }) {
   const activeImage = availableImages[safeIndex]
 
   useEffect(() => {
-    if (!lightboxOpen) return
+    if (!isLightboxOpen) return
     const onKeyDown = (event: KeyboardEvent) => {
       if (!availableImages.length) return
       if (event.key === 'ArrowRight') setActiveIndex((current) => (current + 1) % availableImages.length)
@@ -24,9 +24,9 @@ export function ArchiveGallery({ images }: { images: ArchiveImage[] }) {
     }
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [availableImages.length, lightboxOpen])
+  }, [availableImages.length, isLightboxOpen])
 
-  useFocusTrap({ active: lightboxOpen, containerRef: lightboxRef, initialRef: closeRef, onEscape: () => setLightboxOpen(false) })
+  useFocusTrap({ active: isLightboxOpen, containerRef: lightboxRef, initialRef: closeRef, onEscape: () => setLightboxOpen(false) })
 
   const handleImageError = (failedSrc: string) => {
     setFailedSrcs((prev) => (prev.includes(failedSrc) ? prev : [...prev, failedSrc]))
@@ -55,7 +55,7 @@ export function ArchiveGallery({ images }: { images: ArchiveImage[] }) {
         </div>
       </div>
       <div className="gallery-caption"><span>{activeImage.caption}</span><span>{activeImage.credit}</span></div>
-      {lightboxOpen && (
+      {isLightboxOpen && (
         <div ref={lightboxRef} className="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-heading" onMouseDown={(event) => { if (event.target === event.currentTarget) setLightboxOpen(false) }}>
           <h2 id="lightbox-heading" className="sr-only">Expanded archive image</h2>
           <button ref={closeRef} type="button" className="lightbox-close" onClick={() => setLightboxOpen(false)} data-cursor="close" aria-label="Close image"><X size={19} strokeWidth={1.2} /> Close</button>
