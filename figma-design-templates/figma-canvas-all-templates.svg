@@ -1,0 +1,1255 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 6500 3700" width="6500" height="3700">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap');
+      .canvas-title { font-family: 'Cinzel', Georgia, serif; font-size: 48px; font-weight: 800; fill: #FFFFFF; letter-spacing: 4px; }
+      .artboard-label { font-family: 'Inter', -apple-system, sans-serif; font-size: 24px; font-weight: 700; fill: #B89355; letter-spacing: 2px; }
+      .artboard-sub { font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 500; fill: #8E8E98; }
+    </style>
+  </defs>
+
+  <!-- Dark Master Figma Workspace Background -->
+  <rect width="6500" height="3700" fill="#141416" />
+
+  <!-- Canvas Header Banner -->
+  <g id="Workspace_Header" transform="translate(100, 100)">
+    <text x="0" y="0" class="canvas-title">ONE DAY, ONE YEAR — FIGMA DESIGN SYSTEM MASTER TEMPLATES</text>
+    <text x="0" y="45" font-family="'Inter', sans-serif" font-size="20" fill="#8E8E98">
+      Four canonical vector design screens and components for the OneDayOneYear historical archive platform.
+    </text>
+  </g>
+
+  <!-- Artboard 1: Special Report / Vol. I -->
+  <g id="Artboard_01_Special_Report" transform="translate(100, 260)">
+    <text x="0" y="-40" class="artboard-label">ARTBOARD 01: SPECIAL REPORT / VOL. I</text>
+    <text x="0" y="-15" class="artboard-sub">1440 × 2950 px • Vintage Broadsheet Apollo 11 Dispatch</text>
+    <g transform="translate(0, 0)">
+      
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap');
+      .serif-display { font-family: 'Cinzel', 'Playfair Display', Georgia, serif; }
+      .serif-body { font-family: 'Playfair Display', Georgia, serif; }
+      .mono { font-family: 'IBM Plex Mono', 'Courier New', monospace; }
+      .sans { font-family: 'Inter', -apple-system, sans-serif; }
+    </style>
+    <pattern id="paperTexture" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="#E8DEC9" />
+      <circle cx="25" cy="25" r="1" fill="#DCCFB6" opacity="0.4" />
+      <circle cx="75" cy="65" r="1.5" fill="#D5C5A8" opacity="0.3" />
+      <circle cx="50" cy="85" r="0.8" fill="#E0D3BC" opacity="0.5" />
+    </pattern>
+    <filter id="inkBleed" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.8" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect id="Canvas_Background" width="1440" height="2950" fill="url(#paperTexture)" />
+  <rect x="24" y="24" width="1392" height="2902" fill="none" stroke="#2B2620" stroke-width="2" />
+  <rect x="28" y="28" width="1384" height="2894" fill="none" stroke="#2B2620" stroke-width="0.8" />
+
+  <!-- Top Utilities Header -->
+  <g id="Top_Header">
+    <text x="50" y="60" class="mono" font-size="12" font-weight="600" fill="#2B2620" letter-spacing="1.5">OD / OHM • PUBLIC ARCHIVES, VOL. I</text>
+    <text x="1000" y="60" class="sans" font-size="12" font-weight="600" fill="#2B2620" letter-spacing="2">
+      <tspan dx="0">CALENDAR</tspan>
+      <tspan dx="35">SEARCH</tspan>
+      <tspan dx="35">ABOUT</tspan>
+      <tspan dx="35">SIGN IN</tspan>
+    </text>
+    <line x1="50" y1="75" x2="1390" y2="75" stroke="#2B2620" stroke-width="1.2" />
+  </g>
+
+  <!-- Masthead Section -->
+  <g id="Masthead">
+    <text x="720" y="150" text-anchor="middle" class="serif-display" font-size="74" font-weight="900" fill="#1C1814" letter-spacing="8">SPECIAL REPORT / VOL. I</text>
+    <line x1="50" y1="180" x2="1390" y2="180" stroke="#1C1814" stroke-width="4" />
+    <line x1="50" y1="186" x2="1390" y2="186" stroke="#1C1814" stroke-width="1.2" />
+  </g>
+
+  <!-- Cartographic Top Panels -->
+  <g id="Section_Cartography" transform="translate(50, 210)">
+    <!-- Map 1 (Left): Hybrid Maps & Layouts -->
+    <g id="Panel_Cartography_Left">
+      <rect x="0" y="0" width="650" height="340" fill="#DFD2BD" stroke="#2B2620" stroke-width="1.5" />
+      <rect x="4" y="4" width="642" height="332" fill="none" stroke="#2B2620" stroke-width="0.7" />
+      
+      <!-- Vector Map Drawing of North America Grid -->
+      <g id="Vector_Map_US" opacity="0.85">
+        <!-- Latitude / Longitude Grid -->
+        <line x1="20" y1="60" x2="630" y2="60" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+        <line x1="20" y1="120" x2="630" y2="120" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+        <line x1="20" y1="180" x2="630" y2="180" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+        <line x1="20" y1="240" x2="630" y2="240" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+
+        <line x1="120" y1="20" x2="120" y2="280" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+        <line x1="240" y1="20" x2="240" y2="280" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+        <line x1="360" y1="20" x2="360" y2="280" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+        <line x1="480" y1="20" x2="480" y2="280" stroke="#9A8C74" stroke-width="0.8" stroke-dasharray="4 4" />
+
+        <!-- US Boundary Paths -->
+        <path d="M 60 70 L 140 68 L 220 72 L 310 70 L 380 65 L 430 80 L 460 72 L 530 85 L 560 120 L 580 150 L 560 180 L 530 200 L 490 230 L 450 250 L 400 240 L 350 260 L 290 240 L 220 220 L 160 215 L 110 200 L 70 170 L 60 110 Z" fill="none" stroke="#2B2620" stroke-width="1.8" />
+        <!-- State lines -->
+        <path d="M 140 68 L 145 130 L 210 135 M 220 72 L 225 150 M 310 70 L 315 160 L 400 160 M 380 65 L 385 130 M 145 130 L 70 140 M 160 215 L 210 135 L 290 140 L 290 240 M 350 160 L 350 260 M 430 80 L 440 180 L 530 180" fill="none" stroke="#5A4E3C" stroke-width="0.9" />
+        
+        <!-- Target Marker / Coordinates Reticle -->
+        <circle cx="265" cy="145" r="14" fill="none" stroke="#8A2B18" stroke-width="2" />
+        <circle cx="265" cy="145" r="6" fill="#8A2B18" />
+        <line x1="240" y1="145" x2="290" y2="145" stroke="#8A2B18" stroke-width="1.5" />
+        <line x1="265" y1="120" x2="265" y2="170" stroke="#8A2B18" stroke-width="1.5" />
+        <rect x="290" y="132" width="110" height="24" fill="#E8DEC9" stroke="#8A2B18" stroke-width="1" />
+        <text x="295" y="148" class="mono" font-size="10" font-weight="600" fill="#8A2B18">SITE 04 • 38°N 77°W</text>
+      </g>
+
+      <rect x="0" y="295" width="650" height="45" fill="#2B2620" />
+      <text x="325" y="324" text-anchor="middle" class="sans" font-size="12" font-weight="700" fill="#E8DEC9" letter-spacing="2">HYBRID MAPS &amp; CARTOGRAPHIC LAYOUTS</text>
+    </g>
+
+    <!-- Map 2 (Right): Original Documents & Correspondence -->
+    <g id="Panel_Cartography_Right" transform="translate(690, 0)">
+      <rect x="0" y="0" width="650" height="340" fill="#DFD2BD" stroke="#2B2620" stroke-width="1.5" />
+      <rect x="4" y="4" width="642" height="332" fill="none" stroke="#2B2620" stroke-width="0.7" />
+
+      <!-- Vector Urban Road/Transit Grid -->
+      <g id="Vector_Urban_Grid" opacity="0.85">
+        <path d="M 40 40 Q 180 140 320 120 T 600 240" fill="none" stroke="#2B2620" stroke-width="3" />
+        <path d="M 80 260 Q 240 200 360 80 T 580 40" fill="none" stroke="#2B2620" stroke-width="2.5" />
+        <path d="M 20 180 L 620 150" fill="none" stroke="#5A4E3C" stroke-width="2" />
+        <path d="M 180 30 L 180 280" fill="none" stroke="#5A4E3C" stroke-width="1.5" />
+        <path d="M 460 30 L 460 280" fill="none" stroke="#5A4E3C" stroke-width="1.5" />
+        <path d="M 320 20 L 320 290" fill="none" stroke="#8A2B18" stroke-width="1.8" stroke-dasharray="6 3" />
+
+        <!-- Radial highway bypasses -->
+        <circle cx="320" cy="140" r="80" fill="none" stroke="#2B2620" stroke-width="1.2" />
+        <circle cx="320" cy="140" r="140" fill="none" stroke="#5A4E3C" stroke-width="0.9" stroke-dasharray="5 5" />
+
+        <!-- Building Block Matrix -->
+        <rect x="90" y="80" width="30" height="20" fill="#9A8C74" opacity="0.5" />
+        <rect x="130" y="75" width="25" height="30" fill="#9A8C74" opacity="0.5" />
+        <rect x="220" y="90" width="40" height="25" fill="#9A8C74" opacity="0.6" />
+        <rect x="380" y="160" width="50" height="30" fill="#9A8C74" opacity="0.6" />
+        <rect x="440" y="170" width="35" height="25" fill="#9A8C74" opacity="0.5" />
+        <rect x="500" y="120" width="45" height="35" fill="#9A8C74" opacity="0.6" />
+      </g>
+
+      <rect x="0" y="295" width="650" height="45" fill="#2B2620" />
+      <text x="325" y="324" text-anchor="middle" class="sans" font-size="12" font-weight="700" fill="#E8DEC9" letter-spacing="2">ORIGINAL DOCUMENTS &amp; CORRESPONDENCE</text>
+    </g>
+  </g>
+
+  <!-- Middle Upper Section: Archivist Text & Historical Photo -->
+  <g id="Section_Archivist_Lead" transform="translate(50, 590)">
+    <!-- Left Column: Editorial Columns -->
+    <g id="Archivist_Columns_Left">
+      <text x="0" y="30" class="sans" font-size="16" font-weight="800" fill="#1C1814" letter-spacing="1.5">THE APPOINTMENT OF THE FIRST ARCHIVIST</text>
+      <line x1="0" y1="42" x2="650" y2="42" stroke="#1C1814" stroke-width="1" />
+
+      <!-- Sub-column 1 -->
+      <g transform="translate(0, 60)">
+        <text class="serif-body" font-size="13" fill="#2B2620" line-height="1.5">
+          <tspan x="0" y="0">Gome isno arcene lypeestiern-assients</tspan>
+          <tspan x="0" y="20">baccraats reallidts to camplet to this</tspan>
+          <tspan x="0" y="40">uncasse sarmasu and thereisene in tlar</tspan>
+          <tspan x="0" y="60">corssanare of aonmeskin modovon</tspan>
+          <tspan x="0" y="80">mosaedrco chwers or medoss thereselve</tspan>
+          <tspan x="0" y="100">of mustext hantevement of its liro-garent</tspan>
+          <tspan x="0" y="120">line tezons. Asmr narlced and dereosecases</tspan>
+          <tspan x="0" y="140">dauderated crecate elraas arom motiers</tspan>
+          <tspan x="0" y="160">disants to conereot the mansot teems</tspan>
+          <tspan x="0" y="180">and lasons diss uroration tarnu ecocours</tspan>
+          <tspan x="0" y="200">matisement and and coaling ones its</tspan>
+          <tspan x="0" y="220">vusions and archival directives.</tspan>
+        </text>
+      </g>
+
+      <!-- Vertical divider rule -->
+      <line x1="320" y1="60" x2="320" y2="300" stroke="#9A8C74" stroke-width="0.8" />
+
+      <!-- Sub-column 2 -->
+      <g transform="translate(340, 60)">
+        <text class="serif-body" font-size="13" fill="#2B2620" line-height="1.5">
+          <tspan x="0" y="0">bending some ontanta oe chites cumiount</tspan>
+          <tspan x="0" y="20">some users dantranner shafe glatteranear,</tspan>
+          <tspan x="0" y="40">filtax have lac-consaliterative commant</tspan>
+          <tspan x="0" y="60">and enrannos whale in the round disrates</tspan>
+          <tspan x="0" y="80">antieronsis ceredesslent all dirst stanoss</tspan>
+          <tspan x="0" y="100">of the determmants and converence was</tspan>
+          <tspan x="0" y="120">lorauld to sacs herrilae satisfafeed to</tspan>
+          <tspan x="0" y="140">creese modimate or matter lororats.</tspan>
+          <tspan x="0" y="160">Preservation of records from the earliest</tspan>
+          <tspan x="0" y="180">transmission logs remains sovereign to</tspan>
+          <tspan x="0" y="200">the public mission across centuries.</tspan>
+        </text>
+        <rect x="0" y="235" width="130" height="26" fill="#2B2620" />
+        <text x="65" y="252" text-anchor="middle" class="mono" font-size="11" font-weight="600" fill="#E8DEC9">EHLTES-INDEX</text>
+      </g>
+    </g>
+
+    <!-- Right Column: Vintage Photograph Frame -->
+    <g id="Archivist_Photo_Right" transform="translate(690, 0)">
+      <rect x="0" y="0" width="650" height="320" fill="#1C1814" stroke="#2B2620" stroke-width="2" />
+      <image href="data:image/jpeg;base64,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" x="6" y="6" width="638" height="308" preserveAspectRatio="xMidYMid slice" />
+    </g>
+  </g>
+
+  <!-- Middle Lower Section: Detailed Article & Framed Selection Component -->
+  <g id="Section_Appointment_Detail" transform="translate(50, 960)">
+    <!-- Left Column: Article Story & Statistics Table -->
+    <g id="Appointment_Detail_Left">
+      <text x="0" y="45" class="serif-display" font-size="34" font-weight="900" fill="#1C1814" letter-spacing="2">THE APPOINTMENT OF</text>
+      <text x="0" y="85" class="serif-display" font-size="34" font-weight="900" fill="#1C1814" letter-spacing="2">THE FIRST ARCHIVIST</text>
+      <text x="0" y="120" class="sans" font-size="12" font-weight="700" fill="#8A2B18" letter-spacing="2">29 JULY 1969 / EXPLORING / FRSG</text>
+      <line x1="0" y1="135" x2="650" y2="135" stroke="#1C1814" stroke-width="1.5" />
+
+      <text class="serif-body" font-size="14" fill="#2B2620">
+        <tspan x="0" y="165">The Appointment of the First Archivist, secreos and detronsom caber</tspan>
+        <tspan x="0" y="190">cremaats alse Dise Inerete the vacoca issate of Mitaxes Nlassee II to</tspan>
+        <tspan x="0" y="215">excert msitive than sext hess iffised in the measor's pronty have and</tspan>
+        <tspan x="0" y="240">inventdenth merst affirations. Shendocdues and in main endainee</tspan>
+        <tspan x="0" y="265">nid identity halley güsss omordaration ennnuel R&amp;W and sentiend retail</tspan>
+        <tspan x="0" y="290">accessants accesssus carrious caradatims aroo prosono.</tspan>
+      </text>
+
+      <!-- Statistical Record Table -->
+      <g id="Record_Stats_Table" transform="translate(0, 320)">
+        <rect x="0" y="0" width="650" height="380" fill="#DFD2BD" stroke="#2B2620" stroke-width="1" />
+        <line x1="0" y1="30" x2="650" y2="30" stroke="#2B2620" stroke-width="1" />
+        <line x1="325" y1="0" x2="325" y2="380" stroke="#2B2620" stroke-width="1" />
+        <text x="15" y="22" class="mono" font-size="12" font-weight="700" fill="#1C1814">METRIC PARAMETER</text>
+        <text x="340" y="22" class="mono" font-size="12" font-weight="700" fill="#1C1814">FIELD VALUE / STATUS</text>
+
+        <!-- Rows -->
+        <g class="mono" font-size="11" fill="#2B2620">
+          <text x="15" y="55">Date: 266</text><text x="340" y="55">Forest cenner: 116</text>
+          <text x="15" y="80">Bate concons: 116</text><text x="340" y="80">Fineast 1965 on 7998s: 60</text>
+          <text x="15" y="105">Reseosam hacher: 375</text><text x="340" y="105">Meats of ceat: 63M</text>
+          <text x="15" y="130">Financt: 60</text><text x="340" y="130">Nerass incogne: 9</text>
+          <text x="15" y="155">Roseider: 153</text><text x="340" y="155">Inatimal Dowers: 0</text>
+          <text x="15" y="180">Resensert Resight: 135</text><text x="340" y="180">Lowane stats: 46</text>
+          <text x="15" y="205">Focus esums: 46</text><text x="340" y="205">Acreasary, alce biets: 9</text>
+          <text x="15" y="230">Business volume: 9</text><text x="340" y="230">Ammanawario: 1</text>
+          <text x="15" y="255">Business Danet/Doras: 1</text><text x="340" y="255">becoming stroat donts: 16</text>
+          <text x="15" y="280">Disparsive: 16</text><text x="340" y="280">estic precon acrot: 26</text>
+          <text x="15" y="305">Demior: 26</text><text x="340" y="305">Shpata on dies: 60</text>
+          <text x="15" y="330">Primary Band: S-BAND</text><text x="340" y="330">Frequency: 2287.5 MHz</text>
+          <text x="15" y="355">Telemetry Status: SECURED</text><text x="340" y="355">Operational Flag: NOMINAL</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Right Column: Figma Highlight Frame (Blue selection box #18A0FB) -->
+    <g id="Component_Figma_Selection" transform="translate(685, 0)">
+      <!-- Figma Blue Component Selection Border -->
+      <rect x="-6" y="-6" width="662" height="716" fill="none" stroke="#18A0FB" stroke-width="3" />
+      <rect x="-10" y="-10" width="8" height="8" fill="#FFFFFF" stroke="#18A0FB" stroke-width="2" />
+      <rect x="652" y="-10" width="8" height="8" fill="#FFFFFF" stroke="#18A0FB" stroke-width="2" />
+      <rect x="-10" y="706" width="8" height="8" fill="#FFFFFF" stroke="#18A0FB" stroke-width="2" />
+      <rect x="652" y="706" width="8" height="8" fill="#FFFFFF" stroke="#18A0FB" stroke-width="2" />
+
+      <!-- Inner Content Box -->
+      <rect x="0" y="0" width="650" height="704" fill="#E8DEC9" />
+
+      <!-- Editorial Paragraph -->
+      <g transform="translate(15, 25)">
+        <text class="serif-body" font-size="13.5" fill="#1C1814" line-height="1.45">
+          <tspan x="0" y="0">The first manetaa ham do first stated on aftes as reudoand</tspan>
+          <tspan x="0" y="20">accoants with musmreen linsarn aasclerrattenze deement on</tspan>
+          <tspan x="0" y="40">the eradarst ler te cause lei sest grone and fee that these haven</tspan>
+          <tspan x="0" y="60">masue like the potential have sew vesouses memeclon can</tspan>
+          <tspan x="0" y="80">plave margt inass olarim nurrential overezare maz offers second</tspan>
+          <tspan x="0" y="100">have monue bearing coverpnance, svalen war oferenc to the</tspan>
+          <tspan x="0" y="120">mew dinxiemo coveesma monelineats volertinte the saznano</tspan>
+          <tspan x="0" y="140">dune of morioragos sand of the waves uoisents uncmeer nod's</tspan>
+          <tspan x="0" y="160">rogac acw the mearnxconus over inverstmenty aceonas esai cannd</tspan>
+          <tspan x="0" y="180">caso be mamtanred appenent of first assist invergore.</tspan>
+        </text>
+
+        <!-- Two Column Table: DATE TIME / TARABLES -->
+        <g transform="translate(0, 220)">
+          <line x1="0" y1="0" x2="620" y2="0" stroke="#1C1814" stroke-width="2" />
+          <line x1="0" y1="28" x2="620" y2="28" stroke="#1C1814" stroke-width="1" />
+          <text x="0" y="20" class="sans" font-size="12" font-weight="800" fill="#1C1814" letter-spacing="1.5">DATE TIME</text>
+          <text x="320" y="20" class="sans" font-size="12" font-weight="800" fill="#1C1814" letter-spacing="1.5">TARABLES</text>
+
+          <g class="mono" font-size="12" fill="#2B2620">
+            <text x="0" y="50">Boajs: 8</text><text x="320" y="50">Coase usage: 14</text>
+            <text x="0" y="74">Gestes: 6</text><text x="320" y="74">Corseries: 4</text>
+            <text x="0" y="98">First time: 34</text><text x="320" y="98">Phote toxes: 2</text>
+            <text x="0" y="122">Monel time: 20</text><text x="320" y="122">Deener viikorits: 20</text>
+            <text x="0" y="146">Mernel vssits: 27</text><text x="320" y="146">Data dataganams: 25</text>
+            <text x="0" y="170">Merset lastate: 3</text><text x="320" y="170">Strass Dawders: 15</text>
+            <text x="0" y="194">Bapodistion date date: 24</text><text x="320" y="194">Septmance of seamnors: 7</text>
+          </g>
+          <line x1="0" y1="210" x2="620" y2="210" stroke="#1C1814" stroke-width="1.5" />
+        </g>
+
+        <!-- Subheading: EDITORIAL LECORD -->
+        <g transform="translate(0, 465)">
+          <text x="0" y="20" class="sans" font-size="13" font-weight="800" fill="#1C1814" letter-spacing="1.5">EDITORIAL LECORD</text>
+          
+          <!-- Bullets Left -->
+          <g transform="translate(0, 40)" class="sans" font-size="12" fill="#2B2620" font-weight="500">
+            <text x="0" y="0">• New Muension aignritants alhirants</text>
+            <text x="0" y="24">• Abela leramien Semesion marted diass</text>
+            <text x="0" y="48">• Pariskiack bestanced on staters</text>
+            <text x="0" y="72">• Destiavared asrd ha shout Deock land</text>
+            <text x="12" y="92">extenhed ltiss mns</text>
+          </g>
+
+          <!-- Right column note -->
+          <g transform="translate(320, 30)">
+            <text class="serif-body" font-size="11.5" fill="#3A3228">
+              <tspan x="0" y="10">Aprfiil MTiler anf Technomote fise</tspan>
+              <tspan x="0" y="26">ms portuloss diatin, knut Misske</tspan>
+              <tspan x="0" y="42">Pryksmne mracerus heried corloherrante</tspan>
+              <tspan x="0" y="58">desv a4 comuinal losernatteener or</tspan>
+              <tspan x="0" y="74">rese-combirance neewis crarkatiomen</tspan>
+              <tspan x="0" y="90">devsolated connerswraad deunts of</tspan>
+              <tspan x="0" y="106">Geocoot, fnered modoeena nornoone</tspan>
+              <tspan x="0" y="122">aixsanent, aomisciame poovide</tspan>
+              <tspan x="0" y="138">cooreet stood mrvody.</tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Section: Three Boxed Dispatch Panels -->
+  <g id="Section_Dispatch_Panels" transform="translate(50, 1720)">
+    <line x1="0" y1="0" x2="1340" y2="0" stroke="#1C1814" stroke-width="3" />
+    <line x1="0" y1="6" x2="1340" y2="6" stroke="#1C1814" stroke-width="1" />
+
+    <!-- Panel 1 (Left): Technical Specifications -->
+    <g id="Panel_Technical_Specs" transform="translate(0, 20)">
+      <rect x="0" y="0" width="430" height="920" fill="#DFD2BD" stroke="#2B2620" stroke-width="1.5" />
+      <rect x="0" y="0" width="430" height="40" fill="#2B2620" />
+      <text x="15" y="26" class="sans" font-size="14" font-weight="800" fill="#E8DEC9" letter-spacing="1.5">TECHNICAL SPECIFICATIONS</text>
+
+      <g transform="translate(20, 65)" class="mono" font-size="12" font-weight="600" fill="#1C1814">
+        <text x="0" y="0">RECORD ID</text><text x="210" y="0">: REC-1969-0720-A1</text>
+        <text x="0" y="28">VERIFICATION CODE</text><text x="210" y="28">: VOL. I-SEC. 04-0982</text>
+        <text x="0" y="56">ARCHIVE STATUS</text><text x="210" y="56">: VERIFIED</text>
+        <text x="0" y="84">SIGNAL BAND</text><text x="210" y="84">: S-BAND</text>
+        <text x="0" y="112">FREQUENCY (CARRIER)</text><text x="210" y="112">: 2287.5 MHz</text>
+        <text x="0" y="140">TELEMETRY LINK</text><text x="210" y="140">: SECURED</text>
+        <text x="0" y="168">STATUS</text><text x="210" y="168">: NOMINAL</text>
+      </g>
+
+      <line x1="15" y1="260" x2="415" y2="260" stroke="#2B2620" stroke-width="1" />
+
+      <!-- Vector Lunar Descent Trajectory Graphic -->
+      <g id="Vector_Lunar_Trajectory" transform="translate(20, 290)">
+        <text x="0" y="20" class="sans" font-size="11" font-weight="700" fill="#5A4E3C" letter-spacing="1">LUNAR DESCENT TRAJECTORY • PROFILE SEC 4</text>
+        
+        <!-- Descent Arc -->
+        <path d="M 40 100 Q 180 120 280 260 T 340 420" fill="none" stroke="#1C1814" stroke-width="2.5" stroke-dasharray="6 3" />
+        
+        <!-- High orbit Lunar Module Icon -->
+        <g transform="translate(30, 80) scale(0.9)">
+          <rect x="0" y="0" width="30" height="24" fill="#1C1814" rx="3" />
+          <polygon points="15,24 5,42 25,42" fill="none" stroke="#1C1814" stroke-width="2" />
+          <line x1="-5" y1="42" x2="35" y2="42" stroke="#1C1814" stroke-width="2" />
+          <circle cx="15" cy="12" r="4" fill="#E8DEC9" />
+        </g>
+
+        <!-- Landing touchdown Lunar Module Icon -->
+        <g transform="translate(325, 380) scale(1.1)">
+          <rect x="0" y="0" width="30" height="24" fill="#1C1814" rx="3" />
+          <polygon points="15,24 5,42 25,42" fill="none" stroke="#1C1814" stroke-width="2" />
+          <line x1="-10" y1="42" x2="40" y2="42" stroke="#1C1814" stroke-width="3" />
+          <circle cx="15" cy="12" r="4" fill="#E8DEC9" />
+        </g>
+
+        <!-- Lunar Surface Craters -->
+        <path d="M 0 520 Q 80 500 160 520 T 320 515 T 400 525" fill="none" stroke="#1C1814" stroke-width="3" />
+        <ellipse cx="120" cy="515" rx="25" ry="6" fill="#C5B59C" stroke="#1C1814" stroke-width="1.2" />
+        <ellipse cx="260" cy="518" rx="40" ry="8" fill="#C5B59C" stroke="#1C1814" stroke-width="1.2" />
+
+        <rect x="0" y="550" width="50" height="24" fill="#1C1814" />
+        <text x="25" y="566" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#E8DEC9">B&amp;W</text>
+      </g>
+    </g>
+
+    <!-- Panel 2 (Middle): The Landing Dispatch -->
+    <g id="Panel_Landing_Dispatch" transform="translate(455, 20)">
+      <rect x="0" y="0" width="430" height="920" fill="#E8DEC9" stroke="#2B2620" stroke-width="1.5" />
+      <rect x="0" y="0" width="430" height="40" fill="#2B2620" />
+      <text x="15" y="26" class="sans" font-size="14" font-weight="800" fill="#E8DEC9" letter-spacing="1.5">THE LANDING DISPATCH</text>
+
+      <g transform="translate(20, 65)">
+        <text class="serif-body" font-size="14" fill="#1C1814" line-height="1.55">
+          <tspan x="0" y="0" font-weight="700">TRANQUILITY BASE, JULY 20, 1969 —</tspan>
+          <tspan x="0" y="26">Contact was confirmed at 20:17:40</tspan>
+          <tspan x="0" y="52">UTC. The lunar module "Eagle" touched</tspan>
+          <tspan x="0" y="78">down in the Sea of Tranquility following</tspan>
+          <tspan x="0" y="104">a descent over rugged terrain. Initial</tspan>
+          <tspan x="0" y="130">checkouts confirmed life support and</tspan>
+          <tspan x="0" y="156">electrical systems integrity.</tspan>
+          
+          <tspan x="0" y="210">All data packets from this period have</tspan>
+          <tspan x="0" y="236">been cataloged under "VOL. I, SEC. 04"</tspan>
+          <tspan x="0" y="262">and are preserved for public inspection.</tspan>
+          <tspan x="0" y="288">Transmission logs indicate minimal signal</tspan>
+          <tspan x="0" y="314">degradation during the primary egress</tspan>
+          <tspan x="0" y="340">sequence.</tspan>
+        </text>
+
+        <!-- Framed Historic Quote Box -->
+        <g transform="translate(0, 420)">
+          <rect x="0" y="0" width="390" height="120" fill="#DFD2BD" stroke="#2B2620" stroke-width="2" />
+          <rect x="4" y="4" width="382" height="112" fill="none" stroke="#2B2620" stroke-width="0.8" />
+          <text class="serif-display" font-size="16" font-weight="700" fill="#1C1814">
+            <tspan x="20" y="45">"Houston, Tranquility Base here.</tspan>
+            <tspan x="20" y="75"> The Eagle has landed."</tspan>
+          </text>
+          <text x="20" y="102" class="sans" font-size="11" font-weight="600" fill="#8A2B18" letter-spacing="1">— APOLLO 11 TRANSMISSION LOG</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Panel 3 (Right): Cross-Referenced Index -->
+    <g id="Panel_Cross_Index" transform="translate(910, 20)">
+      <rect x="0" y="0" width="430" height="920" fill="#DFD2BD" stroke="#2B2620" stroke-width="1.5" />
+      <rect x="0" y="0" width="430" height="40" fill="#2B2620" />
+      <text x="15" y="26" class="sans" font-size="14" font-weight="800" fill="#E8DEC9" letter-spacing="1.5">CROSS-REFERENCED INDEX</text>
+
+      <g transform="translate(20, 65)">
+        <!-- Index Item 1: Vostok 1 -->
+        <g transform="translate(0, 0)">
+          <rect x="0" y="0" width="70" height="70" fill="#1C1814" />
+          <circle cx="35" cy="35" r="22" fill="none" stroke="#E8DEC9" stroke-width="1.5" />
+          <circle cx="35" cy="35" r="10" fill="#E8DEC9" />
+          <rect x="4" y="4" width="28" height="14" fill="#2B2620" />
+          <text x="18" y="14" text-anchor="middle" class="mono" font-size="8" fill="#E8DEC9">B&amp;W</text>
+
+          <text x="85" y="20" class="mono" font-size="11" font-weight="700" fill="#8A2B18">12 APR 1961</text>
+          <text x="85" y="40" class="sans" font-size="14" font-weight="800" fill="#1C1814">VOSTOK 1 ORBIT</text>
+          <text x="85" y="60" class="serif-body" font-size="12" fill="#3A3228">Gagarin completes first human spaceflight.</text>
+        </g>
+
+        <line x1="0" y1="95" x2="390" y2="95" stroke="#9A8C74" stroke-width="0.8" />
+
+        <!-- Index Item 2: Sputnik 1 -->
+        <g transform="translate(0, 115)">
+          <rect x="0" y="0" width="70" height="70" fill="#1C1814" />
+          <circle cx="35" cy="35" r="14" fill="#E8DEC9" />
+          <line x1="35" y1="35" x2="10" y2="10" stroke="#E8DEC9" stroke-width="1.5" />
+          <line x1="35" y1="35" x2="60" y2="10" stroke="#E8DEC9" stroke-width="1.5" />
+          <line x1="35" y1="35" x2="10" y2="60" stroke="#E8DEC9" stroke-width="1.5" />
+          <rect x="4" y="4" width="28" height="14" fill="#2B2620" />
+          <text x="18" y="14" text-anchor="middle" class="mono" font-size="8" fill="#E8DEC9">B&amp;W</text>
+
+          <text x="85" y="20" class="mono" font-size="11" font-weight="700" fill="#8A2B18">04 OCT 1957</text>
+          <text x="85" y="40" class="sans" font-size="14" font-weight="800" fill="#1C1814">SPUTNIK 1 TRANSMISSION</text>
+          <text x="85" y="60" class="serif-body" font-size="12" fill="#3A3228">The first artificial Earth satellite launches.</text>
+        </g>
+
+        <line x1="0" y1="210" x2="390" y2="210" stroke="#2B2620" stroke-width="1.5" />
+
+        <!-- Associated Moments -->
+        <g transform="translate(0, 240)">
+          <text x="0" y="0" class="sans" font-size="13" font-weight="800" fill="#1C1814" letter-spacing="1">ASSOCIATED INDEXED MOMENTS</text>
+          <g transform="translate(0, 30)" class="mono" font-size="12" fill="#2B2620">
+            <text x="0" y="0">• 16 JUL 1969: Saturn V Launch</text>
+            <text x="16" y="20" fill="#5A4E3C">(REC-1969-0716)</text>
+            
+            <text x="0" y="55">• 24 JUL 1969: Splashdown</text>
+            <text x="16" y="75" fill="#5A4E3C">(REC-1969-0724)</text>
+
+            <text x="0" y="110">• 12 SEP 1962: "We Choose to go</text>
+            <text x="16" y="130">to the Moon" Address</text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Navigation Bar -->
+  <g id="Bottom_Navigation" transform="translate(50, 2870)">
+    <line x1="0" y1="0" x2="1340" y2="0" stroke="#1C1814" stroke-width="1.5" />
+    <text x="15" y="40" class="mono" font-size="13" font-weight="700" fill="#1C1814">[ PREVIOUS DISPATCH ]</text>
+    <text x="670" y="40" text-anchor="middle" class="mono" font-size="13" font-weight="700" fill="#1C1814">[ NEXT DISPATCH ]</text>
+    <text x="1325" y="40" text-anchor="end" class="mono" font-size="13" font-weight="700" fill="#1C1814">[ BACK TO INDEX ]</text>
+  </g>
+
+    </g>
+  </g>
+
+  <!-- Artboard 2: The Archive Opens -->
+  <g id="Artboard_02_The_Archive_Opens" transform="translate(1700, 260)">
+    <text x="0" y="-40" class="artboard-label">ARTBOARD 02: THE ARCHIVE OPENS</text>
+    <text x="0" y="-15" class="artboard-sub">1440 × 2850 px • Cinematic Hero Stage &amp; Scroll Canvas Indicator</text>
+    <g transform="translate(0, 0)">
+      
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;family=Caveat:wght@600&amp;display=swap');
+      .serif-display { font-family: 'Cinzel', 'Playfair Display', Georgia, serif; }
+      .serif-body { font-family: 'Playfair Display', Georgia, serif; }
+      .mono { font-family: 'IBM Plex Mono', 'Courier New', monospace; }
+      .sans { font-family: 'Inter', -apple-system, sans-serif; }
+      .handwritten { font-family: 'Caveat', 'Comic Sans MS', cursive; }
+    </style>
+    <radialGradient id="stageGlow" cx="50%" cy="30%" r="55%" fx="50%" fy="25%">
+      <stop offset="0%" stop-color="#2A2218" stop-opacity="0.9" />
+      <stop offset="45%" stop-color="#14110E" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#080809" stop-opacity="1" />
+    </radialGradient>
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EED7A1" />
+      <stop offset="50%" stop-color="#D4B886" />
+      <stop offset="100%" stop-color="#A7854F" />
+    </linearGradient>
+    <filter id="newspaperShadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="25" stdDeviation="35" flood-color="#000000" flood-opacity="0.95" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect id="Canvas_Background" width="1440" height="2850" fill="#080809" />
+  <rect width="1440" height="2850" fill="url(#stageGlow)" />
+
+  <!-- Top Utilities Header -->
+  <g id="Top_Header">
+    <text x="60" y="65" class="mono" font-size="12" font-weight="600" fill="#8E8A82" letter-spacing="1.5">OD / OHM • PUBLIC RECORDS, VOL. 1</text>
+    <text x="1100" y="65" class="sans" font-size="12" font-weight="600" fill="#8E8A82" letter-spacing="2">
+      <tspan dx="0">CALENDAR</tspan>
+      <tspan dx="35">SEARCH</tspan>
+      <tspan dx="35">ABOUT</tspan>
+    </text>
+  </g>
+
+  <!-- Center Hero Information Block -->
+  <g id="Center_Hero" transform="translate(720, 150)">
+    <!-- Cabinet Tag -->
+    <rect x="-110" y="0" width="220" height="28" fill="#141210" stroke="#8A6E3D" stroke-width="1" rx="4" />
+    <text x="0" y="18" text-anchor="middle" class="mono" font-size="10.5" font-weight="600" fill="#D4B886" letter-spacing="1.5">CABINET 01 / PUBLIC RECORDS</text>
+
+    <!-- Kicker -->
+    <text x="0" y="65" text-anchor="middle" class="sans" font-size="12" font-weight="700" fill="#C5A878" letter-spacing="4">ONE DAY / ONE HISTORICAL MOMENT</text>
+
+    <!-- Grand Golden Headline -->
+    <g class="serif-display" text-anchor="middle" font-size="78" font-weight="900" letter-spacing="6">
+      <text x="0" y="150" fill="url(#goldText)">THE</text>
+      <text x="0" y="235" fill="url(#goldText)">ARCHIVE</text>
+      <text x="0" y="320" fill="url(#goldText)">OPENS</text>
+    </g>
+
+    <!-- Subtitle -->
+    <text x="0" y="375" text-anchor="middle" class="serif-body" font-size="16" fill="#A8A096" letter-spacing="0.5">
+      A date is more than a day. Enter a living index of the moments that changed what came after.
+    </text>
+
+    <!-- Action Buttons -->
+    <g id="Hero_Actions" transform="translate(0, 420)">
+      <!-- Primary Explore Button -->
+      <g transform="translate(-190, 0)">
+        <rect x="0" y="0" width="200" height="46" fill="#14110E" stroke="#C5A878" stroke-width="1.5" rx="2" />
+        <text x="100" y="28" text-anchor="middle" class="sans" font-size="11.5" font-weight="700" fill="#EED7A1" letter-spacing="1.5">EXPLORE FEATURED EVENTS</text>
+      </g>
+      <!-- Secondary Browse Button -->
+      <g transform="translate(30, 0)">
+        <rect x="0" y="0" width="180" height="46" fill="transparent" stroke="#3D372E" stroke-width="1" rx="2" />
+        <text x="90" y="28" text-anchor="middle" class="sans" font-size="11.5" font-weight="600" fill="#A89A84" letter-spacing="1.5">BROWSE DATE INDEX</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Centerpiece Vintage Newspaper Graphic -->
+  <g id="Centerpiece_Newspaper" transform="translate(720, 850)">
+    <!-- Underlying glow & shadow -->
+    <ellipse cx="0" cy="180" rx="360" ry="120" fill="#000000" opacity="0.95" filter="url(#newspaperShadow)" />
+    <ellipse cx="0" cy="120" rx="260" ry="80" fill="#2E2316" opacity="0.4" />
+
+    <g transform="translate(-260, -80) scale(1.5)" filter="url(#newspaperShadow)">
+      <image href="data:image/png;base64,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" x="0" y="0" width="343" height="361" />
+    </g>
+  </g>
+
+  <!-- User Hand-Drawn Annotation: "Scroll space" with Red Box & Arrow -->
+  <g id="Annotation_Scroll_Space" transform="translate(140, 1380)">
+    <!-- Hand-drawn style red bounding box -->
+    <path d="M 10 15 
+             Q 300 0 600 8 
+             Q 900 16 1150 10 
+             Q 1165 300 1155 680 
+             Q 1148 1000 1150 1180 
+             Q 850 1195 580 1185 
+             Q 280 1178 15 1182 
+             Q 2 800 8 400 
+             Z" 
+          fill="none" stroke="#E63946" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" />
+
+    <!-- Handwritten "Scroll space" script text -->
+    <text x="180" y="320" class="handwritten" font-size="110" font-weight="600" fill="#E63946" letter-spacing="3" transform="rotate(-3, 180, 320)">Scroll</text>
+    <text x="320" y="580" class="handwritten" font-size="115" font-weight="600" fill="#E63946" letter-spacing="4" transform="rotate(-1, 320, 580)">space</text>
+
+    <!-- Downward Hand-Drawn Curved Arrow -->
+    <path d="M 1200 40 Q 1240 250 1230 500 Q 1220 750 1240 980" fill="none" stroke="#E63946" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M 1205 920 L 1240 980 L 1265 930" fill="none" stroke="#E63946" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Interactive Canvas Scrub Indicator -->
+  <g id="Scrub_Stage_Telemetry" transform="translate(720, 2680)">
+    <line x1="-300" y1="0" x2="300" y2="0" stroke="#2A241C" stroke-width="1.5" />
+    <circle cx="0" cy="0" r="4" fill="#C5A878" />
+    <rect x="-80" y="15" width="160" height="24" fill="#14110E" stroke="#3D372E" stroke-width="1" rx="2" />
+    <text x="0" y="31" text-anchor="middle" class="mono" font-size="10.5" font-weight="600" fill="#A89A84">FRAME 001 OF 242</text>
+  </g>
+
+  <!-- Bottom Navigation Bar -->
+  <g id="Bottom_Footer_Bar" transform="translate(60, 2790)">
+    <line x1="0" y1="0" x2="1320" y2="0" stroke="#1F1B16" stroke-width="1" />
+    <text x="0" y="35" class="mono" font-size="11.5" font-weight="600" fill="#6B6458" letter-spacing="1">THE FIRST LEAF / A PERIODICAL OF MEMORY</text>
+    <text x="1320" y="35" text-anchor="end" class="sans" font-size="12" font-weight="700" fill="#C5A878" letter-spacing="1.5">SCROLL TO INSPECT ↓</text>
+  </g>
+
+    </g>
+  </g>
+
+  <!-- Artboard 3: This Day in Technology -->
+  <g id="Artboard_03_Tech_Timeline" transform="translate(3300, 260)">
+    <text x="0" y="-40" class="artboard-label">ARTBOARD 03: THIS DAY IN TECHNOLOGY</text>
+    <text x="0" y="-15" class="artboard-sub">1440 × 2950 px • 10 September Interactive Technology Timeline</text>
+    <g transform="translate(0, 0)">
+      
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap');
+      .serif-display { font-family: 'Cinzel', 'Playfair Display', Georgia, serif; }
+      .serif-body { font-family: 'Playfair Display', Georgia, serif; }
+      .mono { font-family: 'IBM Plex Mono', 'Courier New', monospace; }
+      .sans { font-family: 'Inter', -apple-system, sans-serif; }
+    </style>
+    <linearGradient id="timelineAxisGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E63946" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#3A3A42" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#E63946" stop-opacity="0.8" />
+    </linearGradient>
+    <radialGradient id="featuredPulse" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E63946" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#E63946" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#E63946" stop-opacity="0" />
+    </radialGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000000" flood-opacity="0.8" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect id="Canvas_Background" width="1440" height="2950" fill="#0A0A0D" />
+  
+  <!-- Subtle Grid Lines -->
+  <g id="Subtle_Grid" opacity="0.12">
+    <line x1="120" y1="0" x2="120" y2="2950" stroke="#FFFFFF" stroke-width="0.5" />
+    <line x1="720" y1="0" x2="720" y2="2950" stroke="#FFFFFF" stroke-width="0.5" />
+    <line x1="1320" y1="0" x2="1320" y2="2950" stroke="#FFFFFF" stroke-width="0.5" />
+  </g>
+
+  <!-- Top Navigation Header -->
+  <g id="Top_Header" transform="translate(100, 50)">
+    <text x="0" y="20" class="mono" font-size="12" font-weight="600" fill="#8E8E93" letter-spacing="2">OD / OHM • TECHNOLOGY DISPATCH</text>
+    <text x="1240" y="20" text-anchor="end" class="sans" font-size="12" font-weight="600" fill="#8E8E93" letter-spacing="2">HISTORICAL INDEX • VOL. IV</text>
+    <line x1="0" y1="35" x2="1240" y2="35" stroke="#222228" stroke-width="1" />
+  </g>
+
+  <!-- Hero Header Section -->
+  <g id="Hero_Header" transform="translate(100, 130)">
+    <!-- Left Hero Column -->
+    <g id="Hero_Left">
+      <!-- Huge Numeral 10 -->
+      <text x="0" y="130" class="serif-display" font-size="150" font-weight="900" fill="#F8F8FA" letter-spacing="-2">10</text>
+      <!-- Month SEPTEMBER -->
+      <text x="0" y="200" class="serif-display" font-size="44" font-weight="800" fill="#FFFFFF" letter-spacing="6">SEPTEMBER</text>
+      <line x1="0" y1="218" x2="380" y2="218" stroke="#E63946" stroke-width="2.5" />
+      
+      <!-- Sub-headline -->
+      <text x="0" y="255" class="serif-body" font-size="24" font-style="italic" fill="#FF4D4D" letter-spacing="0.5">This Day in Technology</text>
+      <text x="0" y="295" class="sans" font-size="15" fill="#A0A0A8">
+        <tspan x="0" y="295">Explore the breakthroughs, launches and inventions that</tspan>
+        <tspan x="0" y="320">took place on this date across the history of technology.</tspan>
+      </text>
+
+      <!-- Stats Pill Bar -->
+      <g transform="translate(0, 355)" class="mono" font-size="11" font-weight="600" fill="#E63946">
+        <text x="0" y="0">10 EVENTS</text>
+        <circle cx="90" cy="-4" r="2.5" fill="#666670" />
+        <text x="105" y="0">2015 — 2022</text>
+        <circle cx="210" cy="-4" r="2.5" fill="#666670" />
+        <text x="225" y="0">8 DISCIPLINES</text>
+      </g>
+
+      <!-- Drop-Cap Opening Paragraph -->
+      <g transform="translate(0, 400)">
+        <text x="0" y="48" class="serif-display" font-size="64" font-weight="900" fill="#E63946">S</text>
+        <text class="sans" font-size="14.5" fill="#CCCCCC" line-height="1.6">
+          <tspan x="48" y="22">eptember 10 has witnessed a series of pivotal moments in</tspan>
+          <tspan x="48" y="46">the evolution of modern technology, from early computing</tspan>
+          <tspan x="0" y="74">breakthroughs to the foundational tools shaping how our global</tspan>
+          <tspan x="0" y="98">network connects, reasons, and computes today.</tspan>
+        </text>
+      </g>
+    </g>
+
+    <!-- Right Hero Column: Telemetry Box -->
+    <g id="Hero_Telemetry_Right" transform="translate(790, 20)">
+      <rect x="0" y="0" width="450" height="280" fill="#111116" stroke="#22222A" stroke-width="1.5" rx="2" />
+      
+      <!-- Tech Corner Brackets (Red) -->
+      <path d="M 0 25 L 0 0 L 25 0" fill="none" stroke="#E63946" stroke-width="2.5" />
+      <path d="M 425 0 L 450 0 L 450 25" fill="none" stroke="#E63946" stroke-width="2.5" />
+      <path d="M 0 255 L 0 280 L 25 280" fill="none" stroke="#E63946" stroke-width="2.5" />
+      <path d="M 425 280 L 450 280 L 450 255" fill="none" stroke="#E63946" stroke-width="2.5" />
+
+      <g transform="translate(30, 45)">
+        <text x="0" y="0" class="mono" font-size="12" font-weight="700" fill="#E63946" letter-spacing="2">REC NO. 0910 // TECH ARCHIVE</text>
+        <text x="0" y="30" class="sans" font-size="18" font-weight="700" fill="#FFFFFF">Chronological Telemetry Stream</text>
+        <text x="0" y="60" class="sans" font-size="13" fill="#8E8E93">Active timeline spanning artificial intelligence, deep sea bandwidth, submicron silicon, and orbital exploration.</text>
+        
+        <!-- Mini radar / status lines -->
+        <g transform="translate(0, 100)" class="mono" font-size="11" fill="#7A7A82">
+          <line x1="0" y1="0" x2="390" y2="0" stroke="#22222A" stroke-width="1" />
+          <text x="0" y="24">INDEX RANGE : 2015 - 2022</text>
+          <text x="240" y="24" fill="#E63946">STATUS : VERIFIED</text>
+          <text x="0" y="52">SAMPLING DENSITY : 8 EPOCHS</text>
+          <text x="240" y="52">NETWORK : GLOBAL</text>
+          <line x1="0" y1="70" x2="390" y2="70" stroke="#22222A" stroke-width="1" />
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Filter Pills Navigation Bar -->
+  <g id="Filter_Pills" transform="translate(100, 690)">
+    <!-- Pill 1: ALL (Active Red) -->
+    <rect x="0" y="0" width="62" height="32" fill="#E63946" rx="3" />
+    <text x="31" y="20" text-anchor="middle" class="sans" font-size="11" font-weight="700" fill="#FFFFFF" letter-spacing="1">ALL</text>
+
+    <!-- Pill 2: AI -->
+    <rect x="74" y="0" width="55" height="32" fill="#14141A" stroke="#282832" stroke-width="1" rx="3" />
+    <text x="101" y="20" text-anchor="middle" class="sans" font-size="11" font-weight="600" fill="#A0A0AA" letter-spacing="1">AI</text>
+
+    <!-- Pill 3: COMPUTING -->
+    <rect x="141" y="0" width="110" height="32" fill="#14141A" stroke="#282832" stroke-width="1" rx="3" />
+    <text x="196" y="20" text-anchor="middle" class="sans" font-size="11" font-weight="600" fill="#A0A0AA" letter-spacing="1">COMPUTING</text>
+
+    <!-- Pill 4: INTERNET -->
+    <rect x="263" y="0" width="95" height="32" fill="#14141A" stroke="#282832" stroke-width="1" rx="3" />
+    <text x="310" y="20" text-anchor="middle" class="sans" font-size="11" font-weight="600" fill="#A0A0AA" letter-spacing="1">INTERNET</text>
+
+    <!-- Pill 5: MOBILE -->
+    <rect x="370" y="0" width="85" height="32" fill="#14141A" stroke="#282832" stroke-width="1" rx="3" />
+    <text x="412" y="20" text-anchor="middle" class="sans" font-size="11" font-weight="600" fill="#A0A0AA" letter-spacing="1">MOBILE</text>
+
+    <!-- Pill 6: NETWORK -->
+    <rect x="467" y="0" width="95" height="32" fill="#14141A" stroke="#282832" stroke-width="1" rx="3" />
+    <text x="514" y="20" text-anchor="middle" class="sans" font-size="11" font-weight="600" fill="#A0A0AA" letter-spacing="1">NETWORK</text>
+
+    <!-- Pill 7: TELECOMM -->
+    <rect x="574" y="0" width="105" height="32" fill="#14141A" stroke="#282832" stroke-width="1" rx="3" />
+    <text x="626" y="20" text-anchor="middle" class="sans" font-size="11" font-weight="600" fill="#A0A0AA" letter-spacing="1">TELECOMM</text>
+
+    <!-- Pill 8: WEB -->
+    <rect x="691" y="0" width="65" height="32" fill="#14141A" stroke="#282832" stroke-width="1" rx="3" />
+    <text x="723" y="20" text-anchor="middle" class="sans" font-size="11" font-weight="600" fill="#A0A0AA" letter-spacing="1">WEB</text>
+
+    <!-- Pill 9: SEMICONDUCTORS -->
+    <rect x="768" y="0" width="155" height="32" fill="#14141A" stroke="#282832" stroke-width="1" rx="3" />
+    <text x="845" y="20" text-anchor="middle" class="sans" font-size="11" font-weight="600" fill="#A0A0AA" letter-spacing="1">SEMICONDUCTORS</text>
+  </g>
+
+  <!-- Timeline Header Year Range -->
+  <g id="Timeline_Header_Range" transform="translate(100, 760)">
+    <text x="0" y="30" class="serif-display" font-size="36" font-weight="900" fill="#FFFFFF" letter-spacing="2">2015 — 2022</text>
+    <line x1="0" y1="45" x2="1240" y2="45" stroke="#E63946" stroke-width="1.8" />
+  </g>
+
+  <!-- Central Vertical Timeline Axis -->
+  <g id="Timeline_Axis">
+    <!-- Center Axis Line -->
+    <line x1="720" y1="830" x2="720" y2="2650" stroke="url(#timelineAxisGlow)" stroke-width="2" />
+  </g>
+
+  <!-- Timeline Events (8 Nodes Alternating Left / Right) -->
+  <g id="Timeline_Events">
+    
+    <!-- 1. 2015 (Left, y: 840) -->
+    <g id="Event_2015" transform="translate(140, 840)">
+      <g transform="translate(180, 0)">
+        <text x="360" y="15" text-anchor="end" class="sans" font-size="11.5" font-weight="800" fill="#E63946" letter-spacing="1.5">COMPUTING</text>
+        <text x="360" y="55" text-anchor="end" class="serif-display" font-size="44" font-weight="900" fill="#FFFFFF">2015</text>
+        <text x="360" y="85" text-anchor="end" class="sans" font-size="16" font-weight="700" fill="#FFFFFF">Machine Learning Framework Open-Sourced</text>
+        <text x="360" y="112" text-anchor="end" class="sans" font-size="13" fill="#8E8E93">A foundational deep learning framework is released open-source,</text>
+        <text x="360" y="132" text-anchor="end" class="sans" font-size="13" fill="#8E8E93">accelerating scalable neural network research worldwide.</text>
+      </g>
+      <!-- Connection line to center axis (x=720 -> relative x=580) -->
+      <line x1="540" y1="45" x2="580" y2="45" stroke="#E63946" stroke-width="1.5" stroke-dasharray="3 3" />
+      <circle cx="580" cy="45" r="5" fill="#E63946" />
+    </g>
+
+    <!-- 2. 2016 (Right, y: 1040) -->
+    <g id="Event_2016" transform="translate(720, 1040)">
+      <!-- Node on central line -->
+      <circle cx="0" cy="45" r="5" fill="#E63946" />
+      <line x1="0" y1="45" x2="40" y2="45" stroke="#E63946" stroke-width="1.5" stroke-dasharray="3 3" />
+      <g transform="translate(60, 0)">
+        <text x="0" y="15" class="sans" font-size="11.5" font-weight="800" fill="#E63946" letter-spacing="1.5">NETWORK</text>
+        <text x="0" y="55" class="serif-display" font-size="44" font-weight="900" fill="#FFFFFF">2016</text>
+        <text x="0" y="85" class="sans" font-size="16" font-weight="700" fill="#FFFFFF">Subsea Cable Network Reaches Milestone</text>
+        <text x="0" y="112" class="sans" font-size="13" fill="#8E8E93">A transoceanic fiber line completes, routing terabits between</text>
+        <text x="0" y="132" class="sans" font-size="13" fill="#8E8E93">continents and dramatically expanding global bandwidth.</text>
+      </g>
+    </g>
+
+    <!-- 3. 2017 (Left, y: 1240) -->
+    <g id="Event_2017" transform="translate(140, 1240)">
+      <g transform="translate(180, 0)">
+        <text x="360" y="15" text-anchor="end" class="sans" font-size="11.5" font-weight="800" fill="#E63946" letter-spacing="1.5">MOBILE</text>
+        <text x="360" y="55" text-anchor="end" class="serif-display" font-size="44" font-weight="900" fill="#FFFFFF">2017</text>
+        <text x="360" y="85" text-anchor="end" class="sans" font-size="16" font-weight="700" fill="#FFFFFF">Edge-to-Edge Smartphone Display Debuts</text>
+        <text x="360" y="112" text-anchor="end" class="sans" font-size="13" fill="#8E8E93">A flagship device popularizes bezel-less OLED panels,</text>
+        <text x="360" y="132" text-anchor="end" class="sans" font-size="13" fill="#8E8E93">ushering in modern gesture-driven mobile interaction.</text>
+      </g>
+      <line x1="540" y1="45" x2="580" y2="45" stroke="#E63946" stroke-width="1.5" stroke-dasharray="3 3" />
+      <circle cx="580" cy="45" r="5" fill="#E63946" />
+    </g>
+
+    <!-- 4. 2018 (Right, y: 1440) -->
+    <g id="Event_2018" transform="translate(720, 1440)">
+      <circle cx="0" cy="45" r="5" fill="#E63946" />
+      <line x1="0" y1="45" x2="40" y2="45" stroke="#E63946" stroke-width="1.5" stroke-dasharray="3 3" />
+      <g transform="translate(60, 0)">
+        <text x="0" y="15" class="sans" font-size="11.5" font-weight="800" fill="#E63946" letter-spacing="1.5">SOFTWARE</text>
+        <text x="0" y="55" class="serif-display" font-size="44" font-weight="900" fill="#FFFFFF">2018</text>
+        <text x="0" y="85" class="sans" font-size="16" font-weight="700" fill="#FFFFFF">Container Platform Reaches Version 1.0</text>
+        <text x="0" y="112" class="sans" font-size="13" fill="#8E8E93">The open-source container engine achieves GA release,</text>
+        <text x="0" y="132" class="sans" font-size="13" fill="#8E8E93">becoming the bedrock of modern cloud-native infrastructure.</text>
+      </g>
+    </g>
+
+    <!-- 5. 2019 (Left, y: 1640) -->
+    <g id="Event_2019" transform="translate(140, 1640)">
+      <g transform="translate(180, 0)">
+        <text x="360" y="15" text-anchor="end" class="sans" font-size="11.5" font-weight="800" fill="#E63946" letter-spacing="1.5">CYBER &amp; PRIVACY</text>
+        <text x="360" y="55" text-anchor="end" class="serif-display" font-size="44" font-weight="900" fill="#FFFFFF">2019</text>
+        <text x="360" y="85" text-anchor="end" class="sans" font-size="16" font-weight="700" fill="#FFFFFF">Landmark Data Protection Law Takes Effect</text>
+        <text x="360" y="112" text-anchor="end" class="sans" font-size="13" fill="#8E8E93">Sweeping privacy regulations reshape how tech companies</text>
+        <text x="360" y="132" text-anchor="end" class="sans" font-size="13" fill="#8E8E93">collect, store, and transfer user data globally.</text>
+      </g>
+      <line x1="540" y1="45" x2="580" y2="45" stroke="#E63946" stroke-width="1.5" stroke-dasharray="3 3" />
+      <circle cx="580" cy="45" r="5" fill="#E63946" />
+    </g>
+
+    <!-- 6. 2020 (Right, y: 1840) — FEATURED HIGHLIGHT CARD -->
+    <g id="Event_2020_Featured" transform="translate(720, 1840)">
+      <!-- Pulse Rings on Central Axis -->
+      <circle cx="0" cy="80" r="22" fill="none" stroke="#E63946" stroke-width="1" opacity="0.4" />
+      <circle cx="0" cy="80" r="14" fill="none" stroke="#E63946" stroke-width="1.8" />
+      <circle cx="0" cy="80" r="6" fill="#E63946" />
+      <line x1="0" y1="80" x2="40" y2="80" stroke="#E63946" stroke-width="2" />
+
+      <!-- Framed Highlight Card -->
+      <g transform="translate(50, 0)" filter="url(#cardShadow)">
+        <rect x="0" y="0" width="540" height="160" fill="#141419" stroke="#E63946" stroke-width="2" rx="3" />
+        
+        <!-- Corner ticks -->
+        <line x1="0" y1="12" x2="12" y2="0" stroke="#E63946" stroke-width="2" />
+        <line x1="540" y1="148" x2="528" y2="160" stroke="#E63946" stroke-width="2" />
+
+        <g transform="translate(30, 25)">
+          <text x="0" y="10" class="sans" font-size="11" font-weight="800" fill="#FF4D4D" letter-spacing="2">ARTIFICIAL INTELLIGENCE • PIVOTAL</text>
+          <text x="0" y="55" class="serif-display" font-size="46" font-weight="900" fill="#FFFFFF">2020</text>
+          <text x="0" y="85" class="sans" font-size="17" font-weight="700" fill="#FFFFFF">Large-Scale Language Model Unveiled</text>
+          <text x="0" y="112" class="sans" font-size="13" fill="#A0A0A8">A parameter-breakthrough model demonstrates unprecedented</text>
+          <text x="0" y="130" class="sans" font-size="13" fill="#A0A0A8">zero-shot reasoning across natural language tasks.</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- 7. 2021 (Left, y: 2060) -->
+    <g id="Event_2021" transform="translate(140, 2060)">
+      <g transform="translate(180, 0)">
+        <text x="360" y="15" text-anchor="end" class="sans" font-size="11.5" font-weight="800" fill="#E63946" letter-spacing="1.5">SPACE</text>
+        <text x="360" y="55" text-anchor="end" class="serif-display" font-size="44" font-weight="900" fill="#FFFFFF">2021</text>
+        <text x="360" y="85" text-anchor="end" class="sans" font-size="16" font-weight="700" fill="#FFFFFF">Private Orbital Capsule's First Flight</text>
+        <text x="360" y="112" text-anchor="end" class="sans" font-size="13" fill="#8E8E93">A non-governmental aerospace team completes its first</text>
+        <text x="360" y="132" text-anchor="end" class="sans" font-size="13" fill="#8E8E93">all-civilian orbital mission, opening a new era in spaceflight.</text>
+      </g>
+      <line x1="540" y1="45" x2="580" y2="45" stroke="#E63946" stroke-width="1.5" stroke-dasharray="3 3" />
+      <circle cx="580" cy="45" r="5" fill="#E63946" />
+    </g>
+
+    <!-- 8. 2022 (Right, y: 2260) -->
+    <g id="Event_2022" transform="translate(720, 2260)">
+      <circle cx="0" cy="45" r="5" fill="#E63946" />
+      <line x1="0" y1="45" x2="40" y2="45" stroke="#E63946" stroke-width="1.5" stroke-dasharray="3 3" />
+      <g transform="translate(60, 0)">
+        <text x="0" y="15" class="sans" font-size="11.5" font-weight="800" fill="#E63946" letter-spacing="1.5">SEMICONDUCTOR</text>
+        <text x="0" y="55" class="serif-display" font-size="44" font-weight="900" fill="#FFFFFF">2022</text>
+        <text x="0" y="85" class="sans" font-size="16" font-weight="700" fill="#FFFFFF">Next-Gen Chip Architecture Announced</text>
+        <text x="0" y="112" class="sans" font-size="13" fill="#8E8E93">A revolutionary 3nm silicon design promises major efficiency</text>
+        <text x="0" y="132" class="sans" font-size="13" fill="#8E8E93">gains, powering modern high-performance cloud computing.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer Section -->
+  <g id="Footer_Section" transform="translate(100, 2680)">
+    <line x1="0" y1="0" x2="1240" y2="0" stroke="#222228" stroke-width="1" />
+    
+    <!-- Sources Left -->
+    <g transform="translate(0, 35)" class="sans" font-size="11" fill="#7A7A82">
+      <text x="0" y="0" font-weight="700" fill="#E63946" letter-spacing="1">PRIMARY SOURCES &amp; ARCHIVES</text>
+      <text x="0" y="24">IEEE Archives, Computer History Museum</text>
+      <text x="0" y="44">Wired Tech Retrospective, Global Telemetry Monitor</text>
+    </g>
+
+    <!-- Catchphrase Center/Right -->
+    <g transform="translate(620, 35)">
+      <text x="0" y="10" class="serif-body" font-size="22" font-weight="400" fill="#E0E0E6">One date. Many years.</text>
+      <text x="0" y="38" class="serif-body" font-size="22" font-weight="400" fill="#E0E0E6">One continuous story of technology.</text>
+    </g>
+
+    <!-- Bottom Bar -->
+    <g transform="translate(0, 160)">
+      <line x1="0" y1="0" x2="1240" y2="0" stroke="#1A1A20" stroke-width="1" />
+      <text x="0" y="30" class="mono" font-size="11" font-weight="600" fill="#5A5A62" letter-spacing="1">OD / OHM ENTERPRISE</text>
+      <text x="620" y="30" text-anchor="middle" class="mono" font-size="11" font-weight="600" fill="#5A5A62" letter-spacing="1">10 SEPTEMBER / TECH ARCHIVE</text>
+      <text x="1240" y="30" text-anchor="end" class="mono" font-size="11" font-weight="600" fill="#5A5A62" letter-spacing="1">PAGE 01</text>
+    </g>
+  </g>
+
+    </g>
+  </g>
+
+  <!-- Artboard 4: One Day, One Year Master Homepage -->
+  <g id="Artboard_04_Homepage" transform="translate(4900, 260)">
+    <text x="0" y="-40" class="artboard-label">ARTBOARD 04: ONE DAY, ONE YEAR HOMEPAGE</text>
+    <text x="0" y="-15" class="artboard-sub">1440 × 3300 px • Master Historical Archive Landing Page &amp; Date Explorer</text>
+    <g transform="translate(0, 0)">
+      
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700&amp;display=swap');
+      .serif-display { font-family: 'Cinzel', 'Playfair Display', Georgia, serif; }
+      .serif-body { font-family: 'Playfair Display', Georgia, serif; }
+      .mono { font-family: 'IBM Plex Mono', 'Courier New', monospace; }
+      .sans { font-family: 'Inter', -apple-system, sans-serif; }
+    </style>
+    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EED7A1" />
+      <stop offset="100%" stop-color="#B89355" />
+    </linearGradient>
+    <radialGradient id="orbitGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFEAA7" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#D4AF37" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0" />
+    </radialGradient>
+    <filter id="heroCardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.9" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect id="Canvas_Background" width="1440" height="3300" fill="#09090C" />
+
+  <!-- Top Navigation Header -->
+  <g id="Top_Navigation" transform="translate(80, 50)">
+    <text x="0" y="22" class="serif-display" font-size="22" font-weight="700" fill="#F0ECE1" letter-spacing="1">One Day, One Year</text>
+    <text x="1280" y="20" text-anchor="end" class="sans" font-size="12" font-weight="600" fill="#A8A096" letter-spacing="2">
+      <tspan dx="0">ARCHIVE</tspan>
+      <tspan dx="35">ABOUT</tspan>
+      <tspan dx="35">SIGN IN</tspan>
+    </text>
+    <line x1="0" y1="40" x2="1280" y2="40" stroke="#1F1E24" stroke-width="1" />
+  </g>
+
+  <!-- Section 1: Hero Block -->
+  <g id="Section_Hero" transform="translate(80, 150)">
+    <!-- Left Hero Column -->
+    <g id="Hero_Left_Content">
+      <text x="0" y="30" class="mono" font-size="11" font-weight="600" fill="#B89355" letter-spacing="2">PUBLIC ARCHIVES RECORD</text>
+      <text x="0" y="115" class="serif-display" font-size="82" font-weight="900" fill="#F0ECE1" letter-spacing="2">One Day,</text>
+      <text x="0" y="200" class="serif-display" font-size="82" font-weight="900" fill="#F0ECE1" letter-spacing="2">One Year</text>
+      <text x="0" y="250" class="serif-body" font-size="18" fill="#A8A096" letter-spacing="0.5">Explore a single day, drawn from history.</text>
+      <text x="0" y="300" class="sans" font-size="12" font-weight="600" fill="#6E685E" letter-spacing="2">SCROLL TO DISCOVER ↓</text>
+
+      <!-- Specimen Tiles Matrix in Backdrop -->
+      <g id="Specimen_Tiles_Grid" transform="translate(0, 340)" opacity="0.65">
+        <rect x="0" y="0" width="620" height="180" fill="#121217" stroke="#22222A" stroke-width="1" rx="4" />
+        <!-- Mock specimen documents inside -->
+        <rect x="20" y="20" width="120" height="140" fill="#1C1C24" stroke="#33333E" stroke-width="0.8" rx="2" />
+        <line x1="35" y1="45" x2="125" y2="45" stroke="#6E685E" stroke-width="2" />
+        <line x1="35" y1="65" x2="115" y2="65" stroke="#444450" stroke-width="1" />
+        <line x1="35" y1="80" x2="120" y2="80" stroke="#444450" stroke-width="1" />
+        <line x1="35" y1="95" x2="100" y2="95" stroke="#444450" stroke-width="1" />
+        
+        <rect x="160" y="20" width="120" height="140" fill="#1C1C24" stroke="#33333E" stroke-width="0.8" rx="2" />
+        <circle cx="220" cy="70" r="30" fill="#282835" />
+        <line x1="175" y1="120" x2="265" y2="120" stroke="#444450" stroke-width="1" />
+        <line x1="175" y1="135" x2="245" y2="135" stroke="#444450" stroke-width="1" />
+
+        <rect x="300" y="20" width="120" height="140" fill="#1C1C24" stroke="#33333E" stroke-width="0.8" rx="2" />
+        <rect x="320" y="40" width="80" height="50" fill="#2A2A38" />
+        <line x1="315" y1="110" x2="405" y2="110" stroke="#444450" stroke-width="1" />
+
+        <rect x="440" y="20" width="160" height="140" fill="#181820" stroke="#33333E" stroke-width="0.8" rx="2" />
+        <circle cx="520" cy="80" r="35" fill="none" stroke="#B89355" stroke-width="1" stroke-dasharray="3 3" />
+        <circle cx="520" cy="80" r="6" fill="#B89355" />
+      </g>
+    </g>
+
+    <!-- Right Hero Column: Interactive Date Selector Widget -->
+    <g id="Hero_Date_Picker_Widget" transform="translate(760, 20)" filter="url(#heroCardShadow)">
+      <!-- Outer Card Frame -->
+      <rect x="0" y="0" width="520" height="480" fill="#111116" stroke="#252530" stroke-width="1.5" rx="8" />
+
+      <g transform="translate(260, 190)">
+        <!-- Circular Dial Wheel with Dashed Ring -->
+        <circle cx="0" cy="0" r="110" fill="#0C0C10" stroke="#2A2A36" stroke-width="1.5" />
+        <circle cx="0" cy="0" r="95" fill="none" stroke="#B89355" stroke-width="1.5" stroke-dasharray="4 6" opacity="0.85" />
+        
+        <!-- Radial tick marks -->
+        <g stroke="#4A4A58" stroke-width="1">
+          <line x1="0" y1="-105" x2="0" y2="-95" />
+          <line x1="74" y1="-74" x2="67" y2="-67" />
+          <line x1="105" y1="0" x2="95" y2="0" />
+          <line x1="74" y1="74" x2="67" y2="67" />
+          <line x1="0" y1="105" x2="0" y2="95" />
+          <line x1="-74" y1="74" x2="-67" y2="67" />
+          <line x1="-105" y1="0" x2="-95" y2="0" />
+          <line x1="-74" y1="-74" x2="-67" y2="-67" />
+        </g>
+
+        <!-- Numbers 09, 10 (Selected), 11 -->
+        <text x="-58" y="16" text-anchor="middle" class="serif-display" font-size="34" font-weight="700" fill="#5A5A68">09</text>
+        
+        <!-- Highlighted Active Number 10 -->
+        <circle cx="0" cy="0" r="38" fill="#1C1C24" stroke="#B89355" stroke-width="2" />
+        <text x="0" y="18" text-anchor="middle" class="serif-display" font-size="52" font-weight="900" fill="#FFFFFF">10</text>
+        
+        <text x="58" y="16" text-anchor="middle" class="serif-display" font-size="34" font-weight="700" fill="#5A5A68">11</text>
+      </g>
+
+      <!-- Month Selector Row -->
+      <g transform="translate(260, 360)">
+        <text x="-120" y="6" class="sans" font-size="18" font-weight="700" fill="#6A6A78">‹</text>
+        <text x="0" y="6" text-anchor="middle" class="serif-display" font-size="20" font-weight="800" fill="#F0ECE1" letter-spacing="4">SEPTEMBER</text>
+        <text x="120" y="6" class="sans" font-size="18" font-weight="700" fill="#6A6A78">›</text>
+      </g>
+
+      <!-- View Today Button -->
+      <g transform="translate(140, 405)">
+        <rect x="0" y="0" width="240" height="44" fill="#16161E" stroke="#B89355" stroke-width="1.5" rx="3" />
+        <text x="120" y="27" text-anchor="middle" class="sans" font-size="11.5" font-weight="700" fill="#EED7A1" letter-spacing="1.5">VIEW AND SEE TODAY →</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Section 2: Five Moments. One Date. -->
+  <g id="Section_Five_Moments" transform="translate(80, 780)">
+    <text x="0" y="30" class="serif-display" font-size="28" font-weight="700" fill="#F0ECE1" letter-spacing="1">Five moments. One date.</text>
+    <text x="1280" y="25" text-anchor="end" class="sans" font-size="12" font-weight="600" fill="#B89355" letter-spacing="1.5">BROWSE HISTORICAL EVENTS →</text>
+
+    <!-- 5 Horizontal Cards (Gap 20, width 240 each) -->
+    <g id="Cards_Container" transform="translate(0, 60)">
+      <!-- Card 1: 1775 -->
+      <g id="Moment_1775" transform="translate(0, 0)">
+        <rect x="0" y="0" width="240" height="240" fill="#111116" stroke="#252530" stroke-width="1" rx="4" />
+        <rect x="15" y="15" width="210" height="110" fill="#1E1E26" rx="2" />
+        <!-- Mock sketch inside card -->
+        <circle cx="120" cy="70" r="28" fill="#2A2A38" />
+        <text x="20" y="165" class="serif-display" font-size="28" font-weight="800" fill="#FFFFFF">1775</text>
+        <text x="20" y="195" class="sans" font-size="12" fill="#8E8E98">The Royal Society Charter</text>
+      </g>
+
+      <!-- Card 2: 1813 -->
+      <g id="Moment_1813" transform="translate(260, 0)">
+        <rect x="0" y="0" width="240" height="240" fill="#111116" stroke="#252530" stroke-width="1" rx="4" />
+        <rect x="15" y="15" width="210" height="110" fill="#1E1E26" rx="2" />
+        <polygon points="40,105 120,40 200,105" fill="#2A2A38" />
+        <text x="20" y="165" class="serif-display" font-size="28" font-weight="800" fill="#FFFFFF">1813</text>
+        <text x="20" y="195" class="sans" font-size="12" fill="#8E8E98">The Battle of Lake Erie</text>
+      </g>
+
+      <!-- Card 3: 1945 (Active Highlight Card) -->
+      <g id="Moment_1945_Active" transform="translate(520, 0)">
+        <rect x="0" y="0" width="240" height="240" fill="#161620" stroke="#C5A878" stroke-width="2" rx="4" />
+        <rect x="15" y="15" width="210" height="110" fill="#252328" rx="2" />
+        <!-- Crowd sketch -->
+        <rect x="30" y="45" width="180" height="60" fill="#38333D" />
+        <text x="20" y="165" class="serif-display" font-size="32" font-weight="900" fill="#FFFFFF">1945</text>
+        <rect x="120" y="146" width="105" height="22" fill="#2E251A" stroke="#C5A878" stroke-width="1" rx="2" />
+        <text x="172" y="161" text-anchor="middle" class="mono" font-size="9.5" font-weight="700" fill="#EED7A1">1,450 DAYS AGO</text>
+        <text x="20" y="195" class="sans" font-size="12" fill="#B8B0A2">Global Peace Declaration</text>
+      </g>
+
+      <!-- Card 4: 2001 -->
+      <g id="Moment_2001" transform="translate(780, 0)">
+        <rect x="0" y="0" width="240" height="240" fill="#111116" stroke="#252530" stroke-width="1" rx="4" />
+        <rect x="15" y="15" width="210" height="110" fill="#1E1E26" rx="2" />
+        <ellipse cx="120" cy="70" rx="60" ry="25" fill="#2A2A38" />
+        <text x="20" y="165" class="serif-display" font-size="28" font-weight="800" fill="#FFFFFF">2001</text>
+        <text x="20" y="195" class="sans" font-size="12" fill="#8E8E98">The Human Genome Assembly</text>
+      </g>
+
+      <!-- Card 5: 2026 -->
+      <g id="Moment_2026" transform="translate(1040, 0)">
+        <rect x="0" y="0" width="240" height="240" fill="#111116" stroke="#252530" stroke-width="1" rx="4" />
+        <rect x="15" y="15" width="210" height="110" fill="#1E1E26" rx="2" />
+        <circle cx="120" cy="70" r="35" fill="none" stroke="#4A4A60" stroke-width="2" />
+        <text x="20" y="165" class="serif-display" font-size="28" font-weight="800" fill="#FFFFFF">2026</text>
+        <text x="20" y="195" class="sans" font-size="12" fill="#8E8E98">Next-Gen Quantum Network</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Section 3: Feature Moment 1969 Apollo Moon Landing -->
+  <g id="Section_Feature_1969" transform="translate(80, 1160)">
+    <!-- Left Photo: NASA Mission Control Room -->
+    <g id="Feature_Photo_Left">
+      <rect x="0" y="0" width="700" height="420" fill="#141419" stroke="#252530" stroke-width="1.5" rx="4" />
+      <image href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCABnAMUDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD81EtC6BskZ9qni0xX+9Ky/SPP9a6Tw9pcGqaa8qnP2dC03qo6/wAq2YNJ062lVLmbyskAjaWwSM4OM4/Gs2wOQtvD1rKy+bqLQKTgsbctj8jXo2gfCb4aalEp1L4wRaPJjLRyeH55MfiHxW/4W8AaT4ngeSyu4Z/LIVivYnseK5VfBJ8KeOZP7Y0C/wBV0VC4cWqON4K/KQwx/EQep5UelFx2NXVPgb4HjYjR/inDrI6A/wBkGDJ7/em+n5jGa0fCv7ImseMo0fS9YguI26PtjRSPUFpR7/lUkunfC68y0mh6/pMRZT8sUu4DK5UEuQG+9g9ABng4ByptD8Ard2a2OrahayFJPtRj81Ilk2qQ0ZaNn2cvgFc/KAcZ4LhY63Vf2GPEOh2/nXuv6dGmAfklt5D27LOT3FVPDP7INtrlwUvPHUWlx9nbSpJs/gjmtODw14C+021vY/FLVrZ5Y3LyF5dls46D7q7gcjnA5B471r6R4m8ceGNbXTdI+Nt3aaU1sssdwl/HgEsQY2RpxjAAORySw4xkguFixcfsJeFrNP3/AMYQshGQi+GJ+fxaYViH9hHU9VnC+HPE41mDo00unG3A+n71v6V0Hifxr8TIdLu7y6+Jlj4pgs4/OMMshk80dQq5ByxGTg4xjnFdbp3xF8fabbxIdE8PSbkBEj6RCS3HXLBux60XCxxD/wDBObxPBbiWfxLYQ45ZWMAI/O4BP5Vz837EtxbXDQS+L4Q4OPksN4/MSnP4V6lda74pknW+1Dw6WRTub7HKluCPYLHj9KtT/GLwzpW221Xw34gtpnBKyjUosAeoAgHH5UXCxw2n/sEaRdQb7j4tWVq+MmIaFcSMPbh6S/8A2DNHtoibf4nm7k/uL4edR+Zn/pXoGn/E34dMokm1DXnkzkRSaaZFHsT9oH5gCtVPj34RjbZHo8E0K8B5IbpXI+glIBouI8RT9gzxBPMBBrE00RPDrpTnP4Bz/Oo9S/YU1zSIEmu9ZntomGQ02lMmfpmTmveNQ/aN8N/Z447Ya5aq0sSMkF4QgUuA2A8LHoW79/atOT9pTwZpqKqa5NDGzBB9q8MW93IPrI20nvyBRcD5fP7Hs4Vm/wCEpUheuNPyfyEmaoH9lRml8qLxLJPL/cj0iU/+zV9Wap8efDeoRNHdXehSRKMo81hc28jj/diXAP41yyfHjwX9tiazS40u4Q4afTZZlI98yB2/IUXA8Hs/2OdZvyRDf37Ht/xJpMH8d9VNS/ZL1LR7ryL7VZrMkZDXGnNGG+mX5r37W/2l7Cy1ceT4+1N7YxHdHcxz3Z3cY/1iKO/p2rlLz9qzSG3x3enjWJEOEnks0hZ/YgLkfgaLjscVpX7IGgakYIj8RZkupePIGhrwfTe90q/rWtefsMWVouT4/WL0N1bWEQPv/wAhEn9Ksv8AF7wb4rlgs7fRb5L65lSNI7a2c4kY4ABe5I6/7NaWseAtbkg3Wvhm68rjLXO3cT9FDcfWi4jyTxf+zKnhSBp/+E00m/jDhBHbNG8uD3KrKcD8TXDXfw2jtU3DVlk/3YR/8XXpS/HUaBf3VldeEdLuGt3MOBY2oIKnByzQNmsbxT8aYvEdkkB8JaTahMlHghSBlOOv7lI8/jRcDzDxDoMGh29my332maYyb4vK2+WBt2nOTnOT6Yx3oqLW7+TUWhMo+ZARn1oq0wO++H+ii58Ia3dCSaJI0CMwY7FJU8kbSOemOKr2+kC4vmLX1tOBcyFnj/cHzFTkDaSMe5BzXM6bq2pWejSw293Ilsy5khRjtb6joenfNXdI1u7muoLa0ncyzyLGiC1X7x4Azu7561mwPXfgFEltouoSJIswku/vY+9hRXoL+LD/AMJKmhraSl5I95ul+6mDnB9+nGa7o/sXeIfCnhq0vY/iNDbvOyGSIaLGFjdlGSWMvRfXFRah+zN4mtrNZ4PijBqUB+Z1t9JhVsj2aUH05oKucv4k8SrPo9kGaG2Av7cPNLLtVAGLMzMwAAwh6k9a5698b6Pq9742llv9Ll0+0haPT4ZHjfdIsYG9AfvEtwGHZfxrb1P4O6lrFrCl/wCMpdRt0yFim0aEqp6Zx5npn268VzPiT4Fw+GdLa8k1WSbjbE58P2wVnxwN2SFGfX3oC51PweutGtfAGqBo9Ku7l7hYLZ7iGOQY4BkAkJIAzxyOnpWH8QNb8E2/jBLsabYx2sISKQqEKTnaWYny8oOSOn6dK8Cl8fazYyPZJJHbsjmJoxbQhRg4Ixt6V6DPoM2g6VYXF6bSGO/ZFjUaZCQ7kZAwE64J+tAXNyOHw5rV+lpoFhbarqbyM0NtBblZGcD/AFa8hSpOeozxyccV1fw58deM9f8AiRpNldz3bWjXKNeThIJI/JjjYy4VVyA+3dnHBJGOK43Q7CTSETWLC5hsp4HKLNHpUaujEMpwfL9A4OD69K6PRrPWLDU7q/sNRfT72C3lMlzFpXlkRYzKokEfUhuQp747UBc734sfG2bRmt08K6nJrGnqgW4lltowIiThTzAWUfK3JHzZOOmK5DR11L4paKNW1K2jhWOWSC3RYwrCNTg7vlXndkfdB455p/w58Pv4z1WV7fVzd23yPdb7IReep3qBuZBuJ+cfKTjJ716/pmhDR4DbW1lHBDCNzKjttwWOW+71JyfxoGeVwfDXkKEBAPHHatzT/hcHUbk/OvU/IstPy9zKkSqhkYFgSFAJJwPpSf8ACxPCGn2Ynl1PZD2Y28mDyAMfLySSKCDwvxzp/hTwbJbQazqkWn3BKTiFkZmdA/JG1T6Y5rsfCXwr8L+P9JtdetlTULJsmJnTpg4PBHbkV2dt46+GnjDVYbdriy1a+C4UPYNLhRzwzR4xluxrvr2ax8P2D20LW9pMsLtDAECgkKT90fQflQB4d4x+EttCjNFCMLkccDj8h3H+RXmqfDZmvmUIQB7V3S3Hjuz8QaHq+rX+ny2fiKSO3KJAclIzjhS52H5uuOa9Y0vwcdUuZ5bZVdI03sSw6c8/p+tAHyp4p+G7rqoTYxUIo5yeuf8AGsGb4dlFBMYUc8k8cDJxz717V4o/4SbVfibrGleG309hDaKGivLVJTtMaliCxwOWA459648aj488Tz2GmHXLS6aCMx28c1nHGIwDtxnIz90DnNBVzF8CfDy9tr19QsSYLy1lieGUAEq4JKnuOMA12Wr3vxTvIJ7i58aX3lRozMqyBOAM4+UCux+CNtf3Gk60uqyQS3Fvem33wxhAMKCw4J7nrXR+PIFtPCGsP5U4X7JKqyeUwj3bCANxAGaCT4hj0S61N5bqcvNNMxd3c5LMTkk1HceHHQfdr2vRPCyJpisRkbN2Tjp6/wAv8iqGreHliLLxu9DgUAfPHiO2NhJDlc7gePpj/Giuk+KlkLKfT8LncJOvsVoqgDwdo39paJqY4Z44DIuDntmoPh3p1wvjHw7dyWUzWiahbu8nlHbtDqTzjHrXffCnw0tto0d2hLm7h2tHtyAM4659z27V5tH4M8RTOZYNG1KREbAm+yvtB7ZbHHTrUsD9d/i7FcPBpIXc2llWLEqAol4wST7V51FqVjLO1vYujyiRU3u6bcnJP3m9AK8b8Pftt+OoNE8LaSPCNvOlnBFHqc2pxkyzhCVLRKHGPkAJzk5yMHrXeeNvjX8O/EWoTX2iXcelN5KvLbSx/ZmeZVbIRTgnAGM/jQBieI4Rp12bf7WlqEneUKcP5ihmyqlWOeD+lZ2ta4ZLmf7JrT2O8hltyjeXIhYEZ4ycdKz9K8c6N40vb0TPqNteEpbwQNbvLIWOS2xT1JUVm+OL/wAOWFtPa/8AE30rUljWJWu7WKN4lJxuCmQEAjJyR2JoA+a/jHcaZqPjnV7i3ubUTJcMPLsrMxrI3GSxGF/HAz9a+h/F/wAP9Q8S/D3wy9k81/dTSWclrAkaqYSE24DEgNlucEjrXlXwU8LaVL401u3uNNHiA/2ebqyS/tllZ2GSWwQw6g8jPWvadX+IGseDNWtotBnsLi9htPNjlkMtstrI+VZSnmiPauOCQQCRzzigDufhf8NbG0+HsGvvPfR64NVlS+s5bhFCE5xC20fKPNCHHP32Ge9c54H0jV9U8Y3+v6//AGPY6JqNpJILElpJ42kCBg4ZBlPkbg9a6Dwude8SWj31xLq++5ghkltbOLzIJy65kbDIy+Z5m5sntiuCvl+K3hFTdWOnRsZhHE76xHBYpEQzE/MxCvzg/KehHfIAB6dZ6FB4MkS/nsLbQvDxSO5j1q3to7eG4MZcPERGuBtHI3t+AFHjOzk8KTR6mNSt9ftNX8gWSacokMIYPkeYMKy7onJfOBkcVyn9q6141+Gj6V4u8baHY29xOYGtNNmW8RZS+7ZGYo5DvYFvlB56ZxXpHgzx/wCC/hl4ZtvDdtPaXF0lubQWFzai3u5oyO5mdD83y8bQcYwKCrnAat4gtPHcWp2Fp4ZurzxBp1jG/nefiO3SdgFlfnaQBxx2PqOfNPF3hpLmawtYLi9fUtNxJKLCBisysBnO1TxnHOeK9P0Txpp3gK38Q+JNI0250m0vrwWd+moaqcF4vlCmKOLOznPLfxHOM4NnxP4+1Rb8aLBZ6FpyxZuEvYLKRvMYovlfvJGbcHZgCv8As9KCTzn4Z+DpdN8R634bu5LzTtLspVupdSUFsLHyfLLdQM/dBPf0xV9PHfinUdVSDRIzqGiDMS3Fwiyt5TbgWQZDEFSxHPp0PFXU+JPxE8CeO7DQ/G3hhoZ9St3W30+/C21jI7AFdjhVR/kwu0tjJUHDddrwBo158SrHxnHHaHSfE2gGFP7MkkBguCyt5oZGYnI7MAFxgA44ABwmjabrmma/pt34huLG0s4J1eOFrpIZI1AJJ8uVwwJ3DjHavVdP+LekeD1Wwt7p3SW32RpBBLK0qoCDg7AD+BPI+ldl4I+DPgv4h6J4fk8Q21qdNtYdolsp33XVwFAyjK2VAXnaAOg4rMPw50fwd41S4tPDl1qOlWE6tBrWszJaWcSbMAsJGDSbcYGF5253ckEA+dNY1OTxV4purnQbbUbvUL8KyW0cQQt+6T5A24EnDKcFV9OtasXwy8Yy6JeasNHu7eLSRtuzO4ilVzIQECkBic8HHIyOOa9w8YfFHwxo/jSfxZfaroYlVXFo2iWj3MkrqMo8k+RGrAAfIBknjdXk2s/tEW+uJpehXE0Wu6hbr9qFxrVzIomn272YwQhUJBXCq5YAgAc9QA0/SvE+heErK7n8G6pJp2qTJfxpDcMJXkRl3gjDMVxtOTgNzjpVX4i/E7xW2iy6Nd6GdO01zgLfSrBli3zSLvG4r1/HgZ7c146+MPxI1W1uNl/cajaS26r5NkotxEXIxgoNxAG7gk4AzVvw18BfE/xI0XSrg6bPaXmtoPs11dNt2MACxYscsoVZPX5T60AWNKtfCdv4evtXsPFguvEkkLRvpErEwkxLuGzdtY7kDAfIOSPTnz0/Ee91W9hhTSnmaRGP2K1ZZ3utvGI3UcFTkkYPAr3rwj+y3o8Ul9deNb++8Pjw80ayzSrEkN3JtBkYurcxEdMgEZzyeK5v4gftAafY3y+D/hX4etFedlNvdWMKtgyD5nTGTnYF5PAzQB8qfE3xCutzafItvJBhXbaXVzyRwcdDkHiitj42eBp/B0mkXWoNdS3eoiV3REVVQqI+h53Z3Z7daKoCtp17faR4V0SeHXL5GldlksIZpAqRgqVYAYHPPG7Oa646Hqfi8iSwnXz4bwtDppW5ubmQM64DOgdVVcHhypBzgEVu/DXXvGLeCdOi01fDNvbww7I2udJtpbgjn+OSNyT+OMViaz8UPGqa5Es+v3JgimV5bW322qugPzKoiQAZ5A4461LA+nPiX8CxJbeH9W8FaPPdanDCr38lyBCb1+Bu3y4wwx06YIrc+N2o/DjxX4T0yC61jQtH8Y2SusUgIIlJAjlRhFlmDJkjaDhgOozn4y1vx/B4smuIbe0uPtdzeG5V7m4kka2QDmAcjcpPtnP1xXf/AAf1zTtP1nSp9SS1e2msXgmiuCFjSSBwVb5sckM3J7jpQB1ll/wr7wXqi6jL4g1CK789JbWDSNOneBApG7Ek5QvnIGQRjNWfGHxL8Dy+IZNU1XTNdvbizlW3W7a4ggjjPVSu0uzduQw/DpUnj60tfG17Dd+H7ezvIEIR8WjTW3KsNxMakcnaATnke1dV4G+AvjL4jTWujXmjRW1jar5dxd61fOAlrI+50itgrBWwV7gnYDxk5ANX4PeNLuTStY8QfDvTvDelwlfst1NL5891KiDdtLM4G4h84HBLYJqL4ceJdd+IXhzVdRfWbTRbvRrq4tBa6dpcCLIqgMCWZWZTt2jg84Gc4r3vSv2QfDfgrRJtK8HeILvQ4JiZZvPX7X5kmMEgk4TIAB4I+UcevB6b+zzp/g+x1U3etWdmLu4N1dvJq7W0kk2f9aI41CnIz8uMc0AfJ3ij4h+JbjT7X+1fE2ooUjkhlt45pEVpVuHVvlQqqts29euPfNdF4V+FXiHx9p/2Pw/Zal/aDs02nX2pQxzLPnAaN2ALRggIQGZhkNj1r6R0C78AS+J7Twlpt5Z2V9cM7WqvCiJOwO8qXUgqT91SXGTzXqcnjrTvhfZxwLClnrd/+8e0nuCxjAzgFwX6Z5IzycUDsfImjfsr/FqwltIdV0y2DWNwLtY3lYLHh1bfH5WVYZQAbsKDIwwvWvqHwL8F9NuPE8vifx5ptpHcYDW9vOqNLHJtUbxKGIBAHUH8TXAa38aPGviqK6ttcli8P6crOyXHh5RK6qAc4leVSh285MeBwSeK1Zv2hvBmo6Wst1pmseIbiziIjVAsolQL8zyOhEPPOfmbvxQFjrrD4U/DvRvE93Dc3kGq2V7I12NKupBI9w5U7xsGAQBtP3ec85rn9T1my8GeKdSXQPh7rUiWrbrefULMxWcbKSG8tkDyMMnjcnbGa808UftTXegacV8K+H9F8LW8qvExuArSKwRZFG1GRSCjg/eJzxg4rndN8UeJ/jN8Er7xTrfifULi4kaWA6baTGCJCG2KyeWVzyVY7ywPP0AI7D9oDXvC3x90nQ9B1/WLqwv7Cf7SqJbvG08jDYYokYbyfmXny3HH1z5hc+MPAvwjgubbwXB4gudUvIlgvNQ10rtuIQvyRhWPAAf5VWMHbnINYFz49uPDHw10sXenR3SatGZo9SR2a7ChV3AOcBcEkjrzz7VF4Q8A6l420nTvEGj2t1JazlRcXetOHinZXZSiGM79ijYCCB1POKAPS9J+MraPoenWVvqkHhi0uFDt/Z1hbwuE8tm34Ea7fm2AthevQV4pr6eJfH0vF/ea29zI0kIe7affGCFBDEtsXkn5iB+leuy/AzUdZ8MN4fn0TXNc05JEl/tmC0kWCVg20KkgOCMbh1xgjnPA9s8F/s9J8DfhLP8AbbqA2TubyZb7e8MLM3yq+xlcnBABVgc5oA+YfiHoN5Pq8N1pemxX9teEmW0dRDLAzjYdhUnPykEZwB6HFe5fCH4DeG7nxnor6nAuv6SbITC6dUnjkaIlQPNGBuUk/KB9TyRXqfwSs9KvtWuvEv8AYllaw2ELWqtHHKRJIrHdKpkZiqgKEA6jaRXmnif9or4c/C74m+IPK8UXt3dam4WSCQmWz0l+cqgC/KCTz19O1AG/efC/w5Z/EW10m2uLh9GAF9+++ziNsFj5e5kLueGDYYYH145P4gftheAvCXj+6s4NNddZtUa1a9gRRbKUHyR8sN2CFGQMDpnjFfMvxI+POrR/FWbWbG8u7rTrNGsdNa2YIAp6vgqchtzDkAnIx0rz/wAK+GrrxX4vW9vbRzE05uJY7uJ281s7ivTaxzyQRj0z1oA9d0Jfiz+0TY+ILS/a5i8N6nOLmW9uXATahLJFCpxuXk8LgEkZYYq7rPhe1+GHw436doM1uJ7iO31HV7vVYZWdFOHVdj8HjAHOM+gNbUnxd8XaXYJYw6kLeyRfKSBLKCNAgHAA8sYGO30rwfxhd3RNvp0M6Q6bbEypBISkYaRsOwA43E8/j25oA4bx5qg1We3t4I5INNtGlW2g8wuYwxBbJ7k8Z96K2vjZqEmsf8I5qFxYWdkXszAn2AhFkWPCh2yxy3+FFXYDsvAml6/beC9NuYrQxW0se6OW5lCRsATkgjcRj3A/rXaeG/2eNS+It9p129zBa2d4TGby2Tzo0KkkkyDnOcj7p7Csr4SfGW38OeCbLTAuqy3ESqBbIFlgc8jIG5WBxgcfrX0PoXifVvEeg2c2heAZ9DvJyVuXvLiQFhgYk/fEHBPoCBx1xUMD1r4U/sy+APB3hi8s9QtLbxHeaguye8vLRI3KFQNqEcjpnIwTx0qp8QPgPoXw28K3WsfDzTNK0zVbVNy6dqqr9nkTdljv/wBYpUMx4bnge9ReG08Vf2RateXdhaanuzKqK88EaHnCoDHg+575PNWPEXi3w5o+m3EHijxJbiyZcyW9zKiR++4IASPYk0DseZaF8bfAfhy3gj8QWdvquuzIRc22lSypAzdAFLlWk44789OlepeG/HFva+F7rVtJ8PzeC3v5cW9tqF1jdtPEn78KVBz09MEdc15PL+0v8MvA9pNb+B9DXWXgiaRotFtkjCKD1d8AEfQk+oGa4P4iftPeOJ9E0XXU8PaDpuk3uXs7iYpdXMa5GTjI8o4+bn39DgEez2Hiz4reLNcuYDr+maTZwZ3S6Fpsl8AccL5krIpcDrtD4688Zra3o/wm8K6jLceOfGd34t12X5jDcXWXbjjFvbhVI4x8wYe9eY6z4o1D4ifsy3mtXuqXdx4iEErsGVgv7tyHJ5AAIBG0D3PPNeifD/4b+D5PCdpc2+lxRpexrOI4TtwWAJ244JAwM/rQOw/w/wDtH+DtN1XUPDXw88CG01aCLzVhuLT7AkmWAycIX/iB5XnPauS+M3xZ+MNh4R1G+u9Rt/C0kcQlS00+0EgljLhWxMxJyAw6Kp4znivNree58JftR+HL0AoNTtRG7DC7xsdN3bGTGpA754zXsPxb1qz8b6Zqnhy3lF5rH2OQJYWqPLP5zD5QVjBKD+8z7VHGTQM8B8Ialcan8SNTkk1PWLi31e1mlWymjLWkolh3DaQxXPzYGV6jPWui1P8AabtdP8NR+FpPD9vFcW0S29xPM4SZ5FUKxAH3c4Pr1PNTeH/hD8QfDOo6TLNo5jNtp8VzcL58Z+zYB44yBwvYtjvWpcfs06d8ffElwPDFsbS7upRdS3/Plqp5JcDoPvHgdQTzmgLnDfD7wfdeNtFumt/Ct3qdzfqiW2uSzLbwWJU7mYZbbIduQTnPHtivoP4S/s7eKfDXgabRTrcU7vK16raPbtcbkYLlTI4KEEdxGTk8MCK9v8CfBG7+HXh/TtI1FpX06yt44Wn05BiQKgXzGB53E7jkDgknnNcL42m034LJc6usMep+Hzz9vvL8pftISSQPMJkOAMAK3GBgDFAipa/AO60/VNA8NLZwWGm3PyKZpEdwACSqgnzCxUZIPTOOMV6zbfs/+F/hjpDbRdX2hWsOBpmYTHGfvvLh1zknnlhxjgnmrfwy8b+H/iXpdv4r0LULrVLK1jkt4ZL5md4HbHmJlvmDfKASTnj8a8W+M/7eei+AdVvtDtbK51vUoSYpJIQpigfqVJPU/QUCO4+H3xE8E/EfxZd6D4Ws55LWxhjuLq7eGOONMPlFO3JwSDjgdO+ai/aB/ay8MfC20m0bWorzUZpomj+zWS4kCkYJ3blC/gRzyMGvlLwn+3Jp2n6bqdjceGotL1a8mdp9Rs0j+ddxxv8AuE7QSPrz7V4l8ZfEf/CV+KZdTN0t5Z3GwW9w0qyMI0Ukk45GZGbhv7vHGDQOx9BH9trR38A3nh7RtNm0G8AkFmZLjcBGBx5ksjlncjPc9eua+c/Cnwl1v4peIE0ywhkudTkHnyTJJGYgCxDMzMRxuB5JPUcVpfDD4C3fxBt5vE8sN9p3hO1kV7i+ngDeZh1BWPD5fBIycBRznpivu79nzw/4I0fSptF8K+IIJJ4xuuorK2Uu+AAN0jgCZs5GV4GelAjF+Af7LXh/4U2VjqGo28Gq+J7aPadRGfLjJJz5YY9e27p6Yzk+teJvEVp4WsftV6/k2ysqtIu0AEnA9uTwOOue1eJftBxX2v69oGpWfiqfSLHw/cvc3UtsfLESh1LGQ8LIf3e0Ljkk4HFeH/Ef4u658S1ivZpWa0sbtV0+yUmNQ6kETTYJBZwOBjAzxQBT+LXxs1f4hfEiWxuw1vo8ER+w2qkMpGf9czA4Jbr+NcZZW0moajLcWyo8cMimZxE0jwoBkuVXnbznOOorFRLs+IU1G4eNY308yOOFWMAkBV9cBT+VXbVdb0uK21XRrm8i+3wytE1gzM5jUhHDKnzAdjuGOfxoAy/2jvDNh4ZHhmC01KDUZJI55HjSZB5IYxsuQSxBO4nB/rRXK/FDx3qni46Xb6hqRvFsFkSJCoiMYYrkcDJHyjrnGOtFaJgSfDLxFqehSSyadqFzYTDbiS3lZDjnjg17j4a+O/jixBhXWDdBl2qLmGNyGwcEHbnOce3sa+d/Br7Z2HOCvB+hNegabcGGaNh2IOfpjn9azYHc6B4w8e/GoFpfE91bQtI6G1tXWCNCMZLNgnuDgAde1dZP8AbbRtKbVZrmHVb+2UTSpcxtKZduS2HdiVOAcYx0HFcJ8Gr4aH4t8Q2CoWSOf7Qm0dFfr79FHtXsmt+O7W00S4Sa8htDKhQTXTeSoB4JG/Bcj0QMe1BVzxfwyj+A9b8S63b63FbRXTNamxDR+dLE6o6gb3HHzdlcHa2QcVqeGPglP8RdAF2njKDQvBdnNushrt0cK5XdIiKyoF5J5AXOe/WlufAdv4r1y7u7LSNSuNLktI4ra7upGsLUyKD87b08x1B2n5Rk4I75rvdG+AOh+MvEFodctBbxpEs8WnaPE9rZsrHPyvlmkbH3iGQgbc9MAJI/gtp7TfB/xD4che2guRuihkd1uFMU8SsOYjwclsjGQRgjtXh154713whpF7Y/b9RlvEvTaNcJIwRIoh8ioT0BYnPA4A+lfbGk/CB9Itb3R/DVrb6Po84wVijRSX+bO6TBLfwjGMjHWvIk+C194q+IEuinQZna83QXb3EbLCQABvzjGRtByMdR16UFXOb+FCeGfij4Rm8W+NtSefUNBcWdnY3gzbeRtVhnYAx6kAsSOg9h9J/CbX7DUNQOk6Z4XvrTSYE3wX0FmEtYyVGSrKVHI5BGa7v4dfsU+A/BvhpdLmtzqklzhruaYA+d/LAHUDkV3/iL43+CPgxJpPhi8ubbRZNkcVnZRQyJGIwCFCbFZVHy4Gfp70EnERw+H57250uS4WW6iiUyu0hWUeaCDvPByVHc9wea7n4UfDrRvhy+o3dobrzbxY4fKlnMiRLGCFCgnjAPUk/jXyP+3BrF/wCJBpeteDfC+q6lY5aW61vTZZZYknU8IVRiFKj5txUHnGRivo/wvqV34O+DmkWviK9e41u20qP7XcsxYPNsBbLZJ6k8nrQB6vqurG+tpYogFEoZWfcEEYPVs9AQSOa/Nzwb8XvGXwe8Q+PLjxZd22s+CH1Gezk03Wo2mN+fMYHyFfJ6cnIKH9ao/Hv9rDxodUu9I8PaoLLTLQizMkajMkm3c4BORx0/w6V886/e6p4rt1n1XVjd6jcN/r7+427uegJOE9ew+tBVz7Vk/av+Hdv8Orqz+H9pD4emWKaaPS7S1a3SItnLYHyZJ6AHjI6dK+JtdluW1APqSN9tVHu7ppVwzSSEuTg9DtKDkVk6X4f1PT9fsokuJNOnedQtxHKUxk4LhkPPBzkHHWvQ/APwd8Z/G3Xb1fD2lyXlrPPiTULptkcabuGZz7dh16AUCOQi+G0mqtpg025N1Nqa7rW2aMiWU4yVGN2Tz3AzX2F8BP2IWtZLPVfH4E1vFEqQaCDk5+8xmOehJPyfmf4R7h8CP2X9B+C2n2M8sra54hhRh/aE4wINw+ZYV6qD6nn6dBv+Mfjn4K8D+Krfw3rmtR6fqc0aSKsykKodtqEtjHJzQM9X0P4dWMehwwjyYII4wsVtaqpSNAoAGOwA7DGOB2riviv4a8GeDvDlzqnioaTLYxqX23dqrGQ98KcgnoPxpni3xPZ+C9BudZu9Rh0+0gQu0sgHzDjgYI5/GvgT49/tBXPxd12xi1K3v18PJcBBbxzFbiRASN67xwP4sEdxnHGQkbrnxHtvFHiK6n8NWCeGdFEN+8FnZARx7441YTNGMKWKs3JGeR6VlaAn9o6NrPmXy/bluYryKZ2ZmndwCV3EdR8xJPHcmsjwZHvtLWe+lE9sXufN+QKBC8OGyQCckKemeorrBpeg6PLqLy6pc6UsgjmtpJQrERqRsi6fKXXzB82cZx/EaAK3/Cl7bxjp2n+HtPe4OtC5kHnqp+YuAwXD4BHBAwf71dl8Kf2evH3wh8Q2nivVdEl1CGIFYUDRExbsDeFLbtzEDHfn6V7L8C5/hJd2V/p1/wD6ZrVvJG1zLfRMiRSMpKxxNnjb3PyjjtXGftQeNfhn4Xu9M0canrmo3DbbpLbT9U22StnKs5znII7cc96APBP23dSn8Q+KdAu73w/Jol/5UyTG4g2SzYMeN/PJGT+dFYH7UvxZsvixdeHZ7I3BntBcLKbgqxZW8oIdwOGzsbn/ABoq7Aed6NDbWqacwZjLcRk7R0FdTbM2OOuOhPFFFQwPVfAPwY1HxLexa9b+IjpEV5AEaO1jBlkKkpgOR8h46j1616np3wo0nw3r32u3s4bi5liOy8v5ZLi7WfnlnbjHQcc8UUUAdVpfw61DUrqC3vVit5N2VEji4uC55yJGG0DDcdwMDtXofjXwaPg/4UGtJaW19fOvzC6kbEaD5mZmAYlVGCAoJyOneiigDnfC/wAb9I1rVtH07Tr7NvqDRxLN9hdjljlm3MynJ5OSvevbvB/g60h8Xx61/bT39lDEYSptzG8sxcFWJySAu08c8seaKKAPQtQ8RRsGiTIKjaeD0x618Rf8FHfCEmqaD4M1KA7dXF99jVI3KhkkBK5OccMmRzxuJoooA8f8G/tF6r+yhdweFTc3fia2KedfxTy4W1lbOfIyvvyCSG9q674hft06J4k8KeXYadfXtzcDE4mRY/JyBySD8xPTj8fSiigD5W8RGdo9Gt7gjzZ43v5ABwXmbcOn+yE+nIqlr7SvNZJHHvjjQsQxG0np0z+nSiigDqvhRrbDx1YW1zZxGyuUFpJaI7LE2SCzMoPJIB/M196eFPj5p/gnSIdKtPCNra2UIAUWE3ljI4yQynn3zn8OKKKCjqLT9p/wzLxeWGpWQPG7Yki/o2f0rxD41eDvh98W/GX/AAlsvjG7hMMUYl01dMLM6R/wo5UbSfUk/hRRQScl4i+JOo/HDTNQ8STQxjQNCUrYaHOSYp7hFDb5fVACDt5ycdOQfMPE4jurNpY3nm1bXblLZrqQBmUlo2QJ8wCgbs44yTyeBgooA39P8MaX4ovr94rmSGzWRbe3nuoFfzLlUCuroM5A3YHAHAOa6H4b6vpNp4jXwx4vur2/vVmawtJ2B8tjuKksFY9s9c8KQD0BKKAPeNd+EHwz+EFmsU6y6dfXhZbZvJNykkgAGI/+efLKOcLz9TUfiz4N2N7BY3k2iWmpma2dt0OEAQbfM3KxAHUYxnvRRQB8LftNabo3hnxdY6VpFn9mWGAvMDz8zEYA9sAfmaKKK0WwH//Z" x="6" y="6" width="688" height="408" preserveAspectRatio="xMidYMid slice" rx="3" />
+    </g>
+
+    <!-- Right Copy: Story & Call to Action -->
+    <g id="Feature_Story_Right" transform="translate(760, 40)">
+      <rect x="0" y="0" width="105" height="26" fill="#1C1914" stroke="#B89355" stroke-width="1" rx="2" />
+      <text x="52" y="17" text-anchor="middle" class="mono" font-size="10" font-weight="700" fill="#D4AF37" letter-spacing="1.5">DATE FOCUS</text>
+
+      <text x="0" y="105" class="serif-display" font-size="74" font-weight="900" fill="#FFFFFF" letter-spacing="1">1969</text>
+      <text x="0" y="160" class="serif-display" font-size="26" font-weight="700" fill="#F0ECE1" line-height="1.3">
+        <tspan x="0" y="160">The moment Earth became</tspan>
+        <tspan x="0" y="195">a distant world</tspan>
+      </text>
+
+      <text class="serif-body" font-size="15.5" fill="#A8A096" line-height="1.6">
+        <tspan x="0" y="250">On this day, a room full of voices carried humanity beyond</tspan>
+        <tspan x="0" y="278">the frontier... turning a fragile transmission into collective</tspan>
+        <tspan x="0" y="306">memory preserved across centuries.</tspan>
+      </text>
+
+      <g transform="translate(0, 360)">
+        <text x="0" y="0" class="sans" font-size="13" font-weight="700" fill="#D4AF37" letter-spacing="2">READ STORY →</text>
+        <line x1="0" y1="8" x2="130" y2="8" stroke="#D4AF37" stroke-width="1.5" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Section 4: Discover History Everywhere (Celestial Orbits Graphic) -->
+  <g id="Section_Discover_Everywhere" transform="translate(80, 1680)">
+    <rect x="0" y="0" width="1280" height="340" fill="#101015" stroke="#22222C" stroke-width="1" rx="6" />
+
+    <!-- Left Copy -->
+    <g transform="translate(60, 90)">
+      <text x="0" y="0" class="mono" font-size="11" font-weight="700" fill="#B89355" letter-spacing="2">TIME &amp; SPACE</text>
+      <text x="0" y="45" class="serif-display" font-size="34" font-weight="800" fill="#FFFFFF">Discover history</text>
+      <text x="0" y="85" class="serif-display" font-size="34" font-weight="800" fill="#FFFFFF">everywhere.</text>
+      <text x="0" y="130" class="sans" font-size="12" font-weight="600" fill="#7A7A88" letter-spacing="1">FIND EVENTS FROM OVER 2,000 YEARS OF HUMAN CIV.</text>
+    </g>
+
+    <!-- Right Vector: Intersecting Celestial Orbital Ellipses -->
+    <g id="Vector_Celestial_Orbits" transform="translate(880, 170)">
+      <!-- Outer Orbit -->
+      <ellipse cx="0" cy="0" rx="300" ry="110" fill="none" stroke="#2E2E3E" stroke-width="1.5" />
+      <!-- Middle Orbit -->
+      <ellipse cx="0" cy="0" rx="240" ry="85" fill="none" stroke="#B89355" stroke-width="1.2" stroke-dasharray="6 4" opacity="0.6" transform="rotate(-15)" />
+      <!-- Inner Orbit -->
+      <ellipse cx="0" cy="0" rx="160" ry="60" fill="none" stroke="#444458" stroke-width="1" transform="rotate(25)" />
+
+      <!-- Glowing Nodes on Orbits -->
+      <g transform="translate(-140, -40)">
+        <circle cx="0" cy="0" r="16" fill="url(#orbitGlow)" />
+        <circle cx="0" cy="0" r="4" fill="#FFEAA7" />
+      </g>
+      <g transform="translate(180, 30)">
+        <circle cx="0" cy="0" r="16" fill="url(#orbitGlow)" />
+        <circle cx="0" cy="0" r="4" fill="#FFEAA7" />
+      </g>
+      <g transform="translate(40, -70)">
+        <circle cx="0" cy="0" r="12" fill="url(#orbitGlow)" />
+        <circle cx="0" cy="0" r="3.5" fill="#FFEAA7" />
+      </g>
+      <g transform="translate(-60, 55)">
+        <circle cx="0" cy="0" r="12" fill="url(#orbitGlow)" />
+        <circle cx="0" cy="0" r="3.5" fill="#FFEAA7" />
+      </g>
+    </g>
+  </g>
+
+  <!-- Section 5: Born / Died on this day & Ask the Historian -->
+  <g id="Section_Profiles_And_Historian" transform="translate(80, 2100)">
+    <!-- Left Column: Born / Died Profiles -->
+    <g id="Profiles_Left">
+      <text x="0" y="30" class="serif-display" font-size="22" font-weight="700" fill="#F0ECE1">Born / Died on this day</text>
+      <text x="700" y="25" text-anchor="end" class="sans" font-size="12" font-weight="600" fill="#B89355" letter-spacing="1">VIEW ALL →</text>
+
+      <!-- 3 Profile Cards -->
+      <g id="Profile_Cards" transform="translate(0, 60)">
+        <!-- Profile 1: Mary Wollstonecraft -->
+        <g transform="translate(0, 0)">
+          <rect x="0" y="0" width="220" height="280" fill="#111116" stroke="#252530" stroke-width="1" rx="4" />
+          <rect x="15" y="15" width="190" height="150" fill="#1F1D24" rx="2" />
+          <circle cx="110" cy="90" r="35" fill="#35303E" />
+          <text x="20" y="195" class="mono" font-size="10" font-weight="600" fill="#B89355">1759 — 1797</text>
+          <text x="20" y="225" class="serif-display" font-size="15" font-weight="700" fill="#FFFFFF">Mary Wollstonecraft</text>
+          <text x="20" y="250" class="sans" font-size="11" fill="#7A7A88">Philosopher &amp; Advocate</text>
+        </g>
+
+        <!-- Profile 2: José Feliciano -->
+        <g transform="translate(240, 0)">
+          <rect x="0" y="0" width="220" height="280" fill="#111116" stroke="#252530" stroke-width="1" rx="4" />
+          <rect x="15" y="15" width="190" height="150" fill="#1F1D24" rx="2" />
+          <circle cx="110" cy="90" r="35" fill="#35303E" />
+          <text x="20" y="195" class="mono" font-size="10" font-weight="600" fill="#B89355">1945 — PRESENT</text>
+          <text x="20" y="225" class="serif-display" font-size="15" font-weight="700" fill="#FFFFFF">José Feliciano</text>
+          <text x="20" y="250" class="sans" font-size="11" fill="#7A7A88">Virtuoso Musician</text>
+        </g>
+
+        <!-- Profile 3: Jane Addams -->
+        <g transform="translate(480, 0)">
+          <rect x="0" y="0" width="220" height="280" fill="#111116" stroke="#252530" stroke-width="1" rx="4" />
+          <rect x="15" y="15" width="190" height="150" fill="#1F1D24" rx="2" />
+          <circle cx="110" cy="90" r="35" fill="#35303E" />
+          <text x="20" y="195" class="mono" font-size="10" font-weight="600" fill="#B89355">1860 — 1935</text>
+          <text x="20" y="225" class="serif-display" font-size="15" font-weight="700" fill="#FFFFFF">Jane Addams</text>
+          <text x="20" y="250" class="sans" font-size="11" fill="#7A7A88">Nobel Peace Laureate</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Right Column: Ask the Historian -->
+    <g id="Ask_Historian_Right" transform="translate(760, 40)">
+      <rect x="0" y="0" width="520" height="300" fill="#111116" stroke="#252530" stroke-width="1.5" rx="6" />
+      <g transform="translate(40, 45)">
+        <text x="0" y="0" class="mono" font-size="11" font-weight="700" fill="#B89355" letter-spacing="2">AI ARCHIVIST ASSISTANT</text>
+        <text x="0" y="40" class="serif-display" font-size="28" font-weight="800" fill="#FFFFFF">Ask the Historian</text>
+        <text x="0" y="70" class="sans" font-size="14" fill="#8E8E98">What occurred on this date across centuries? Inquire freely.</text>
+
+        <!-- Search Input Box -->
+        <g transform="translate(0, 110)">
+          <rect x="0" y="0" width="440" height="52" fill="#181822" stroke="#333342" stroke-width="1" rx="4" />
+          <text x="20" y="32" class="sans" font-size="13" fill="#6A6A78">Enter your question, era, or thematic moment...</text>
+          <!-- Search Arrow Icon -->
+          <circle cx="410" cy="26" r="16" fill="#B89355" />
+          <text x="410" y="31" text-anchor="middle" class="sans" font-size="14" font-weight="700" fill="#0C0C10">→</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Footer Section -->
+  <g id="Footer_Section" transform="translate(80, 3120)">
+    <line x1="0" y1="0" x2="1280" y2="0" stroke="#1F1E24" stroke-width="1" />
+    <text x="0" y="50" class="serif-display" font-size="22" font-weight="700" fill="#F0ECE1">One Day, One Year</text>
+    <text x="1280" y="50" text-anchor="end" class="mono" font-size="11.5" fill="#7A7A84">
+      © 2026 ONE DAY, ONE YEAR • PUBLIC HISTORICAL ARCHIVE
+    </text>
+  </g>
+
+    </g>
+  </g>
+</svg>

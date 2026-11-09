@@ -1,6 +1,5 @@
 import { useState, useMemo } from 'react'
-import { searchEvents, sortedEvents } from '../data/selectors.ts'
-import type { HistoricalEvent, SearchStatus } from '../types.ts'
+import { events } from '../data/events'
 
 export type { SearchStatus }
 

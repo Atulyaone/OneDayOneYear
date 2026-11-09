@@ -58,6 +58,15 @@ npm run lint       # oxlint
 
 ```
 OneDayOneYear-main/
+├── figma-design-templates/     Production Figma-ready vector SVG templates & components
+│   ├── 01-dispatch-special-report.svg
+│   ├── 02-the-archive-opens.svg
+│   ├── 03-this-day-in-tech-timeline.svg
+│   ├── 04-oneday-oneyear-homepage.svg
+│   ├── figma-canvas-all-templates.svg
+│   ├── components/             Reusable SVG components (date picker, orbits)
+│   ├── index.html              Interactive browser showcase
+│   └── README.md               Figma import guidelines & design system specs
 ├── server/                     Express API (Node)
 │   ├── index.mjs               Routes, rate limit, file handling
 │   ├── validation.mjs          Server-side validation rules (see below)

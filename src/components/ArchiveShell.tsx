@@ -19,6 +19,7 @@ import { useReducedMotion } from '../hooks/useReducedMotion'
 import type { CursorMode } from '../types'
 import { PageProgress } from './PageProgress'
 
+
 function CustomCursor({ enabled }: { enabled: boolean }) {
   const cursorRef = useRef<HTMLDivElement>(null)
   const labelRef = useRef<HTMLSpanElement>(null)
@@ -213,10 +214,16 @@ function SearchOverlay({
     if (!open) setQuery('')
   }
   const { status, results, totalCount, activeIndex, setActiveIndex } = useArchiveSearch(query)
-  useFocusTrap({ active: open, containerRef: sheetRef, initialRef: inputRef, onEscape: onClose })
+
+  const handleClose = () => {
+    setQuery('')
+    onClose()
+  }
+
+  useFocusTrap({ active: open, containerRef: sheetRef, initialRef: inputRef, onEscape: handleClose })
 
   const openEvent = (date: string) => {
-    onClose()
+    handleClose()
     navigate(`/event/${date}`)
   }
 
@@ -258,7 +265,7 @@ function SearchOverlay({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onMouseDown={(event) => {
-            if (event.target === event.currentTarget) onClose()
+            if (event.target === event.currentTarget) handleClose()
           }}
         >
           <motion.div
@@ -271,7 +278,7 @@ function SearchOverlay({
           >
             <div className="search-sheet-header">
               <span className="eyebrow" id="search-sheet-heading">ARCHIVE INDEX / SEARCH</span>
-              <button type="button" className="icon-button" onClick={onClose} aria-label="Close search" data-cursor="close">
+              <button type="button" className="icon-button" onClick={handleClose} aria-label="Close search" data-cursor="close">
                 <X size={18} strokeWidth={1.4} />
               </button>
             </div>

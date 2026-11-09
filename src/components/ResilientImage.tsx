@@ -15,13 +15,8 @@ export function ResilientImage({
   onError,
   ...props
 }: ResilientImageProps) {
-  const [failed, setFailed] = useState(false)
-  const [prevSrc, setPrevSrc] = useState(src)
-
-  if (prevSrc !== src) {
-    setPrevSrc(src)
-    setFailed(false)
-  }
+  const [failedSrc, setFailedSrc] = useState<string | null>(null)
+  const failed = Boolean(src && failedSrc === src)
 
   if (failed) {
     return (
@@ -42,7 +37,7 @@ export function ResilientImage({
       alt={alt}
       className={className}
       onError={(event) => {
-        setFailed(true)
+        setFailedSrc(src ?? '')
         onError?.(event)
       }}
     />

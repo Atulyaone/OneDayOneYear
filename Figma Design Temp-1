@@ -1,1 +1,14 @@
+# Figma Design Templates
+
+## 1. External Community Reference
 https://www.figma.com/design/gwfnUppfXbuw5PYfLAswgi/Vintage-Graphics-Illustrations---Vintage-Set--svg-png---Community-?node-id=8805-59&p=f&t=XShXB7ShlXYNqP3e-0
+
+## 2. Local Production Vector SVG Templates (Import Directly into Figma)
+- Master All-in-One Canvas: ./figma-design-templates/figma-canvas-all-templates.svg
+- 01 Special Report / Vol. I Dispatch: ./figma-design-templates/01-dispatch-special-report.svg
+- 02 The Archive Opens Hero: ./figma-design-templates/02-the-archive-opens.svg
+- 03 This Day in Tech Timeline: ./figma-design-templates/03-this-day-in-tech-timeline.svg
+- 04 One Day, One Year Master Homepage: ./figma-design-templates/04-oneday-oneyear-homepage.svg
+
+## 3. Interactive Web Showcase
+- Local Browser Preview: ./figma-design-templates/index.html
