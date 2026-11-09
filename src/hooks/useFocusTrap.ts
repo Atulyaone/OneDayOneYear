@@ -23,7 +23,10 @@ interface UseFocusTrapOptions {
 
 export function useFocusTrap({ active, containerRef, initialRef, onEscape }: UseFocusTrapOptions) {
   const onEscapeRef = useRef(onEscape)
-  onEscapeRef.current = onEscape
+
+  useEffect(() => {
+    onEscapeRef.current = onEscape
+  })
 
   useEffect(() => {
     if (!active || !containerRef.current) return

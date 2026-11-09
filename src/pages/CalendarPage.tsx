@@ -1,7 +1,7 @@
 import { ArrowLeft, ArrowRight, Search } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useArchiveShell } from '../components/ArchiveShell.tsx'
+import { useArchiveShell } from '../hooks/useArchiveShell.ts'
 import { CalendarDay } from '../components/CalendarDay.tsx'
 import { HistoricalEventPreview } from '../components/HistoricalEventPreview.tsx'
 import { MonthRecordList } from '../components/MonthRecordList.tsx'
