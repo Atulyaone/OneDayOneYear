@@ -224,7 +224,7 @@ function SearchOverlay({
 
   const openEvent = (date: string) => {
     handleClose()
-    navigate(`/event/${date}`)
+    navigate(getRecordPath(date))
   }
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
